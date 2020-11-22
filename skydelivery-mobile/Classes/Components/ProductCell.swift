@@ -7,42 +7,37 @@
 
 import UIKit
 
-struct TagData {
+struct ProductData {
     var title: String
     var url: String
     var backgroundImage: UIImage
 }
 
-class TagCell: UICollectionViewCell {
-    var data: TagData? {
+class ProductCell: UICollectionViewCell {
+    var data: RestaurantData? {
         didSet {
             guard let data = data else { return }
-            bg.text = data.title
+            bg.image = data.backgroundImage
             
         }
     }
     
-    fileprivate let bg: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Arial", size: 20)
-        label.textAlignment = .center
-        return label
-    }()
+    fileprivate let bg: UIImageView = {
+       let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.clipsToBounds = true
+        iv.layer.cornerRadius = 12
         
+        return iv
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
+    
         contentView.addSubview(bg)
-
-        contentView.layer.masksToBounds = true
-        contentView.layer.cornerRadius = 12
-
-        bg.backgroundColor = UIColor.init(red: 246.0/255.0, green: 212.0/255.0, blue: 113.0/255.0, alpha: 1)
         bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         bg.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
 
     }
     
