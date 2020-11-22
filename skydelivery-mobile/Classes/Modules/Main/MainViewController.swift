@@ -13,6 +13,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+    }
+    
+    @IBAction func tagEvent(_ sender: Any) {
         
     }
     
@@ -24,7 +27,7 @@ class MainViewController: UIViewController {
     lazy var recomendationsCarousel = RestaurantsCarousel()
     
     lazy var categoryLabel = Title(text: "Категории", font: UIFont(name: "Arial", size: 40)!)
-    lazy var categoryCarousel = RestaurantsCarousel()
+    lazy var categoryCarousel = TagCarousel()
 }
 
 extension MainViewController {
@@ -41,9 +44,9 @@ extension MainViewController {
         restaurantsCarousel.backgroundColor = .white
         restaurantsCarousel.translatesAutoresizingMaskIntoConstraints = false
         restaurantsCarousel.topAnchor.constraint(equalTo: restaurantsLabel.bottomAnchor, constant: 20).isActive = true
-        restaurantsCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        restaurantsCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        restaurantsCarousel.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        restaurantsCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
+        restaurantsCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
+        restaurantsCarousel.heightAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
         
         self.view.addSubview(categoryLabel)
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -55,9 +58,9 @@ extension MainViewController {
         categoryCarousel.backgroundColor = .white
         categoryCarousel.translatesAutoresizingMaskIntoConstraints = false
         categoryCarousel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 20).isActive = true
-        categoryCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        categoryCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        categoryCarousel.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        categoryCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
+        categoryCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
+        categoryCarousel.heightAnchor.constraint(equalToConstant: view.frame.width/8).isActive = true
         
         self.view.addSubview(recommendationsLabel)
         recommendationsLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -69,8 +72,8 @@ extension MainViewController {
         recomendationsCarousel.backgroundColor = .white
         recomendationsCarousel.translatesAutoresizingMaskIntoConstraints = false
         recomendationsCarousel.topAnchor.constraint(equalTo: recommendationsLabel.bottomAnchor, constant: 40).isActive = true
-        recomendationsCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        recomendationsCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        recomendationsCarousel.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        recomendationsCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
+        recomendationsCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
+        recomendationsCarousel.heightAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
     }
 }

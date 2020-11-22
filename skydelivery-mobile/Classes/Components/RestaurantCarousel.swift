@@ -19,6 +19,8 @@ class RestaurantsCarousel: UICollectionView {
         layout.scrollDirection = .horizontal
         
         super.init(frame: .zero, collectionViewLayout: layout)
+        
+        self.showsHorizontalScrollIndicator = false
         self.translatesAutoresizingMaskIntoConstraints = false
         self.register(RestaurantCell.self, forCellWithReuseIdentifier: "cell")
         
@@ -37,7 +39,7 @@ class RestaurantsCarousel: UICollectionView {
 
 extension RestaurantsCarousel: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.width/2)
+        return CGSize(width: 300, height: 200)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
