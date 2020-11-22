@@ -28,7 +28,8 @@ class CartCollection : UICollectionView {
     }
     
     var data = [
-        CartProductData(title: "Product 1", price: 10.0, count: 1, backgroundImage: #imageLiteral(resourceName: "default"))
+        CartProductData(title: "Product 1", price: 10.0, count: 1, backgroundImage: #imageLiteral(resourceName: "default")),
+        CartProductData(title: "Product 2", price: 20.0, count: 2, backgroundImage: #imageLiteral(resourceName: "default"))
     ]
     
 }

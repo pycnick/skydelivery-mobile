@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
         window?.backgroundColor = .white
-        window?.rootViewController = MainViewController()
-//        window?.rootViewController = CartControllerView()
+//        window?.rootViewController = MainViewController()
+        window?.rootViewController = CartControllerView()
         window?.makeKeyAndVisible()
         
         return true
