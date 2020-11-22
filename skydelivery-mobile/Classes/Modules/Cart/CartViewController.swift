@@ -12,7 +12,6 @@ class CartControllerView : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
     }
     
     lazy var cartLabel = Title(text: "Корзина", font: UIFont(name: "Arial", size: 40)!)
@@ -22,6 +21,7 @@ class CartControllerView : UIViewController {
 extension CartControllerView {
     func setupUI() {
         overrideUserInterfaceStyle = .light
+        cartCollection.controller = self
         
         self.view.addSubview(cartLabel)
         cartLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -35,6 +35,5 @@ extension CartControllerView {
         cartCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         cartCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         cartCollection.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        cartCollection.backgroundColor = .white
     }
 }
