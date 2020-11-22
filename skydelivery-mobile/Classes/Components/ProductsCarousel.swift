@@ -7,22 +7,22 @@
 
 import UIKit
 
-class RestaurantsCarousel: UICollectionView {
+class ProductsCarousel: UICollectionView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 
-    init(callback: ((_ restaurant: Restaurant) -> ())?) {
+    init(callback: (() -> ())?) {
         let layout = UICollectionViewFlowLayout()
         
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         
         super.init(frame: .zero, collectionViewLayout: layout)
         
         self.showsHorizontalScrollIndicator = false
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.register(RestaurantCell.self, forCellWithReuseIdentifier: "cell")
+        self.register(ProductCell.self, forCellWithReuseIdentifier: "cell")
         
         self.delegate = self
         self.dataSource = self
@@ -38,25 +38,25 @@ class RestaurantsCarousel: UICollectionView {
         RestaurantData(title: "MapKit!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN"))
     ]
     
-    var callback: ((_ restaurant: Restaurant) -> ())?
+    var callback: (() -> ())?
 }
 
-extension RestaurantsCarousel: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension ProductsCarousel: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300, height: 200)
+        return CGSize(width: 190, height: 400)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! RestaurantCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProductCell
         cell.data = self.data[indexPath.item]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.callback?(Restaurant(Name: self.data[indexPath.item].title))
+        self.callback?()
     }
     
 }

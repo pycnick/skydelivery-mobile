@@ -8,7 +8,6 @@
 import UIKit
 
 class TagCarousel: UICollectionView {
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
