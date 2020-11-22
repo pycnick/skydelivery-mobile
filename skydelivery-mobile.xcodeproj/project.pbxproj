@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4341AD3F256A8F5F000FA0FF /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341AD3E256A8F5F000FA0FF /* CartViewController.swift */; };
+		4341AD44256ABA50000FA0FF /* CartCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341AD43256ABA50000FA0FF /* CartCollection.swift */; };
+		4341AD49256ABE7D000FA0FF /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4341AD48256ABE7D000FA0FF /* CartCell.swift */; };
 		84D6E39625682A810007A6F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6E39525682A810007A6F0 /* AppDelegate.swift */; };
 		84D6E39A25682A810007A6F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6E39925682A810007A6F0 /* ViewController.swift */; };
 		84D6E39F25682A820007A6F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D6E39E25682A820007A6F0 /* Assets.xcassets */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4341AD3E256A8F5F000FA0FF /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		4341AD43256ABA50000FA0FF /* CartCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCollection.swift; sourceTree = "<group>"; };
+		4341AD48256ABE7D000FA0FF /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		84D6E39225682A810007A6F0 /* skydelivery-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "skydelivery-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D6E39525682A810007A6F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D6E39925682A810007A6F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +94,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4341AD3D256A8F3E000FA0FF /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				4341AD3E256A8F5F000FA0FF /* CartViewController.swift */,
+				4341AD43256ABA50000FA0FF /* CartCollection.swift */,
+				4341AD48256ABE7D000FA0FF /* CartCell.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
 		84D6E38925682A810007A6F0 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +193,8 @@
 		84D6E3CC25682AFC0007A6F0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4341AD3D256A8F3E000FA0FF /* Cart */,
+				84D6E3FA25687B440007A6F0 /* Components */,
 				84D6E3D025682B240007A6F0 /* Main */,
 			);
 			path = Modules;
@@ -206,7 +224,6 @@
 		84D6E3D025682B240007A6F0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				84D6E3FA25687B440007A6F0 /* Components */,
 				84D6E3D225682B4C0007A6F0 /* MainContracts.swift */,
 				84D6E3DA25682B540007A6F0 /* MainPresenter.swift */,
 				84D6E3DF25682B5D0007A6F0 /* MainRouter.swift */,
@@ -360,8 +377,11 @@
 				84D6E402256931A60007A6F0 /* Title.swift in Sources */,
 				84D6E3DB25682B540007A6F0 /* MainPresenter.swift in Sources */,
 				84D6E3D325682B4C0007A6F0 /* MainContracts.swift in Sources */,
+				4341AD44256ABA50000FA0FF /* CartCollection.swift in Sources */,
+				4341AD49256ABE7D000FA0FF /* CartCell.swift in Sources */,
 				84D6E39A25682A810007A6F0 /* ViewController.swift in Sources */,
 				84D6E39625682A810007A6F0 /* AppDelegate.swift in Sources */,
+				4341AD3F256A8F5F000FA0FF /* CartViewController.swift in Sources */,
 				84D6E3E025682B5D0007A6F0 /* MainRouter.swift in Sources */,
 				84D6E3EA25682B720007A6F0 /* MainInteractor.swift in Sources */,
 				84D6E3FD25687B650007A6F0 /* Carousel.swift in Sources */,
