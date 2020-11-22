@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
         window?.backgroundColor = .white
-        window?.rootViewController = MainViewController()
+        window?.rootViewController = ProfileViewController()
         window?.makeKeyAndVisible()
         
         return true
