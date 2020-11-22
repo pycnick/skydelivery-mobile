@@ -48,8 +48,8 @@ class CartCell: UICollectionViewCell {
         
         contentView.addSubview(bg)
         bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        bg.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        bg.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        bg.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        bg.widthAnchor.constraint(equalToConstant: 120).isActive = true
         
         contentView.addSubview(title)
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -65,20 +65,6 @@ class CartCell: UICollectionViewCell {
         price.font = UIFont(name: "Arial", size: 20)
         price.textColor = .gray
         
-        contentView.addSubview(add)
-        add.setTitle("+", for: .normal)
-        add.backgroundColor = .blue
-        add.layer.cornerRadius = 8
-        add.translatesAutoresizingMaskIntoConstraints = false
-        add.leftAnchor.constraint(equalTo: bg.rightAnchor).isActive = true
-        add.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        
-        contentView.addSubview(count)
-        count.translatesAutoresizingMaskIntoConstraints = false
-        count.leftAnchor.constraint(equalTo: add.rightAnchor).isActive = true
-        count.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        count.font = UIFont(name: "Arial", size: 20)
-        
         contentView.addSubview(rmv)
         rmv.setTitle("-", for: .normal)
         rmv.backgroundColor = .blue
@@ -86,6 +72,20 @@ class CartCell: UICollectionViewCell {
         rmv.translatesAutoresizingMaskIntoConstraints = false
         rmv.leftAnchor.constraint(equalTo: count.rightAnchor).isActive = true
         rmv.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        contentView.addSubview(add)
+        
+        contentView.addSubview(count)
+        count.translatesAutoresizingMaskIntoConstraints = false
+        count.leftAnchor.constraint(equalTo: add.rightAnchor).isActive = true
+        count.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        count.font = UIFont(name: "Arial", size: 20)
+        
+        add.setTitle("+", for: .normal)
+        add.backgroundColor = .blue
+        add.layer.cornerRadius = 8
+        add.translatesAutoresizingMaskIntoConstraints = false
+        add.leftAnchor.constraint(equalTo: bg.rightAnchor).isActive = true
+        add.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

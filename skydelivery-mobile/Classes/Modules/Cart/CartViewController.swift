@@ -21,6 +21,8 @@ class CartControllerView : UIViewController {
 
 extension CartControllerView {
     func setupUI() {
+        overrideUserInterfaceStyle = .light
+        
         self.view.addSubview(cartLabel)
         cartLabel.translatesAutoresizingMaskIntoConstraints = false
         cartLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
@@ -32,6 +34,7 @@ extension CartControllerView {
         cartCollection.topAnchor.constraint(equalTo: cartLabel.bottomAnchor, constant: 20).isActive = true
         cartCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         cartCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        cartCollection.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        cartCollection.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        cartCollection.backgroundColor = .white
     }
 }

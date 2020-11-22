@@ -195,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				4341AD3D256A8F3E000FA0FF /* Cart */,
-				84D6E3D025682B240007A6F0 /* Main */,
+				84D6E3D025682B240007A6F0 /* MainPage */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		84D6E3D025682B240007A6F0 /* Main */ = {
+		84D6E3D025682B240007A6F0 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
 				84D6E3D225682B4C0007A6F0 /* MainContracts.swift */,
@@ -230,7 +230,7 @@
 				84D6E3E425682B670007A6F0 /* MainViewController.swift */,
 				84D6E3E925682B720007A6F0 /* MainInteractor.swift */,
 			);
-			path = Main;
+			path = MainPage;
 			sourceTree = "<group>";
 		};
 		84D6E3FA25687B440007A6F0 /* Components */ = {
