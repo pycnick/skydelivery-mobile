@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func openBasket() {
-        print("Not implemented")
+        self.navigationController?.pushViewController(CartControllerView(), animated: true)
     }
     
     // MARK: - Properties
