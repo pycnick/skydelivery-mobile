@@ -12,7 +12,7 @@ class CartCollection : UICollectionView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+        
     init() {
         let layout = UICollectionViewFlowLayout()
         
@@ -28,12 +28,18 @@ class CartCollection : UICollectionView {
     }
     
     var data = [
-        CartProductData(title: "Product 1", price: 10.0, count: 1, backgroundImage: #imageLiteral(resourceName: "default")),
-        CartProductData(title: "Product 2", price: 20.0, count: 2, backgroundImage: #imageLiteral(resourceName: "default")),
-        CartProductData(title: "Product With Big Big Big Big Name", price: 1000.0, count: 2, backgroundImage: #imageLiteral(resourceName: "default")),
+        CartProductData(title: "Product 1", price: 10, count: 1, backgroundImage: #imageLiteral(resourceName: "default")),
+        CartProductData(title: "Product 2", price: 20, count: 2, backgroundImage: #imageLiteral(resourceName: "default")),
+        CartProductData(title: "Product With Big Big Big Big Name", price: 1000, count: 2, backgroundImage: #imageLiteral(resourceName: "default")),
     ]
+        
+    var culteryCount = 1
     
-    weak var controller : UIViewController?
+    weak var controller : CartControllerView? {
+        didSet {
+            controller?.refreshFullPrice()
+        }
+    }
     
     public func removeCell(_ cell: UICollectionViewCell) {
         let indexPath = self.indexPath(for: cell)!
@@ -46,9 +52,23 @@ class CartCollection : UICollectionView {
         
         alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { action in
             self.data.remove(at: indexPath.row)
+            self.controller?.refreshFullPrice()
+            
             self.performBatchUpdates({
                 self.deleteItems(at: [indexPath])
-            }, completion: nil)
+            }, completion: { action in
+                if self.data.isEmpty {
+                    let emptyLabel = UILabel()
+                    self.addSubview(emptyLabel)
+                    emptyLabel.font = UIFont(name: "Arial", size: 20)
+                    emptyLabel.numberOfLines = 3
+                    emptyLabel.text = "Корзина пуста"
+                    
+                    emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+                    emptyLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+                    emptyLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+                }
+            })
         }))
         alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
         

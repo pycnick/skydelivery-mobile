@@ -9,7 +9,7 @@ import UIKit
 
 struct CartProductData {
     var title: String
-    var price: Float
+    var price: Int
     var count: Int
     var backgroundImage: UIImage
 }
@@ -20,7 +20,7 @@ class CartCell: UICollectionViewCell {
             guard let data = data else { return }
             bg.image = data.backgroundImage
             title.text = data.title
-            price.text = "\(data.price * Float(data.count)) ₽"
+            price.text = "\(data.price * data.count) ₽"
             count.text = "\(data.count)"
         }
     }
@@ -101,6 +101,10 @@ class CartCell: UICollectionViewCell {
     @objc
     private func addOne(sender: UIButton!) {
         data?.count += 1
+        
+        let index = self.parentView?.indexPath(for: self)
+        self.parentView?.data[index!.row].count += 1
+        self.parentView?.controller?.refreshFullPrice()
     }
 
     @objc
@@ -111,5 +115,8 @@ class CartCell: UICollectionViewCell {
             return
         }
         data?.count -= 1
+        let index = self.parentView?.indexPath(for: self)
+        self.parentView?.data[index!.row].count -= 1
+        self.parentView?.controller?.refreshFullPrice()
     }
 }
