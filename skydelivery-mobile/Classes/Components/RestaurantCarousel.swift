@@ -56,7 +56,7 @@ extension RestaurantsCarousel: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.callback?(Restaurant(Name: self.data[indexPath.item].title))
+        self.callback?(Restaurant(Name: self.data[indexPath.item].title, Image: self.data[indexPath.item].backgroundImage))
     }
     
 }

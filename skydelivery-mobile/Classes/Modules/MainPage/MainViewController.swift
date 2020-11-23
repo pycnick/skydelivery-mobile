@@ -30,6 +30,20 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(RestaurantsViewController(restaurant: restaurant), animated: true)
     }
     
+    func openCategoryRestaurant() {
+        print("change location")
+        self.navigationController?.pushViewController(CategoryViewController(), animated: true)
+    }
+    
+    @IBAction func openProfile() {
+        print("change location")
+        self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+    }
+    
+    @IBAction func openBasket() {
+        print("Not implemented")
+    }
+    
     // MARK: - Properties
     lazy var restaurantsLabel = Title(text: "Рестораны", font: UIFont(name: "Arial", size: 40)!)
     lazy var restaurantsCarousel = RestaurantsCarousel(callback: openRestaurantPage)
@@ -38,7 +52,7 @@ class MainViewController: UIViewController {
     lazy var recomendationsCarousel = RestaurantsCarousel(callback: openRestaurantPage)
     
     lazy var categoryLabel = Title(text: "Категории", font: UIFont(name: "Arial", size: 40)!)
-    lazy var categoryCarousel = TagCarousel()
+    lazy var categoryCarousel = TagCarousel(callback: openCategoryRestaurant)
 }
 
 extension MainViewController {
@@ -86,5 +100,15 @@ extension MainViewController {
         recomendationsCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
         recomendationsCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
         recomendationsCarousel.heightAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        
+        let button = UIButton(frame: CGRect(x: 350, y: 60, width: 50, height: 50))
+        self.view.addSubview(button)
+        button.setImage(#imageLiteral(resourceName: "icons8-male_user"), for: .normal)
+        button.addTarget(self, action: #selector(self.openProfile), for: .touchUpInside)
+        
+        let button1 = UIButton(frame: CGRect(x: 280, y: 60, width: 50, height: 50))
+        self.view.addSubview(button1)
+        button1.setImage(#imageLiteral(resourceName: "icons8-basketball_net"), for: .normal)
+        button1.addTarget(self, action: #selector(self.openBasket), for: .touchUpInside)
     }
 }
