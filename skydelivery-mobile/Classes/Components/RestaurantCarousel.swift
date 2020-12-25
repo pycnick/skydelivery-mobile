@@ -31,12 +31,19 @@ class RestaurantsCarousel: UICollectionView {
     }
     
     var data = [
-        RestaurantData(title: "The Islands!", url: "maxcodes.io/enroll", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        RestaurantData(title: "Subscribe to maxcodes boiiii!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        RestaurantData(title: "StoreKit Course!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        RestaurantData(title: "Collection Views!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        RestaurantData(title: "MapKit!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN"))
+        RestaurantData(title: "Макдоналдс", url: "maxcodes.io/enroll", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
+        RestaurantData(title: "Пиццерия", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "b_img5de908746e39d3.43406923")),
+        RestaurantData(title: "Бургерная", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "270718")),
+        RestaurantData(title: "Салатная", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "food")),
+        RestaurantData(title: "Сковородочная", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "obedy-v-ofis-vkusnaya-i-polnocennaya-eda-vo-vremya-obedennogo-pereryva"))
     ]
+    
+    func SetData(data: [RestaurantData]) {
+        self.data.removeAll()
+        self.data = data
+        
+        self.reloadData()
+    }
     
     var callback: ((_ restaurant: Restaurant) -> ())?
 }
@@ -56,7 +63,9 @@ extension RestaurantsCarousel: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.callback?(Restaurant(Name: self.data[indexPath.item].title, Image: self.data[indexPath.item].backgroundImage))
+        self.callback?(Restaurant(name: self.data[indexPath.item].title))
     }
     
 }
+
+//

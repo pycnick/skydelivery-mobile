@@ -53,6 +53,8 @@ class MainViewController: UIViewController {
     
     lazy var categoryLabel = Title(text: "Категории", font: UIFont(name: "Arial", size: 40)!)
     lazy var categoryCarousel = TagCarousel(callback: openCategoryRestaurant)
+    
+    var apiManager = ApiManager.shared
 }
 
 extension MainViewController {
@@ -110,5 +112,26 @@ extension MainViewController {
         self.view.addSubview(button1)
         button1.setImage(#imageLiteral(resourceName: "icons8-basketball_net"), for: .normal)
         button1.addTarget(self, action: #selector(self.openBasket), for: .touchUpInside)
+        
+        var restData = [RestaurantData]()
+        
+        self.apiManager.GetRestaurants(req: GetRestaurantsRequest(page: 1, count: 2)) { (restaurants) in
+            if let list = restaurants?.List! {
+                for restaurant in list {
+                    var data = RestaurantData(title: restaurant.Name!, url: restaurant.Description!, backgroundImage: UIImage())
+                    
+                    self.apiManager.GetImage(url: restaurant.Image!) { (image) in
+                        if image != nil {
+                            data.backgroundImage = image!
+                        } else {
+                            print("error image nil")
+                        }
+                        
+                        restData.append(data)
+                        self.restaurantsCarousel.SetData(data: restData)
+                    }
+                }
+            }
+        }
     }
 }
