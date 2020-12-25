@@ -52,6 +52,8 @@
 		DA34A672256AC768006F49D0 /* CategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34A671256AC768006F49D0 /* CategoryInteractor.swift */; };
 		DA34A677256ACE09006F49D0 /* CategoryCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34A676256ACE09006F49D0 /* CategoryCarousel.swift */; };
 		DA34A67C256ACEAC006F49D0 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34A67B256ACEAC006F49D0 /* CategoryCell.swift */; };
+		DAF4A02125965BC500F9C93B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A02025965BC500F9C93B /* LoginViewController.swift */; };
+		DAF4A02725967F9E00F9C93B /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A02625967F9E00F9C93B /* SignupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,8 @@
 		DA34A671256AC768006F49D0 /* CategoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInteractor.swift; sourceTree = "<group>"; };
 		DA34A676256ACE09006F49D0 /* CategoryCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCarousel.swift; sourceTree = "<group>"; };
 		DA34A67B256ACEAC006F49D0 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		DAF4A02025965BC500F9C93B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DAF4A02625967F9E00F9C93B /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		FD30963C5E55F6B9FA1DA841 /* Pods-skydelivery-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-skydelivery-mobile.debug.xcconfig"; path = "Target Support Files/Pods-skydelivery-mobile/Pods-skydelivery-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -308,6 +312,8 @@
 		84D6E3CC25682AFC0007A6F0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DAF4A02525967F8400F9C93B /* Signup */,
+				DAF4A01F25965B9100F9C93B /* Login */,
 				84CF8413256BF4F9002679C7 /* Cart */,
 				DA34A65C256AC643006F49D0 /* CategoryPage */,
 				DA34A635256AA6BE006F49D0 /* Profile */,
@@ -386,6 +392,22 @@
 				DA34A671256AC768006F49D0 /* CategoryInteractor.swift */,
 			);
 			path = CategoryPage;
+			sourceTree = "<group>";
+		};
+		DAF4A01F25965B9100F9C93B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DAF4A02025965BC500F9C93B /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DAF4A02525967F8400F9C93B /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				DAF4A02625967F9E00F9C93B /* SignupView.swift */,
+			);
+			path = Signup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,6 +592,7 @@
 				84D6E402256931A60007A6F0 /* Title.swift in Sources */,
 				84CF843B256BFA80002679C7 /* CartViewController.swift in Sources */,
 				84A49198256AE1350008FFB7 /* ProductsCarousel.swift in Sources */,
+				DAF4A02725967F9E00F9C93B /* SignupView.swift in Sources */,
 				84D6E3DB25682B540007A6F0 /* MainPresenter.swift in Sources */,
 				DA34A650256AB679006F49D0 /* Input.swift in Sources */,
 				DA34A663256AC6D2006F49D0 /* CategoryPresenter.swift in Sources */,
@@ -593,6 +616,7 @@
 				84D6E416256A7E860007A6F0 /* TagCarousel.swift in Sources */,
 				8420C352258BE3D900B55FE4 /* ApiService.swift in Sources */,
 				84D6E39625682A810007A6F0 /* AppDelegate.swift in Sources */,
+				DAF4A02125965BC500F9C93B /* LoginViewController.swift in Sources */,
 				84A4917C256AA8FC0008FFB7 /* RestaurantViewController.swift in Sources */,
 				84A4919D256AE1410008FFB7 /* ProductCell.swift in Sources */,
 				84D6E41E256A7E9F0007A6F0 /* TagCell.swift in Sources */,
@@ -773,13 +797,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3JXSKFB2TY;
+				DEVELOPMENT_TEAM = WM9ZS48F3Q;
 				INFOPLIST_FILE = "skydelivery-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pycnick.skydelivery-mobile";
+				PRODUCT_BUNDLE_IDENTIFIER = "philipp.skydelivery-mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -793,13 +817,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3JXSKFB2TY;
+				DEVELOPMENT_TEAM = WM9ZS48F3Q;
 				INFOPLIST_FILE = "skydelivery-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pycnick.skydelivery-mobile";
+				PRODUCT_BUNDLE_IDENTIFIER = "philipp.skydelivery-mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
