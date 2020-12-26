@@ -26,6 +26,7 @@ class ApiManager {
     }
     
     // MARK: internal methods
+
     func IsAuthenticated(completion: @escaping (Bool) -> Void) {
         Alamofire
             .request(self.host + "/profile")
@@ -97,6 +98,16 @@ class ApiManager {
         Alamofire
             .request(self.host + "/rest_tags")
             .responseObject { (response: DataResponse<Tags>) in
+                completion(response.value)
+            }
+    }
+    
+    func GetProfile(completion: @escaping (Profile?) -> Void) {
+        Alamofire
+            .request(self.host + "/profile")
+            .responseObject { (response: DataResponse<Profile>) in
+                print(response.debugDescription)
+                print(response.response?.statusCode)
                 completion(response.value)
             }
     }

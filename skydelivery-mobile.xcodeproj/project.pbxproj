@@ -59,6 +59,7 @@
 		DA34A67C256ACEAC006F49D0 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34A67B256ACEAC006F49D0 /* CategoryCell.swift */; };
 		DAF4A02125965BC500F9C93B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A02025965BC500F9C93B /* LoginViewController.swift */; };
 		DAF4A02725967F9E00F9C93B /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A02625967F9E00F9C93B /* SignupView.swift */; };
+		DAF4A02F25979C8700F9C93B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A02E25979C8700F9C93B /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,7 @@
 		DA34A67B256ACEAC006F49D0 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		DAF4A02025965BC500F9C93B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DAF4A02625967F9E00F9C93B /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		DAF4A02E25979C8700F9C93B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		FD30963C5E55F6B9FA1DA841 /* Pods-skydelivery-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-skydelivery-mobile.debug.xcconfig"; path = "Target Support Files/Pods-skydelivery-mobile/Pods-skydelivery-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +219,7 @@
 				84A4918F256AD0100008FFB7 /* Restaurant.swift */,
 				842F61822595C68A00C796D9 /* Product.swift */,
 				849B4FEA25976D8F00933E0E /* Tags.swift */,
+				DAF4A02E25979C8700F9C93B /* Profile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				842F61722594DAC700C796D9 /* signUp.swift in Sources */,
 				849B500B2597ADB100933E0E /* SignUpContracts.swift in Sources */,
 				84D6E402256931A60007A6F0 /* Title.swift in Sources */,
+				DAF4A02F25979C8700F9C93B /* Profile.swift in Sources */,
 				84CF843B256BFA80002679C7 /* CartViewController.swift in Sources */,
 				849B4FFC2597AD7C00933E0E /* SignUpRouter.swift in Sources */,
 				84A49198256AE1350008FFB7 /* ProductsCarousel.swift in Sources */,

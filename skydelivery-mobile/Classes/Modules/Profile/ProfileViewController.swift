@@ -11,7 +11,10 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        presenter?.viewDidLoad()
     }
+    
+    var presenter: ViewToPresenterProfileProtocol?
     
     lazy var profileTitle = Title(text: "Профиль", font: UIFont(name: "Arial", size: 40)!)
     lazy var nameTitle = Title(text: "Имя", font: UIFont(name: "Arial", size: 20)!)
@@ -95,5 +98,18 @@ extension ProfileViewController {
         submitButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -40).isActive = true
         submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
+    }
+}
+
+extension ProfileViewController: PresenterToViewProfileProtocol {
+    func SetProfile(profile: ProfileData) {
+        self.nameInput.text = profile.firstName
+        self.surnameInput.text = profile.surName
+        self.phoneInput.text = profile.phone
+        self.emailInput.text = profile.email
+    }
+    
+    func ShowLogin() {
+        view.addSubview(LoginView())
     }
 }
