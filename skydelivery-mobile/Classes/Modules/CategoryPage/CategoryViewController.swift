@@ -21,9 +21,11 @@ extension CategoryViewController {
     func setupUI() {
         overrideUserInterfaceStyle = .light
         
+        view.backgroundColor = .white
+        
         self.view.addSubview(categoryLabel)
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
-        categoryLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+        categoryLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         categoryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         categoryLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
 

@@ -3,15 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20805EF9659855B852314465 /* Pods_skydelivery_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B4DB3A027871A33DC86EB1 /* Pods_skydelivery_mobile.framework */; };
+		8420C352258BE3D900B55FE4 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420C351258BE3D900B55FE4 /* ApiService.swift */; };
+		842F616A2594D46900C796D9 /* login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F61692594D46900C796D9 /* login.swift */; };
+		842F61722594DAC700C796D9 /* signUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F61712594DAC700C796D9 /* signUp.swift */; };
+		842F617E2594F7EB00C796D9 /* error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F617D2594F7EB00C796D9 /* error.swift */; };
+		842F61832595C68A00C796D9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F61822595C68A00C796D9 /* Product.swift */; };
+		842F61882595C91600C796D9 /* restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F61872595C91600C796D9 /* restaurants.swift */; };
 		84A4917C256AA8FC0008FFB7 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4917B256AA8FC0008FFB7 /* RestaurantViewController.swift */; };
 		84A49181256AC4020008FFB7 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A49180256AC4020008FFB7 /* CustomNavigationController.swift */; };
 		84A49190256AD0100008FFB7 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4918F256AD0100008FFB7 /* Restaurant.swift */; };
 		84A49198256AE1350008FFB7 /* ProductsCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A49197256AE1350008FFB7 /* ProductsCarousel.swift */; };
 		84A4919D256AE1410008FFB7 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4919C256AE1410008FFB7 /* ProductCell.swift */; };
+		84CF8422256BFA49002679C7 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF8421256BFA49002679C7 /* CartCell.swift */; };
+		84CF8433256BFA69002679C7 /* CartCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF8432256BFA69002679C7 /* CartCollection.swift */; };
+		84CF843B256BFA80002679C7 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF843A256BFA80002679C7 /* CartViewController.swift */; };
 		84D6E39625682A810007A6F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6E39525682A810007A6F0 /* AppDelegate.swift */; };
 		84D6E39A25682A810007A6F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D6E39925682A810007A6F0 /* ViewController.swift */; };
 		84D6E39F25682A820007A6F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D6E39E25682A820007A6F0 /* Assets.xcassets */; };
@@ -42,6 +52,8 @@
 		DA34A672256AC768006F49D0 /* CategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34A671256AC768006F49D0 /* CategoryInteractor.swift */; };
 		DA34A677256ACE09006F49D0 /* CategoryCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34A676256ACE09006F49D0 /* CategoryCarousel.swift */; };
 		DA34A67C256ACEAC006F49D0 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34A67B256ACEAC006F49D0 /* CategoryCell.swift */; };
+		DAF4A02125965BC500F9C93B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A02025965BC500F9C93B /* LoginViewController.swift */; };
+		DAF4A02725967F9E00F9C93B /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A02625967F9E00F9C93B /* SignupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,11 +74,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		79B4DB3A027871A33DC86EB1 /* Pods_skydelivery_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_skydelivery_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8420C351258BE3D900B55FE4 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		842F61692594D46900C796D9 /* login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login.swift; sourceTree = "<group>"; };
+		842F61712594DAC700C796D9 /* signUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUp.swift; sourceTree = "<group>"; };
+		842F617D2594F7EB00C796D9 /* error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = error.swift; sourceTree = "<group>"; };
+		842F61822595C68A00C796D9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		842F61872595C91600C796D9 /* restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restaurants.swift; sourceTree = "<group>"; };
 		84A4917B256AA8FC0008FFB7 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		84A49180256AC4020008FFB7 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		84A4918F256AD0100008FFB7 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		84A49197256AE1350008FFB7 /* ProductsCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCarousel.swift; sourceTree = "<group>"; };
 		84A4919C256AE1410008FFB7 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		84CF8421256BFA49002679C7 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		84CF8432256BFA69002679C7 /* CartCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCollection.swift; sourceTree = "<group>"; };
+		84CF843A256BFA80002679C7 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		84D6E39225682A810007A6F0 /* skydelivery-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "skydelivery-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D6E39525682A810007A6F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D6E39925682A810007A6F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +111,7 @@
 		84D6E4092569B8420007A6F0 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		84D6E415256A7E860007A6F0 /* TagCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCarousel.swift; sourceTree = "<group>"; };
 		84D6E41D256A7E9F0007A6F0 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		9192BD839C5B8E7A14492596 /* Pods-skydelivery-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-skydelivery-mobile.release.xcconfig"; path = "Target Support Files/Pods-skydelivery-mobile/Pods-skydelivery-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		DA34A636256AA6D6006F49D0 /* ProfileContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContracts.swift; sourceTree = "<group>"; };
 		DA34A63B256AA6E8006F49D0 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		DA34A640256AA738006F49D0 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
@@ -103,6 +126,9 @@
 		DA34A671256AC768006F49D0 /* CategoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryInteractor.swift; sourceTree = "<group>"; };
 		DA34A676256ACE09006F49D0 /* CategoryCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCarousel.swift; sourceTree = "<group>"; };
 		DA34A67B256ACEAC006F49D0 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		DAF4A02025965BC500F9C93B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DAF4A02625967F9E00F9C93B /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		FD30963C5E55F6B9FA1DA841 /* Pods-skydelivery-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-skydelivery-mobile.debug.xcconfig"; path = "Target Support Files/Pods-skydelivery-mobile/Pods-skydelivery-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20805EF9659855B852314465 /* Pods_skydelivery_mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +157,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19BDF2DC18B9C61AAA6D9220 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD30963C5E55F6B9FA1DA841 /* Pods-skydelivery-mobile.debug.xcconfig */,
+				9192BD839C5B8E7A14492596 /* Pods-skydelivery-mobile.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		68DAA3942460E173F97FF2A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79B4DB3A027871A33DC86EB1 /* Pods_skydelivery_mobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8420C350258BE3CF00B55FE4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8420C351258BE3D900B55FE4 /* ApiService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		842F61682594D45800C796D9 /* ApiRequests */ = {
+			isa = PBXGroup;
+			children = (
+				842F61692594D46900C796D9 /* login.swift */,
+				842F61712594DAC700C796D9 /* signUp.swift */,
+				842F617D2594F7EB00C796D9 /* error.swift */,
+				842F61872595C91600C796D9 /* restaurants.swift */,
+			);
+			path = ApiRequests;
+			sourceTree = "<group>";
+		};
 		84A49173256A8AEE0008FFB7 /* RestaurantPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,8 +205,19 @@
 			isa = PBXGroup;
 			children = (
 				84A4918F256AD0100008FFB7 /* Restaurant.swift */,
+				842F61822595C68A00C796D9 /* Product.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		84CF8413256BF4F9002679C7 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				84CF8421256BFA49002679C7 /* CartCell.swift */,
+				84CF8432256BFA69002679C7 /* CartCollection.swift */,
+				84CF843A256BFA80002679C7 /* CartViewController.swift */,
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		84D6E38925682A810007A6F0 = {
@@ -153,6 +227,8 @@
 				84D6E3AB25682A820007A6F0 /* skydelivery-mobileTests */,
 				84D6E3B625682A820007A6F0 /* skydelivery-mobileUITests */,
 				84D6E39325682A810007A6F0 /* Products */,
+				19BDF2DC18B9C61AAA6D9220 /* Pods */,
+				68DAA3942460E173F97FF2A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,9 +277,9 @@
 		84D6E3C825682A960007A6F0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8420C350258BE3CF00B55FE4 /* Services */,
 				84D6E3FA25687B440007A6F0 /* Components */,
 				84D6E3CF25682B1A0007A6F0 /* Managers */,
-				84D6E3CE25682B050007A6F0 /* Services */,
 				84D6E3CD25682B000007A6F0 /* Common */,
 				84D6E3CC25682AFC0007A6F0 /* Modules */,
 				84D6E3CB25682AF30007A6F0 /* App */,
@@ -236,6 +312,9 @@
 		84D6E3CC25682AFC0007A6F0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DAF4A02525967F8400F9C93B /* Signup */,
+				DAF4A01F25965B9100F9C93B /* Login */,
+				84CF8413256BF4F9002679C7 /* Cart */,
 				DA34A65C256AC643006F49D0 /* CategoryPage */,
 				DA34A635256AA6BE006F49D0 /* Profile */,
 				84A49173256A8AEE0008FFB7 /* RestaurantPage */,
@@ -247,16 +326,10 @@
 		84D6E3CD25682B000007A6F0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				842F61682594D45800C796D9 /* ApiRequests */,
 				84A4918E256AD0090008FFB7 /* Models */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		84D6E3CE25682B050007A6F0 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		84D6E3CF25682B1A0007A6F0 /* Managers */ = {
@@ -293,7 +366,6 @@
 				84A49180256AC4020008FFB7 /* CustomNavigationController.swift */,
 				84A49197256AE1350008FFB7 /* ProductsCarousel.swift */,
 				84A4919C256AE1410008FFB7 /* ProductCell.swift */,
-
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -322,6 +394,22 @@
 			path = CategoryPage;
 			sourceTree = "<group>";
 		};
+		DAF4A01F25965B9100F9C93B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DAF4A02025965BC500F9C93B /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DAF4A02525967F8400F9C93B /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				DAF4A02625967F9E00F9C93B /* SignupView.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,9 +417,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D6E3BC25682A820007A6F0 /* Build configuration list for PBXNativeTarget "skydelivery-mobile" */;
 			buildPhases = (
+				12BBF24D2DF15917A4ABC574 /* [CP] Check Pods Manifest.lock */,
 				84D6E38E25682A810007A6F0 /* Sources */,
 				84D6E38F25682A810007A6F0 /* Frameworks */,
 				84D6E39025682A810007A6F0 /* Resources */,
+				A251DFBC49D37D38232566DD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -446,6 +536,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		12BBF24D2DF15917A4ABC574 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-skydelivery-mobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A251DFBC49D37D38232566DD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-skydelivery-mobile/Pods-skydelivery-mobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-skydelivery-mobile/Pods-skydelivery-mobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-skydelivery-mobile/Pods-skydelivery-mobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84D6E38E25682A810007A6F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -456,8 +588,11 @@
 				DA34A677256ACE09006F49D0 /* CategoryCarousel.swift in Sources */,
 				DA34A64B256AA762006F49D0 /* ProfileInteractor.swift in Sources */,
 				84D6E3E525682B670007A6F0 /* MainViewController.swift in Sources */,
+				842F61722594DAC700C796D9 /* signUp.swift in Sources */,
 				84D6E402256931A60007A6F0 /* Title.swift in Sources */,
+				84CF843B256BFA80002679C7 /* CartViewController.swift in Sources */,
 				84A49198256AE1350008FFB7 /* ProductsCarousel.swift in Sources */,
+				DAF4A02725967F9E00F9C93B /* SignupView.swift in Sources */,
 				84D6E3DB25682B540007A6F0 /* MainPresenter.swift in Sources */,
 				DA34A650256AB679006F49D0 /* Input.swift in Sources */,
 				DA34A663256AC6D2006F49D0 /* CategoryPresenter.swift in Sources */,
@@ -466,17 +601,22 @@
 				DA34A646256AA74D006F49D0 /* ProfileViewController.swift in Sources */,
 				84D6E39A25682A810007A6F0 /* ViewController.swift in Sources */,
 				DA34A67C256ACEAC006F49D0 /* CategoryCell.swift in Sources */,
+				842F616A2594D46900C796D9 /* login.swift in Sources */,
+				842F61882595C91600C796D9 /* restaurants.swift in Sources */,
 				DA34A672256AC768006F49D0 /* CategoryInteractor.swift in Sources */,
 				84D6E416256A7E860007A6F0 /* TagCarousel.swift in Sources */,
 				84D6E39625682A810007A6F0 /* AppDelegate.swift in Sources */,
 				DA34A641256AA738006F49D0 /* ProfileRouter.swift in Sources */,
 				DA34A668256AC6E5006F49D0 /* CategoryRouter.swift in Sources */,
 				DA34A65E256AC6BD006F49D0 /* CategoryContracts.swift in Sources */,
+				842F617E2594F7EB00C796D9 /* error.swift in Sources */,
 				84A49190256AD0100008FFB7 /* Restaurant.swift in Sources */,
 				84D6E39A25682A810007A6F0 /* ViewController.swift in Sources */,
 				84A49181256AC4020008FFB7 /* CustomNavigationController.swift in Sources */,
 				84D6E416256A7E860007A6F0 /* TagCarousel.swift in Sources */,
+				8420C352258BE3D900B55FE4 /* ApiService.swift in Sources */,
 				84D6E39625682A810007A6F0 /* AppDelegate.swift in Sources */,
+				DAF4A02125965BC500F9C93B /* LoginViewController.swift in Sources */,
 				84A4917C256AA8FC0008FFB7 /* RestaurantViewController.swift in Sources */,
 				84A4919D256AE1410008FFB7 /* ProductCell.swift in Sources */,
 				84D6E41E256A7E9F0007A6F0 /* TagCell.swift in Sources */,
@@ -485,6 +625,9 @@
 				84D6E3EA25682B720007A6F0 /* MainInteractor.swift in Sources */,
 				DA34A655256AC03C006F49D0 /* Button.swift in Sources */,
 				84D6E3FD25687B650007A6F0 /* RestaurantCarousel.swift in Sources */,
+				84CF8422256BFA49002679C7 /* CartCell.swift in Sources */,
+				84CF8433256BFA69002679C7 /* CartCollection.swift in Sources */,
+				842F61832595C68A00C796D9 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,16 +792,18 @@
 		};
 		84D6E3BD25682A820007A6F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD30963C5E55F6B9FA1DA841 /* Pods-skydelivery-mobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WM9ZS48F3Q;
 				INFOPLIST_FILE = "skydelivery-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pycnick.skydelivery-mobile";
+				PRODUCT_BUNDLE_IDENTIFIER = "philipp.skydelivery-mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -667,16 +812,18 @@
 		};
 		84D6E3BE25682A820007A6F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9192BD839C5B8E7A14492596 /* Pods-skydelivery-mobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WM9ZS48F3Q;
 				INFOPLIST_FILE = "skydelivery-mobile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "pycnick.skydelivery-mobile";
+				PRODUCT_BUNDLE_IDENTIFIER = "philipp.skydelivery-mobile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

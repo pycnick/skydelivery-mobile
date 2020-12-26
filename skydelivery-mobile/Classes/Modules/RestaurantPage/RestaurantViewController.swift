@@ -17,7 +17,7 @@ class RestaurantsViewController: UIViewController {
     init(restaurant: Restaurant) {
         super.init(nibName: nil, bundle: nil)
         self.restaurant = restaurant
-        self.restaurantsLabel = Title(text: restaurant.Name, font: UIFont(name: "Arial", size: 40)!)
+        self.restaurantsLabel = Title(text: restaurant.Name!, font: UIFont(name: "Arial", size: 40)!)
     }
     
     required init?(coder: NSCoder) {

@@ -31,11 +31,11 @@ class ProductsCarousel: UICollectionView {
     }
     
     var data = [
-        RestaurantData(title: "The Islands!", url: "maxcodes.io/enroll", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        RestaurantData(title: "Subscribe to maxcodes boiiii!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        RestaurantData(title: "StoreKit Course!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        RestaurantData(title: "Collection Views!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        RestaurantData(title: "MapKit!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN"))
+        RestaurantData(title: "The Islands!", url: "maxcodes.io/enroll", backgroundImage: #imageLiteral(resourceName: "mcdonalds-Celebrations-McFlurry")),
+        RestaurantData(title: "Subscribe to maxcodes boiiii!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "mcdonalds-Cheese-Melt-Dippers")),
+        RestaurantData(title: "StoreKit Course!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "mcdonalds-Hot-Chocolate-Regular")),
+        RestaurantData(title: "Collection Views!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "mcdonalds-Double-Big-Mac")),
+        RestaurantData(title: "MapKit!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "mcdonalds-The-Jerk-Chicken-Sandwhich"))
     ]
     
     var callback: (() -> ())?
@@ -43,7 +43,7 @@ class ProductsCarousel: UICollectionView {
 
 extension ProductsCarousel: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 190, height: 400)
+        return CGSize(width: 190, height: 300)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count

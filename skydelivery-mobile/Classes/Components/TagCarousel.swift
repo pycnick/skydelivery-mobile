@@ -12,7 +12,7 @@ class TagCarousel: UICollectionView {
         super.init(coder: coder)
     }
 
-    init() {
+    init(callback: (() -> ())?) {
         let layout = UICollectionViewFlowLayout()
         
         layout.scrollDirection = .horizontal
@@ -25,6 +25,8 @@ class TagCarousel: UICollectionView {
         
         self.delegate = self
         self.dataSource = self
+        
+        self.callback = callback
     }
     
     var data = [
@@ -32,6 +34,8 @@ class TagCarousel: UICollectionView {
         TagData(title: "Пицца", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
         TagData(title: "Бургеры", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
     ]
+    
+    var callback: (() -> ())?
 }
 
 extension TagCarousel: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -46,6 +50,10 @@ extension TagCarousel: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TagCell
         cell.data = self.data[indexPath.item]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.callback?()
     }
     
 }

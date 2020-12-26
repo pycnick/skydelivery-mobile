@@ -14,6 +14,7 @@ class Title: UILabel {
     
     init(text: String, font: UIFont) {
         super.init(frame: CGRect())
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.text = text
         self.font = font
     }
