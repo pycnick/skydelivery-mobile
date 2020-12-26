@@ -19,10 +19,11 @@ class ProfileViewController: UIViewController {
     lazy var emailTitle = Title(text: "Электронная почта", font: UIFont(name: "Arial", size:20)!)
     lazy var phoneTitle = Title(text: "Телефон", font: UIFont(name: "Arial", size: 20)!)
     
-    lazy var nameInput =  Input(text: "Филипп", placeholder: "Имя", font: UIFont(name: "Arial", size: 15)!)
-    lazy var surnameInput =  Input(text: "", placeholder: "Фамилия", font: UIFont(name: "Arial", size: 15)!)
-    lazy var emailInput =  Input(text: "philipp-is@yandex.ru", placeholder: "Электронная почта", font: UIFont(name: "Arial", size: 15)!)
-    lazy var phoneInput =  Input(text: "89009261549", placeholder: "Номер телефона", font: UIFont(name: "Arial", size: 15)!)
+    lazy var nameInput =  Input(text: "Филипп", placeholder: "Имя", fontSize: CGFloat(15));
+
+    lazy var surnameInput =  Input(text: "", placeholder: "Фамилия", fontSize: CGFloat(15))
+    lazy var emailInput =  Input(text: "philipp-is@yandex.ru", placeholder: "Электронная почта", fontSize: CGFloat(15))
+    lazy var phoneInput =  Input(text: "89009261549", placeholder: "Номер телефона", fontSize: CGFloat(15))
     
     lazy var submitButton = Button(title: "Сохранить", font: UIFont(name: "Arial", size: 20)!)
 }

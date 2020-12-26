@@ -15,8 +15,9 @@ class Button: UIButton {
     init(title: String, font: UIFont) {
         super.init(frame: CGRect())
         self.setTitle(title, for: .normal)
-        self.backgroundColor = .blue
+        self.backgroundColor = .systemBlue
         self.layer.cornerRadius = 12
+        self.translatesAutoresizingMaskIntoConstraints = false
         
     }
 }

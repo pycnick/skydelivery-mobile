@@ -37,7 +37,9 @@ class MainViewController: UIViewController {
     
     @IBAction func openProfile() {
         print("change location")
-        self.navigationController?.pushViewController(ProfileViewController(), animated: true)
+//        self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        let login = SignupView()
+        self.view.addSubview(login)
     }
     
     @IBAction func openBasket() {
