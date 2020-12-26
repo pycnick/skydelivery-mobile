@@ -8,13 +8,14 @@
 import UIKit
 
 struct ProductData {
-    var title: String
-    var url: String
+    var name: String
+    var id: Int
+    var countAdded: Int
     var backgroundImage: UIImage
 }
 
 class ProductCell: UICollectionViewCell {
-    var data: RestaurantData? {
+    var data: ProductData? {
         didSet {
             guard let data = data else { return }
             bg.image = data.backgroundImage
@@ -25,9 +26,8 @@ class ProductCell: UICollectionViewCell {
     fileprivate let bg: UIImageView = {
        let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.clipsToBounds = true
-        iv.layer.cornerRadius = 12
         iv.contentMode = .scaleAspectFit
+        iv.layer.cornerRadius = 12
         
         return iv
     }()
@@ -41,7 +41,7 @@ class ProductCell: UICollectionViewCell {
         bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         bg.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -60).isActive = true
+        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -80).isActive = true
         
         contentView.addSubview(submit)
         submit.translatesAutoresizingMaskIntoConstraints = false

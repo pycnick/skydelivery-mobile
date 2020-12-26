@@ -7,6 +7,17 @@
 
 import ObjectMapper
 
+class Products: Mappable {
+    required init?(map: Map) {
+    }
+    
+    var List: [Product]?
+    
+    func mapping(map: Map) {
+        List <- map["products"]
+    }
+}
+
 class Product: Mappable {
     required init(map: Map) {
     }

@@ -70,8 +70,10 @@ class ApiManager {
                                  parameters: params,
                                  encoding: JSONEncoding.default)
             .responseObject { (response: DataResponse<Error>) in
-                let value = response.value
-                completion(value)
+                if let headers = response.response?.allHeaderFields as? [String: String] {
+                    self.token = headers["X-csrf-Token"]
+                }
+                completion(response.value)
             }
     }
     
@@ -118,6 +120,15 @@ class ApiManager {
         Alamofire
             .request(self.host + "/restaurants_recommendations?count=\(count)")
             .responseObject { (response: DataResponse<Restaurants>) in
+                print(response.debugDescription)
+                completion(response.value)
+            }
+    }
+    
+    func GetRestaurantProducts(req: GetProductsRequest, completion: @escaping (Products?) -> Void) {
+        Alamofire
+            .request(self.host + "/restaurants/\(req.ID)/product?count=\(req.Count)&page=\(req.Page)")
+            .responseObject { (response: DataResponse<Products>) in
                 print(response.debugDescription)
                 completion(response.value)
             }

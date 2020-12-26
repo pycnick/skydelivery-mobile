@@ -28,7 +28,8 @@ class MainViewController: UIViewController {
     }
     
     func openRestaurantPage(restaurant: Restaurant) {
-        self.navigationController?.pushViewController(RestaurantsViewController(restaurant: restaurant), animated: true)
+        let view = RestaurantRouter.createRestaurantModule(restaurant: restaurant)
+        self.navigationController?.pushViewController(view, animated: true)
     }
     
     func openCategoryRestaurant() {

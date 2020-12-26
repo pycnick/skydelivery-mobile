@@ -8,8 +8,8 @@
 import UIKit
 
 struct RestaurantData {
-    var title: String
-    var url: String
+    var name: String
+    var id: Int
     var backgroundImage: UIImage
 }
 

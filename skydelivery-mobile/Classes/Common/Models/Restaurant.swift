@@ -22,8 +22,9 @@ class Restaurant: Mappable {
     required init(map: Map) {
     }
     
-    init(name: String) {
+    init(name: String, id: Int) {
         Name = name
+        ID = id
     }
     
     var ID: Int?

@@ -19,6 +19,10 @@
 		849B50012597AD9000933E0E /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B50002597AD9000933E0E /* SignUpInteractor.swift */; };
 		849B50062597AD9A00933E0E /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B50052597AD9A00933E0E /* SignUpPresenter.swift */; };
 		849B500B2597ADB100933E0E /* SignUpContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B500A2597ADB100933E0E /* SignUpContracts.swift */; };
+		849B50192597DE8100933E0E /* RestaurantInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B50182597DE8100933E0E /* RestaurantInteractor.swift */; };
+		849B501E2597DE8A00933E0E /* RestaurantRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B501D2597DE8A00933E0E /* RestaurantRouter.swift */; };
+		849B50232597DE9400933E0E /* RestaurantPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B50222597DE9400933E0E /* RestaurantPresenter.swift */; };
+		849B50282597DEA700933E0E /* RestaurantContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B50272597DEA700933E0E /* RestaurantContracts.swift */; };
 		84A4917C256AA8FC0008FFB7 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4917B256AA8FC0008FFB7 /* RestaurantViewController.swift */; };
 		84A49181256AC4020008FFB7 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A49180256AC4020008FFB7 /* CustomNavigationController.swift */; };
 		84A49190256AD0100008FFB7 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4918F256AD0100008FFB7 /* Restaurant.swift */; };
@@ -92,6 +96,10 @@
 		849B50002597AD9000933E0E /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		849B50052597AD9A00933E0E /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		849B500A2597ADB100933E0E /* SignUpContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContracts.swift; sourceTree = "<group>"; };
+		849B50182597DE8100933E0E /* RestaurantInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInteractor.swift; sourceTree = "<group>"; };
+		849B501D2597DE8A00933E0E /* RestaurantRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantRouter.swift; sourceTree = "<group>"; };
+		849B50222597DE9400933E0E /* RestaurantPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPresenter.swift; sourceTree = "<group>"; };
+		849B50272597DEA700933E0E /* RestaurantContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantContracts.swift; sourceTree = "<group>"; };
 		84A4917B256AA8FC0008FFB7 /* RestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		84A49180256AC4020008FFB7 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		84A4918F256AD0100008FFB7 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -209,6 +217,10 @@
 			isa = PBXGroup;
 			children = (
 				84A4917B256AA8FC0008FFB7 /* RestaurantViewController.swift */,
+				849B50182597DE8100933E0E /* RestaurantInteractor.swift */,
+				849B501D2597DE8A00933E0E /* RestaurantRouter.swift */,
+				849B50222597DE9400933E0E /* RestaurantPresenter.swift */,
+				849B50272597DEA700933E0E /* RestaurantContracts.swift */,
 			);
 			path = RestaurantPage;
 			sourceTree = "<group>";
@@ -602,11 +614,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA34A637256AA6D6006F49D0 /* ProfileContracts.swift in Sources */,
+				849B50192597DE8100933E0E /* RestaurantInteractor.swift in Sources */,
 				84D6E40A2569B8420007A6F0 /* RestaurantCell.swift in Sources */,
 				849B4FEB25976D8F00933E0E /* Tags.swift in Sources */,
 				DA34A677256ACE09006F49D0 /* CategoryCarousel.swift in Sources */,
 				DA34A64B256AA762006F49D0 /* ProfileInteractor.swift in Sources */,
 				84D6E3E525682B670007A6F0 /* MainViewController.swift in Sources */,
+				849B501E2597DE8A00933E0E /* RestaurantRouter.swift in Sources */,
 				842F61722594DAC700C796D9 /* signUp.swift in Sources */,
 				849B500B2597ADB100933E0E /* SignUpContracts.swift in Sources */,
 				84D6E402256931A60007A6F0 /* Title.swift in Sources */,
@@ -636,6 +650,8 @@
 				84D6E39A25682A810007A6F0 /* ViewController.swift in Sources */,
 				84A49181256AC4020008FFB7 /* CustomNavigationController.swift in Sources */,
 				849B50062597AD9A00933E0E /* SignUpPresenter.swift in Sources */,
+				849B50232597DE9400933E0E /* RestaurantPresenter.swift in Sources */,
+				849B50282597DEA700933E0E /* RestaurantContracts.swift in Sources */,
 				84D6E416256A7E860007A6F0 /* TagCarousel.swift in Sources */,
 				8420C352258BE3D900B55FE4 /* ApiService.swift in Sources */,
 				849B50012597AD9000933E0E /* SignUpInteractor.swift in Sources */,

@@ -31,12 +31,19 @@ class ProductsCarousel: UICollectionView {
     }
     
     var data = [
-        RestaurantData(title: "The Islands!", url: "maxcodes.io/enroll", backgroundImage: #imageLiteral(resourceName: "mcdonalds-Celebrations-McFlurry")),
-        RestaurantData(title: "Subscribe to maxcodes boiiii!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "mcdonalds-Cheese-Melt-Dippers")),
-        RestaurantData(title: "StoreKit Course!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "mcdonalds-Hot-Chocolate-Regular")),
-        RestaurantData(title: "Collection Views!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "mcdonalds-Double-Big-Mac")),
-        RestaurantData(title: "MapKit!", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "mcdonalds-The-Jerk-Chicken-Sandwhich"))
+        ProductData(name: "The Islands!", id: 1, countAdded: 1, backgroundImage: #imageLiteral(resourceName: "mcdonalds-Double-Big-Mac")),
+        ProductData(name: "Subscribe to maxcodes boiiii!", id: 1, countAdded: 1, backgroundImage: #imageLiteral(resourceName: "obedy-v-ofis-vkusnaya-i-polnocennaya-eda-vo-vremya-obedennogo-pereryva")),
+        ProductData(name: "StoreKit Course!", id: 1, countAdded: 1, backgroundImage: #imageLiteral(resourceName: "mcdonalds-The-Jerk-Chicken-Sandwhich")),
+        ProductData(name: "Collection Views!", id: 1, countAdded: 1, backgroundImage: #imageLiteral(resourceName: "mcdonalds-Hot-Chocolate-Regular")),
+        ProductData(name: "MapKit!", id: 1, countAdded: 1, backgroundImage: #imageLiteral(resourceName: "270718"))
     ]
+    
+    func SetData(data: [ProductData]) {
+        self.data.removeAll()
+        self.data = data
+        
+        self.reloadData()
+    }
     
     var callback: (() -> ())?
 }

@@ -12,6 +12,10 @@ class RestaurantsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        if let id = self.restaurant?.ID {
+            presenter?.viewDidLoad(req: GetProductsRequest(restaurant: id, page: 1, count: 10))
+        }
     }
     
     init(restaurant: Restaurant) {
@@ -27,6 +31,10 @@ class RestaurantsViewController: UIViewController {
     // MARK: - Properties
     var restaurantsLabel: Title?
     var restaurant: Restaurant?
+    
+    var products = ProductsCarousel(callback: {print("products callback")})
+    
+    var presenter: ViewToPresenterRestaurantProtocol?
 }
 
 extension RestaurantsViewController {
@@ -40,7 +48,6 @@ extension RestaurantsViewController {
         restaurantsLabel!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         restaurantsLabel!.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         
-        let products = ProductsCarousel(callback: {print("products callback")})
         view.addSubview(products)
         products.backgroundColor = .white
         products.translatesAutoresizingMaskIntoConstraints = false
@@ -48,5 +55,11 @@ extension RestaurantsViewController {
         products.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         products.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         products.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+}
+
+extension RestaurantsViewController: PresenterToViewRestaurantProtocol {
+    func SetProducts(products: [ProductData]) {
+        self.products.SetData(data: products)
     }
 }
