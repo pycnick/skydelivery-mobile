@@ -39,9 +39,9 @@ class MainViewController: UIViewController {
     
     @IBAction func openProfile() {
         print("change location")
-//        self.navigationController?.pushViewController(LoginViewController(), animated: true)
-        let login = SignupView()
-        self.view.addSubview(login)
+        self.navigationController?.pushViewController(ProfileRouter.createModule(), animated: true)
+//        let login = SignupView()
+//        self.view.addSubview(ProfileViewController)
     }
     
     @IBAction func openBasket() {
@@ -65,7 +65,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController {
     func setupUI() {
-        HTTPCookieStorage.shared.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
+//        HTTPCookieStorage.shared.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
         overrideUserInterfaceStyle = .light
         
         self.view.addSubview(restaurantsLabel)

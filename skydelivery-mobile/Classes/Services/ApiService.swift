@@ -26,12 +26,17 @@ class ApiManager {
     }
     
     // MARK: internal methods
-    func IsAuthenticated() -> Bool {
-        if HTTPCookieStorage.shared.cookies?.count != 0 {
-            return true
-        }
-        
-        return false
+    func IsAuthenticated(completition: @escaping (Bool) -> Void) {
+        Alamofire
+            .request(self.host + "/profile")
+            .response { (response) in
+                switch response.response?.statusCode {
+                case 200:
+                    completition(true)
+                default:
+                    completition(false)
+                }
+            }
     }
     
     // MARK: login and signup methods
@@ -92,6 +97,16 @@ class ApiManager {
         Alamofire
             .request(self.host + "/rest_tags")
             .responseObject { (response: DataResponse<Tags>) in
+                completion(response.value)
+            }
+    }
+    
+    func GetProfile(completion: @escaping (Profile?) -> Void) {
+        Alamofire
+            .request(self.host + "/profile")
+            .responseObject { (response: DataResponse<Profile>) in
+                print(response.debugDescription)
+                print(response.response?.statusCode)
                 completion(response.value)
             }
     }
