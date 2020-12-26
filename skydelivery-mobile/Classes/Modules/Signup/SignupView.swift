@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignupView: UIView {
+class SignUpView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animateOut)))
@@ -16,7 +16,21 @@ class SignupView: UIView {
         animateIn()
     }
     
+    var presenter: ViewToPresenterSignUpProtocol?
+    
     @objc fileprivate func animateOut() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.container.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
+            self.alpha = 0
+        }) { (complete) in
+            if complete {
+                self.removeFromSuperview()
+            }
+        }
+    }
+    
+    @objc fileprivate func animateLogin() {
+        self.superview?.addSubview(LoginView())
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.container.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
             self.alpha = 0
@@ -34,6 +48,10 @@ class SignupView: UIView {
             self.container.transform = .identity
             self.alpha = 1
         })
+    }
+    
+    @IBAction func processSignUp() {
+        presenter?.showSignUp(req: SignUpRequest(firstname: "Nik", lastname: "Os", phone: "79999999999", password: "password"))
     }
     
     required init?(coder: NSCoder) {
@@ -54,6 +72,7 @@ class SignupView: UIView {
     lazy var pswd2Input =  Input(text: "", placeholder: "Пароль", fontSize: CGFloat(20));
     
     lazy var submitButton = Button(title: "Зарегестрироваться", font: UIFont(name: "Arial", size: 20)!)
+    lazy var loginButton = Button(title: "Регистрация", font: UIFont(name: "Arial", size: 20)!)
     
 //    fileprivate lazy var stack: UIStackView = {
 //        let stack = UIStackView(arrangedSubviews: [firstNameTitle, firstNameInput, surNameTitle, surNameInput, phoneTitle, phoneInput, pswd1Title, pswd1Input, pswd2Title, pswd2Input, submitButton])
@@ -74,7 +93,7 @@ class SignupView: UIView {
     }()
 }
 
-extension SignupView {
+extension SignUpView {
     func setupUI(){
         overrideUserInterfaceStyle = .light
         
@@ -104,6 +123,7 @@ extension SignupView {
         container.addSubview(pswd2Title)
         container.addSubview(pswd2Input)
         container.addSubview(submitButton)
+        container.addSubview(loginButton)
         
         self.addSubview(container)
         
@@ -112,15 +132,7 @@ extension SignupView {
         
         
         container.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
-        
         container.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7).isActive = true
-        
-
-        
-//        stack.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
-//        stack.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-//        stack.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
-//        stack.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.5).isActive = true
         
         
         phoneTitle.textColor = .white
@@ -191,6 +203,20 @@ extension SignupView {
         submitButton.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -20).isActive = true
         submitButton.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 20).isActive = true
         submitButton.topAnchor.constraint(equalTo: pswd2Input.bottomAnchor, constant: 40).isActive = true
+        
+        submitButton.addTarget(self, action: #selector(self.processSignUp), for: .touchUpInside)
+        
+        loginButton.rightAnchor.constraint(equalTo: submitButton.rightAnchor, constant: -20).isActive = true
+        loginButton.leftAnchor.constraint(equalTo: submitButton.leftAnchor, constant: 20).isActive = true
+        loginButton.topAnchor.constraint(equalTo: submitButton.topAnchor, constant: 30).isActive = true
+
+        loginButton.addTarget(self, action: #selector(self.animateLogin), for: .touchUpInside)
     }
 }
 
+extension SignUpView: PresenterToViewSignUpProtocol {
+    func removeSelfView() {
+        self.window?.rootViewController?.loadView()
+        self.animateOut()
+    }
+}

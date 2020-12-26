@@ -8,9 +8,8 @@
 import UIKit
 
 struct TagData {
+    var id: Int
     var title: String
-    var url: String
-    var backgroundImage: UIImage
 }
 
 class TagCell: UICollectionViewCell {

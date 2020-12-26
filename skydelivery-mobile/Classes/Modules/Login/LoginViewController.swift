@@ -27,6 +27,19 @@ class LoginView: UIView {
         }
     }
     
+    @objc fileprivate func animateSignUp() {
+        let view = SignUpRouter.createView()
+        self.superview?.addSubview(view)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.container.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
+            self.alpha = 0
+        }) { (complete) in
+            if complete {
+                self.removeFromSuperview()
+            }
+        }
+    }
+    
     @objc fileprivate func animateIn() {
         self.container.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
         self.alpha = 0
@@ -48,6 +61,7 @@ class LoginView: UIView {
     lazy var pswdInput =  Input(text: "", placeholder: "Пароль", fontSize: CGFloat(20));
     
     lazy var submitButton = Button(title: "Войти", font: UIFont(name: "Arial", size: 20)!)
+    lazy var signUpButton = Button(title: "Регистрация", font: UIFont(name: "Arial", size: 20)!)
     
 //    fileprivate lazy var stack: UIStackView = {
 //        let stack = UIStackView(arrangedSubviews: [phoneTitle, phoneInput, pswdTitle, pswdInput, submitButton])
@@ -100,6 +114,7 @@ extension LoginView {
         container.addSubview(pswdTitle)
         container.addSubview(pswdInput)
         container.addSubview(submitButton)
+        container.addSubview(signUpButton)
         
 //        stack.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
 //        stack.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
@@ -137,6 +152,12 @@ extension LoginView {
         submitButton.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -20).isActive = true
         submitButton.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 20).isActive = true
         submitButton.topAnchor.constraint(equalTo: pswdInput.bottomAnchor, constant: 40).isActive = true
+        
+        signUpButton.rightAnchor.constraint(equalTo: submitButton.rightAnchor, constant: -20).isActive = true
+        signUpButton.leftAnchor.constraint(equalTo: submitButton.leftAnchor, constant: 20).isActive = true
+        signUpButton.topAnchor.constraint(equalTo: submitButton.topAnchor, constant: 40).isActive = true
+        
+        signUpButton.addTarget(self, action: #selector(self.animateSignUp), for: .touchUpInside)
     }
 }
 

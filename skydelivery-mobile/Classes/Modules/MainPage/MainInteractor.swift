@@ -36,9 +36,39 @@ class MainInteractor: PresenterToInteractorMainProtocol {
     }
     
     func LoadRecommendations() {
+        var restData = [RestaurantData]()
         
+        self.api.GetRecommendations(count: 2) { (restaurants) in
+            if let list = restaurants?.List! {
+                for restaurant in list {
+                    var data = RestaurantData(title: restaurant.Name!, url: restaurant.Description!, backgroundImage: UIImage())
+                    
+                    self.api.GetImage(url: restaurant.Image!) { (image) in
+                        if image != nil {
+                            data.backgroundImage = image!
+                        } else {
+                            print("error image nil")
+                        }
+                        
+                        restData.append(data)
+                        self.presenter?.UpdateRecommendations(data: restData)
+                    }
+                }
+            }
+        }
     }
     
     func LoadTags() {
+        var tagsData = [TagData]()
+        
+        self.api.GetTags { (tags) in
+            if let list = tags?.List! {
+                for tag in list {
+                    tagsData.append(TagData(id: tag.ID!, title: tag.Name!))
+                }
+                
+                self.presenter?.UpdateTags(data: tagsData)
+            }
+        }
     }
 }

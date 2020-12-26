@@ -29,10 +29,17 @@ class TagCarousel: UICollectionView {
         self.callback = callback
     }
     
+    func SetData(data: [TagData]) {
+        self.data.removeAll()
+        self.data = data
+        
+        self.reloadData()
+    }
+    
     var data = [
-        TagData(title: "Суши", url: "maxcodes.io/enroll", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        TagData(title: "Пицца", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        TagData(title: "Бургеры", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
+        TagData(id: 0, title: "Суши"),
+        TagData(id: 0, title: "Пицца"),
+        TagData(id: 0, title: "Бургеры"),
     ]
     
     var callback: (() -> ())?

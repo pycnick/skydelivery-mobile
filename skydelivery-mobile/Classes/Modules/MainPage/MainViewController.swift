@@ -8,39 +8,36 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
         presenter?.viewDidLoad()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("will appear")
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        print("dissappear")
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func openRestaurantPage(restaurant: Restaurant) {
-        print("change location")
         self.navigationController?.pushViewController(RestaurantsViewController(restaurant: restaurant), animated: true)
     }
     
     func openCategoryRestaurant() {
-        print("change location")
         self.navigationController?.pushViewController(CategoryViewController(), animated: true)
     }
     
     @IBAction func openProfile() {
-        print("change location")
 //        self.navigationController?.pushViewController(LoginViewController(), animated: true)
-        let login = SignupView()
+        let login = LoginView()
         self.view.addSubview(login)
     }
     
@@ -65,7 +62,6 @@ class MainViewController: UIViewController {
 
 extension MainViewController {
     func setupUI() {
-        HTTPCookieStorage.shared.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
         overrideUserInterfaceStyle = .light
         
         self.view.addSubview(restaurantsLabel)
@@ -96,21 +92,20 @@ extension MainViewController {
         categoryCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
         categoryCarousel.heightAnchor.constraint(equalToConstant: view.frame.width/8).isActive = true
         
-        self.view.addSubview(recommendationsLabel)
-        recommendationsLabel.translatesAutoresizingMaskIntoConstraints = false
-        recommendationsLabel.topAnchor.constraint(equalTo: categoryCarousel.bottomAnchor, constant: 40).isActive = true
-        recommendationsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
-        recommendationsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
-
-        self.view.addSubview(recomendationsCarousel)
-        recomendationsCarousel.backgroundColor = .white
-        recomendationsCarousel.translatesAutoresizingMaskIntoConstraints = false
-        recomendationsCarousel.topAnchor.constraint(equalTo: recommendationsLabel.bottomAnchor, constant: 20).isActive = true
-        recomendationsCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
-        recomendationsCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
-        recomendationsCarousel.heightAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+//        self.apiManager.LogIn(req: LogInRequest(username: "79150421496", password: "password")) { (data) in
+//            print(data)
+//        }
         
-        if self.apiManager.IsAuthenticated() {
+        self.apiManager.IsAuthenticated { (state) in
+            if !state {
+                let button = UIButton(frame: CGRect(x: 350, y: 60, width: 50, height: 50))
+                self.view.addSubview(button)
+                button.setImage(#imageLiteral(resourceName: "icons8-male_user"), for: .normal)
+                button.addTarget(self, action: #selector(self.openProfile), for: .touchUpInside)
+                
+                return
+            }
+            
             let button = UIButton(frame: CGRect(x: 350, y: 60, width: 50, height: 50))
             self.view.addSubview(button)
             button.setImage(#imageLiteral(resourceName: "icons8-male_user"), for: .normal)
@@ -120,11 +115,20 @@ extension MainViewController {
             self.view.addSubview(button1)
             button1.setImage(#imageLiteral(resourceName: "icons8-basketball_net"), for: .normal)
             button1.addTarget(self, action: #selector(self.openBasket), for: .touchUpInside)
-        } else {
-            let button = UIButton(frame: CGRect(x: 350, y: 60, width: 50, height: 50))
-            self.view.addSubview(button)
-            button.setImage(#imageLiteral(resourceName: "icons8-male_user"), for: .normal)
-            button.addTarget(self, action: #selector(self.openProfile), for: .touchUpInside)
+            
+            self.view.addSubview(self.recommendationsLabel)
+            self.recommendationsLabel.translatesAutoresizingMaskIntoConstraints = false
+            self.recommendationsLabel.topAnchor.constraint(equalTo: self.categoryCarousel.bottomAnchor, constant: 40).isActive = true
+            self.recommendationsLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30).isActive = true
+            self.recommendationsLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30).isActive = true
+
+            self.view.addSubview(self.recomendationsCarousel)
+            self.recomendationsCarousel.backgroundColor = .white
+            self.recomendationsCarousel.translatesAutoresizingMaskIntoConstraints = false
+            self.recomendationsCarousel.topAnchor.constraint(equalTo: self.recommendationsLabel.bottomAnchor, constant: 20).isActive = true
+            self.recomendationsCarousel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 5).isActive = true
+            self.recomendationsCarousel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -5).isActive = true
+            self.recomendationsCarousel.heightAnchor.constraint(equalToConstant: self.view.frame.width/2).isActive = true
         }
     }
 }
@@ -132,5 +136,13 @@ extension MainViewController {
 extension MainViewController: PresenterToViewMainProtocol {
     func SetRestaurants(restaurants: [RestaurantData]) {
         self.restaurantsCarousel.SetData(data: restaurants)
+    }
+    
+    func SetTags(tags: [TagData]) {
+        self.categoryCarousel.SetData(data: tags)
+    }
+    
+    func SetRecommendations(restaurants: [RestaurantData]) {
+        self.recomendationsCarousel.SetData(data: restaurants)
     }
 }

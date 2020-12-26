@@ -18,6 +18,8 @@ protocol PresenterToViewMainProtocol: class {
 //
 //    func deselectRowAt(row: Int)
     func SetRestaurants(restaurants: [RestaurantData])
+    func SetTags(tags: [TagData])
+    func SetRecommendations(restaurants: [RestaurantData])
 }
 
 
@@ -70,7 +72,8 @@ protocol InteractorToPresenterMainProtocol: class {
 //    func getQuoteSuccess(_ quote: Quote)
 //    func getQuoteFailure()
     func UpdateRestaurants(data: [RestaurantData])
-    
+    func UpdateTags(data: [TagData])
+    func UpdateRecommendations(data: [RestaurantData])
 }
 
 

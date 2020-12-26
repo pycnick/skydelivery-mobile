@@ -26,12 +26,17 @@ class ApiManager {
     }
     
     // MARK: internal methods
-    func IsAuthenticated() -> Bool {
-        if HTTPCookieStorage.shared.cookies?.count != 0 {
-            return true
-        }
-        
-        return false
+    func IsAuthenticated(completion: @escaping (Bool) -> Void) {
+        Alamofire
+            .request(self.host + "/profile")
+            .response { (response) in
+                switch response.response?.statusCode {
+                case 200:
+                    completion(true)
+                default:
+                    completion(false)
+                }
+            }
     }
     
     // MARK: login and signup methods
@@ -98,7 +103,14 @@ class ApiManager {
     
     // MARK: Methods that need authentication
     
-//    func GetRecommendations()
+    func GetRecommendations(count: Int, completion: @escaping (Restaurants?) -> Void) {
+        Alamofire
+            .request(self.host + "/restaurants_recommendations?count=\(count)")
+            .responseObject { (response: DataResponse<Restaurants>) in
+                print(response.debugDescription)
+                completion(response.value)
+            }
+    }
     
     
 }
