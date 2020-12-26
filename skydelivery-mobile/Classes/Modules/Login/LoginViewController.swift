@@ -93,6 +93,8 @@ extension LoginView {
         
         container.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive = true
         
+        pswdInput.isSecureTextEntry = true
+        
         container.addSubview(phoneTitle)
         container.addSubview(phoneInput)
         container.addSubview(pswdTitle)

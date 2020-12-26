@@ -66,7 +66,8 @@ class SignupView: UIView {
     fileprivate lazy var container: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = UIColor.gray.withAlphaComponent(0.6)
+//        v.backgroundColor = UIColor.gray.withAlphaComponent(0.6)
+        v.backgroundColor = UIColor.white.withAlphaComponent(0.6)
         v.layer.cornerRadius = 24
         
         return v
@@ -88,6 +89,9 @@ extension SignupView {
         self.addSubview(blurEffectView)
         
         self.frame = UIScreen.main.bounds
+        
+        pswd1Input.isSecureTextEntry = true
+        pswd2Input.isSecureTextEntry = true
         
         container.addSubview(firstNameTitle)
         container.addSubview(firstNameInput)
