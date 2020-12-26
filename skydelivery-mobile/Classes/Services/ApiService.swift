@@ -13,6 +13,7 @@ import AlamofireImage
 class ApiManager {
     let host: String
     let imageHost: String
+    var token: String?
     
     static var shared: ApiManager = {
         let instance = ApiManager()
@@ -26,7 +27,7 @@ class ApiManager {
     
     // MARK: internal methods
     func IsAuthenticated() -> Bool {
-        if HTTPCookieStorage.shared.cookies != nil {
+        if HTTPCookieStorage.shared.cookies?.count != 0 {
             return true
         }
         
@@ -45,8 +46,11 @@ class ApiManager {
                                  method: .post,
                                  parameters: params,
                                  encoding: JSONEncoding.default)
-            .responseJSON { (data) in
-                print(data.response?.allHeaderFields["X-Csrf-Token"])
+            .responseObject { (response: DataResponse<Error>) in
+                if let headers = response.response?.allHeaderFields as? [String: String] {
+                    self.token = headers["X-csrf-Token"]
+                }
+                completition(response.value)
             }
     }
     
@@ -83,6 +87,18 @@ class ApiManager {
                 completion(response.result.value)
             }
     }
+    
+    func GetTags(completion: @escaping (Tags?) -> Void) {
+        Alamofire
+            .request(self.host + "/rest_tags")
+            .responseObject { (response: DataResponse<Tags>) in
+                completion(response.value)
+            }
+    }
+    
+    // MARK: Methods that need authentication
+    
+//    func GetRecommendations()
     
     
 }

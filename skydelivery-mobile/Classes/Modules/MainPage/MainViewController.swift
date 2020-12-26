@@ -13,6 +13,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        presenter?.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +49,8 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Properties
+    
+    var presenter: ViewToPresenterMainProtocol?
     lazy var restaurantsLabel = Title(text: "Рестораны", font: UIFont(name: "Arial", size: 40)!)
     lazy var restaurantsCarousel = RestaurantsCarousel(callback: openRestaurantPage)
     
@@ -61,6 +65,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController {
     func setupUI() {
+        HTTPCookieStorage.shared.cookies?.forEach(HTTPCookieStorage.shared.deleteCookie)
         overrideUserInterfaceStyle = .light
         
         self.view.addSubview(restaurantsLabel)
@@ -105,35 +110,27 @@ extension MainViewController {
         recomendationsCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
         recomendationsCarousel.heightAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
         
-        let button = UIButton(frame: CGRect(x: 350, y: 60, width: 50, height: 50))
-        self.view.addSubview(button)
-        button.setImage(#imageLiteral(resourceName: "icons8-male_user"), for: .normal)
-        button.addTarget(self, action: #selector(self.openProfile), for: .touchUpInside)
-        
-        let button1 = UIButton(frame: CGRect(x: 280, y: 60, width: 50, height: 50))
-        self.view.addSubview(button1)
-        button1.setImage(#imageLiteral(resourceName: "icons8-basketball_net"), for: .normal)
-        button1.addTarget(self, action: #selector(self.openBasket), for: .touchUpInside)
-        
-        var restData = [RestaurantData]()
-        
-        self.apiManager.GetRestaurants(req: GetRestaurantsRequest(page: 1, count: 2)) { (restaurants) in
-            if let list = restaurants?.List! {
-                for restaurant in list {
-                    var data = RestaurantData(title: restaurant.Name!, url: restaurant.Description!, backgroundImage: UIImage())
-                    
-                    self.apiManager.GetImage(url: restaurant.Image!) { (image) in
-                        if image != nil {
-                            data.backgroundImage = image!
-                        } else {
-                            print("error image nil")
-                        }
-                        
-                        restData.append(data)
-                        self.restaurantsCarousel.SetData(data: restData)
-                    }
-                }
-            }
+        if self.apiManager.IsAuthenticated() {
+            let button = UIButton(frame: CGRect(x: 350, y: 60, width: 50, height: 50))
+            self.view.addSubview(button)
+            button.setImage(#imageLiteral(resourceName: "icons8-male_user"), for: .normal)
+            button.addTarget(self, action: #selector(self.openProfile), for: .touchUpInside)
+            
+            let button1 = UIButton(frame: CGRect(x: 280, y: 60, width: 50, height: 50))
+            self.view.addSubview(button1)
+            button1.setImage(#imageLiteral(resourceName: "icons8-basketball_net"), for: .normal)
+            button1.addTarget(self, action: #selector(self.openBasket), for: .touchUpInside)
+        } else {
+            let button = UIButton(frame: CGRect(x: 350, y: 60, width: 50, height: 50))
+            self.view.addSubview(button)
+            button.setImage(#imageLiteral(resourceName: "icons8-male_user"), for: .normal)
+            button.addTarget(self, action: #selector(self.openProfile), for: .touchUpInside)
         }
+    }
+}
+
+extension MainViewController: PresenterToViewMainProtocol {
+    func SetRestaurants(restaurants: [RestaurantData]) {
+        self.restaurantsCarousel.SetData(data: restaurants)
     }
 }

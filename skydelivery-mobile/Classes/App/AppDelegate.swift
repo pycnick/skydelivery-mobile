@@ -13,11 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let main = MainViewController()
-        
         window = UIWindow()
         window?.backgroundColor = .white
-        window?.rootViewController = UINavigationController(rootViewController: main)
+        window?.rootViewController = MainRouter.createModule()
         window?.makeKeyAndVisible()
         
         return true
