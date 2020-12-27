@@ -8,24 +8,20 @@
 import UIKit
 
 struct CartProductData {
-    var title: String
-    var price: Int
+    var product: Product
     var count: Int
-    var backgroundImage: UIImage
 }
 
 class CartCell: UICollectionViewCell {
     var data: CartProductData? {
         didSet {
             guard let data = data else { return }
-            bg.image = data.backgroundImage
-            title.text = data.title
-            price.text = "\(data.price * data.count) ₽"
+            bg.image = #imageLiteral(resourceName: "mcdonalds-Celebrations-McFlurry")
+            title.text = data.product.Name
+            price.text = "\(Int(data.product.Price!) * data.count) ₽"
             count.text = "\(data.count)"
         }
     }
-    
-    weak var parentView : CartCollection?
     
     fileprivate let bg: UIImageView = {
         let iv = UIImageView()
@@ -100,23 +96,23 @@ class CartCell: UICollectionViewCell {
     
     @objc
     private func addOne(sender: UIButton!) {
-        data?.count += 1
-        
-        let index = self.parentView?.indexPath(for: self)
-        self.parentView?.data[index!.row].count += 1
-        self.parentView?.controller?.refreshFullPrice()
+//        data?.count += 1
+//
+//        let index = self.parentView?.indexPath(for: self)
+//        self.parentView?.data[index!.row].count += 1
+//        self.parentView?.controller?.refreshFullPrice()
     }
 
     @objc
     private func removeOne(sender: UIButton!) {
-        if data?.count ?? 0 - 1 <= 1 {
-            self.parentView?.removeCell(self)
-            
-            return
-        }
-        data?.count -= 1
-        let index = self.parentView?.indexPath(for: self)
-        self.parentView?.data[index!.row].count -= 1
-        self.parentView?.controller?.refreshFullPrice()
+//        if data?.count ?? 0 - 1 <= 1 {
+//            self.parentView?.removeCell(self)
+//
+//            return
+//        }
+//        data?.count -= 1
+//        let index = self.parentView?.indexPath(for: self)
+//        self.parentView?.data[index!.row].count -= 1
+//        self.parentView?.controller?.refreshFullPrice()
     }
 }

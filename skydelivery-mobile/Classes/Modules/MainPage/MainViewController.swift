@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func openBasket() {
-        self.navigationController?.pushViewController(CartControllerView(), animated: true)
+        self.navigationController?.pushViewController(CartRouter.createView(), animated: true)
     }
     
     // MARK: - Properties

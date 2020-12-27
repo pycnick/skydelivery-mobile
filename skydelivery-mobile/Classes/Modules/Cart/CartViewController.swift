@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CartControllerView : UIViewController {
+class CartViewController : UIViewController {
     var fullPrice : Int? {
         didSet {
             if fullPrice == 0 {
@@ -19,9 +19,12 @@ class CartControllerView : UIViewController {
         }
     }
     
+    var presenter: ViewToPresenterCartProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        presenter?.viewDidLoad()
     }
     
     lazy var cartLabel = Title(text: "Корзина", font: UIFont(name: "Arial", size: 40)!)
@@ -30,21 +33,20 @@ class CartControllerView : UIViewController {
     lazy var cartSubmitLabel = Title(text: "Оформить заказ", font: UIFont(name: "Arial", size: 18)!)
     lazy var cartPriceLabel = Title(text: "0 ₽", font: UIFont(name: "Arial", size: 18)!)
     
-    public func refreshFullPrice() {
-        var temp = 0
-        cartCollection.data.forEach { (data: CartProductData) in
-            temp += data.price * data.count
-        }
-        
-        fullPrice = temp
-    }
+//    public func refreshFullPrice() {
+//        var temp = 0
+//        cartCollection.data.forEach { (data: CartProductData) in
+//            temp += data.price * data.count
+//        }
+//
+//        fullPrice = temp
+//    }
 }
 
-extension CartControllerView {
+extension CartViewController {
     func setupUI() {
         overrideUserInterfaceStyle = .light
         view.backgroundColor = .white
-        cartCollection.controller = self
         
         self.view.addSubview(cartLabel)
         cartLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -52,19 +54,19 @@ extension CartControllerView {
         cartLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         cartLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         
-        if cartCollection.data.isEmpty {
-            let emptyLabel = UILabel()
-            self.view.addSubview(emptyLabel)
-            emptyLabel.font = UIFont(name: "Arial", size: 20)
-            emptyLabel.numberOfLines = 3
-            emptyLabel.text = "Корзина пуста"
-            
-            emptyLabel.translatesAutoresizingMaskIntoConstraints = false
-            emptyLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-            emptyLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-            
-            return
-        }
+//        if cartCollection.data.isEmpty {
+//            let emptyLabel = UILabel()
+//            self.view.addSubview(emptyLabel)
+//            emptyLabel.font = UIFont(name: "Arial", size: 20)
+//            emptyLabel.numberOfLines = 3
+//            emptyLabel.text = "Корзина пуста"
+//
+//            emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+//            emptyLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+//            emptyLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+//
+//            return
+//        }
         
         self.view.addSubview(cartCollection)
         cartCollection.translatesAutoresizingMaskIntoConstraints = false
@@ -92,5 +94,11 @@ extension CartControllerView {
         cartPriceLabel.rightAnchor.constraint(equalTo: cartSubmit.rightAnchor, constant: -10).isActive = true
         cartPriceLabel.centerYAnchor.constraint(equalTo: cartSubmit.centerYAnchor).isActive = true
         cartPriceLabel.textColor = .white
+    }
+}
+
+extension CartViewController: PresenterToViewCartProtocol {
+    func SetCartProducts(products: [CartProductData]) {
+        self.cartCollection.SetData(data: products)
     }
 }
