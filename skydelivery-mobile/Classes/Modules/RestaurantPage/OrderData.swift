@@ -75,7 +75,15 @@ class OrderStorage {
         return 0
     }
     
-    func getOrder() {
+    func cleanCart() {
+        storage.setValue([:], forKey: storageName)
+    }
+    
+    func getOrder() -> Dictionary<String, Int> {
+        if let obj = storage.object(forKey: storageName) {
+            return obj as! Dictionary<String, Int>
+        }
         
+        return [:]
     }
 }

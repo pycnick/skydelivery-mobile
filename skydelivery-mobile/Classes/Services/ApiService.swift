@@ -163,6 +163,15 @@ class ApiManager {
             }
     }
     
+    func GetProduct(prodID: Int, completion: @escaping (Product?) -> Void) {
+        Alamofire
+            .request(self.host + "/products/\(prodID)")
+            .responseObject { (response: DataResponse<Product>) in
+                print(response.debugDescription)
+                completion(response.value)
+            }
+    }
+    
     
 }
 
