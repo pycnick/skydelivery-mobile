@@ -17,7 +17,7 @@ class ProductsCarousel: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         
         layout.scrollDirection = .vertical
-        
+                
         super.init(frame: .zero, collectionViewLayout: layout)
         
         self.showsHorizontalScrollIndicator = false
@@ -61,9 +61,4 @@ extension ProductsCarousel: UICollectionViewDelegateFlowLayout, UICollectionView
         cell.data = self.data[indexPath.item]
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.callback?()
-    }
-    
 }

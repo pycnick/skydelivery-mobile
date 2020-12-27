@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("will appear")
+        self.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 

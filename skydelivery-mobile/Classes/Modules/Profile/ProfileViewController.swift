@@ -22,20 +22,37 @@ class ProfileViewController: UIViewController {
     lazy var emailTitle = Title(text: "Электронная почта", font: UIFont(name: "Arial", size:20)!)
     lazy var phoneTitle = Title(text: "Телефон", font: UIFont(name: "Arial", size: 20)!)
     
-    lazy var nameInput =  Input(text: "Филипп", placeholder: "Имя", fontSize: CGFloat(15));
+    lazy var nameInput =  Input(text: "", placeholder: "Имя", fontSize: CGFloat(15));
 
     lazy var surnameInput =  Input(text: "", placeholder: "Фамилия", fontSize: CGFloat(15))
-    lazy var emailInput =  Input(text: "philipp-is@yandex.ru", placeholder: "Электронная почта", fontSize: CGFloat(15))
-    lazy var phoneInput =  Input(text: "89009261549", placeholder: "Номер телефона", fontSize: CGFloat(15))
+    lazy var emailInput =  Input(text: "", placeholder: "Электронная почта", fontSize: CGFloat(15))
+    lazy var phoneInput =  Input(text: "", placeholder: "Номер телефона", fontSize: CGFloat(15))
     
     lazy var submitButton = Button(title: "Сохранить", font: UIFont(name: "Arial", size: 20)!)
 }
 
 extension ProfileViewController {
+    
+    @objc func setProfile(_ notification: NSNotification) {
+        if let dict = notification.userInfo as NSDictionary? {
+            self.nameInput.text = dict["firstName"] as! String
+            self.surnameInput.text = dict["secondName"] as! String
+            self.phoneInput.text = dict["phone"] as! String
+            self.emailInput.text = dict["email"] as! String
+        }
+    }
+    
+    @IBAction func processEditBio() {
+        presenter?.editProfile(req: ProfileRequest(firstname: nameInput.text ?? "", lastname: surnameInput.text ?? "", email: emailInput.text ?? ""))
+    }
+    
     func setupUI(){
         overrideUserInterfaceStyle = .light
         
         view.backgroundColor = .white
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setProfile(_:)), name: NSNotification.Name(rawValue: "setProfile"), object: nil)
+                
         
         self.view.addSubview(profileTitle)
         profileTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -98,6 +115,8 @@ extension ProfileViewController {
         submitButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -40).isActive = true
         submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
+        
+        submitButton.addTarget(self, action: #selector(self.processEditBio), for: .touchUpInside)
     }
 }
 
@@ -110,6 +129,6 @@ extension ProfileViewController: PresenterToViewProfileProtocol {
     }
     
     func ShowLogin() {
-        view.addSubview(LoginView())
+        view.addSubview(LogInRouter.createView())
     }
 }

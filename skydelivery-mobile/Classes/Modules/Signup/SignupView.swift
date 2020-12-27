@@ -51,7 +51,7 @@ class SignUpView: UIView {
     }
     
     @IBAction func processSignUp() {
-        presenter?.showSignUp(req: SignUpRequest(firstname: "Nik", lastname: "Os", phone: "79999999999", password: "password"))
+        presenter?.showSignUp(req: SignUpRequest(firstname: firstNameInput.text ?? "", lastname: surNameInput.text ?? "", phone: phoneInput.text ?? "", password: pswd1Input.text ?? ""))
     }
     
     required init?(coder: NSCoder) {
@@ -72,7 +72,7 @@ class SignUpView: UIView {
     lazy var pswd2Input =  Input(text: "", placeholder: "Пароль", fontSize: CGFloat(20));
     
     lazy var submitButton = Button(title: "Зарегестрироваться", font: UIFont(name: "Arial", size: 20)!)
-    lazy var loginButton = Button(title: "Регистрация", font: UIFont(name: "Arial", size: 20)!)
+    lazy var loginButton = Button(title: "Войти", font: UIFont(name: "Arial", size: 20)!)
     
 //    fileprivate lazy var stack: UIStackView = {
 //        let stack = UIStackView(arrangedSubviews: [firstNameTitle, firstNameInput, surNameTitle, surNameInput, phoneTitle, phoneInput, pswd1Title, pswd1Input, pswd2Title, pswd2Input, submitButton])
@@ -109,8 +109,9 @@ extension SignUpView {
         
         self.frame = UIScreen.main.bounds
         
-        pswd1Input.isSecureTextEntry = true
-        pswd2Input.isSecureTextEntry = true
+        
+//        pswd1Input.isSecureTextEntry = true
+//        pswd2Input.isSecureTextEntry = true
         
         container.addSubview(firstNameTitle)
         container.addSubview(firstNameInput)
@@ -132,7 +133,7 @@ extension SignUpView {
         
         
         container.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
-        container.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7).isActive = true
+        container.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.75).isActive = true
         
         
         phoneTitle.textColor = .white
@@ -206,17 +207,18 @@ extension SignUpView {
         
         submitButton.addTarget(self, action: #selector(self.processSignUp), for: .touchUpInside)
         
-        loginButton.rightAnchor.constraint(equalTo: submitButton.rightAnchor, constant: -20).isActive = true
-        loginButton.leftAnchor.constraint(equalTo: submitButton.leftAnchor, constant: 20).isActive = true
-        loginButton.topAnchor.constraint(equalTo: submitButton.topAnchor, constant: 30).isActive = true
+        loginButton.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -20).isActive = true
+        loginButton.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 20).isActive = true
+        loginButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 30).isActive = true
 
         loginButton.addTarget(self, action: #selector(self.animateLogin), for: .touchUpInside)
     }
 }
 
 extension SignUpView: PresenterToViewSignUpProtocol {
-    func removeSelfView() {
-        self.window?.rootViewController?.loadView()
+    func OnSuccessSignUp(profile: ProfileData) {
+        let profileDataDict:[String: String] = ["firstName": profile.firstName, "secondName": profile.surName, "phone": profile.phone, "email": profile.email]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setProfile"), object: nil, userInfo: profileDataDict)
         self.animateOut()
     }
 }

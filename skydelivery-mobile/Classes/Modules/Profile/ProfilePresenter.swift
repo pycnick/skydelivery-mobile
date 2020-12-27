@@ -18,6 +18,10 @@ extension ProfilePresenter: ViewToPresenterProfileProtocol {
     func viewDidLoad() {
         interactor?.LoadProfile()
     }
+    
+    func editProfile(req: ProfileRequest) {
+        interactor?.editProfile(request: req)
+    }
 }
 
 extension ProfilePresenter: InteractorToPresenterProfileProtocol {
@@ -29,4 +33,6 @@ extension ProfilePresenter: InteractorToPresenterProfileProtocol {
     func ShowLogin() {
         view?.ShowLogin()
     }
+    
 }
+

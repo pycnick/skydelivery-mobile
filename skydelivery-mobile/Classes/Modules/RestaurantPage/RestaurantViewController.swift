@@ -51,7 +51,7 @@ extension RestaurantsViewController {
         view.addSubview(products)
         products.backgroundColor = .white
         products.translatesAutoresizingMaskIntoConstraints = false
-        products.topAnchor.constraint(equalTo: restaurantsLabel!.bottomAnchor).isActive = true
+        products.topAnchor.constraint(equalTo: restaurantsLabel!.bottomAnchor, constant: 40).isActive = true
         products.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         products.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         products.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

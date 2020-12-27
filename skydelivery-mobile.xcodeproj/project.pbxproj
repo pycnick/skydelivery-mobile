@@ -64,6 +64,11 @@
 		DAF4A02125965BC500F9C93B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A02025965BC500F9C93B /* LoginViewController.swift */; };
 		DAF4A02725967F9E00F9C93B /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A02625967F9E00F9C93B /* SignupView.swift */; };
 		DAF4A02F25979C8700F9C93B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A02E25979C8700F9C93B /* Profile.swift */; };
+		DAF4A0422597F75400F9C93B /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A0412597F75300F9C93B /* LoginRouter.swift */; };
+		DAF4A0472597F76F00F9C93B /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A0462597F76F00F9C93B /* LoginPresenter.swift */; };
+		DAF4A04C2597F78100F9C93B /* LoginContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A04B2597F78100F9C93B /* LoginContracts.swift */; };
+		DAF4A0512597F79200F9C93B /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A0502597F79200F9C93B /* LoginInteractor.swift */; };
+		DAF4A0562598010900F9C93B /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF4A0552598010900F9C93B /* profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +153,11 @@
 		DAF4A02025965BC500F9C93B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DAF4A02625967F9E00F9C93B /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		DAF4A02E25979C8700F9C93B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		DAF4A0412597F75300F9C93B /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		DAF4A0462597F76F00F9C93B /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		DAF4A04B2597F78100F9C93B /* LoginContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContracts.swift; sourceTree = "<group>"; };
+		DAF4A0502597F79200F9C93B /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		DAF4A0552598010900F9C93B /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 		FD30963C5E55F6B9FA1DA841 /* Pods-skydelivery-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-skydelivery-mobile.debug.xcconfig"; path = "Target Support Files/Pods-skydelivery-mobile/Pods-skydelivery-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,6 +219,7 @@
 				842F61712594DAC700C796D9 /* signUp.swift */,
 				842F617D2594F7EB00C796D9 /* error.swift */,
 				842F61872595C91600C796D9 /* restaurants.swift */,
+				DAF4A0552598010900F9C93B /* profile.swift */,
 			);
 			path = ApiRequests;
 			sourceTree = "<group>";
@@ -424,6 +435,10 @@
 			isa = PBXGroup;
 			children = (
 				DAF4A02025965BC500F9C93B /* LoginViewController.swift */,
+				DAF4A0412597F75300F9C93B /* LoginRouter.swift */,
+				DAF4A0462597F76F00F9C93B /* LoginPresenter.swift */,
+				DAF4A04B2597F78100F9C93B /* LoginContracts.swift */,
+				DAF4A0502597F79200F9C93B /* LoginInteractor.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -632,12 +647,15 @@
 				84D6E3DB25682B540007A6F0 /* MainPresenter.swift in Sources */,
 				DA34A650256AB679006F49D0 /* Input.swift in Sources */,
 				DA34A663256AC6D2006F49D0 /* CategoryPresenter.swift in Sources */,
+				DAF4A04C2597F78100F9C93B /* LoginContracts.swift in Sources */,
 				DA34A66D256AC741006F49D0 /* CategoryViewController.swift in Sources */,
 				84D6E3D325682B4C0007A6F0 /* MainContracts.swift in Sources */,
 				DA34A646256AA74D006F49D0 /* ProfileViewController.swift in Sources */,
 				84D6E39A25682A810007A6F0 /* ViewController.swift in Sources */,
 				DA34A67C256ACEAC006F49D0 /* CategoryCell.swift in Sources */,
+				DAF4A0512597F79200F9C93B /* LoginInteractor.swift in Sources */,
 				842F616A2594D46900C796D9 /* login.swift in Sources */,
+				DAF4A0562598010900F9C93B /* profile.swift in Sources */,
 				842F61882595C91600C796D9 /* restaurants.swift in Sources */,
 				DA34A672256AC768006F49D0 /* CategoryInteractor.swift in Sources */,
 				84D6E416256A7E860007A6F0 /* TagCarousel.swift in Sources */,
@@ -667,7 +685,9 @@
 				84D6E3FD25687B650007A6F0 /* RestaurantCarousel.swift in Sources */,
 				84CF8422256BFA49002679C7 /* CartCell.swift in Sources */,
 				84CF8433256BFA69002679C7 /* CartCollection.swift in Sources */,
+				DAF4A0422597F75400F9C93B /* LoginRouter.swift in Sources */,
 				842F61832595C68A00C796D9 /* Product.swift in Sources */,
+				DAF4A0472597F76F00F9C93B /* LoginPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

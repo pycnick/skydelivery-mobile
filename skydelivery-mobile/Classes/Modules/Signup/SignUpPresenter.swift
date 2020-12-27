@@ -14,8 +14,8 @@ class SignUpPresetnter {
 }
 
 extension SignUpPresetnter: InteractorToPresenterSignUpProtocol {
-    func OnSuccessSignUp() {
-        view?.removeSelfView()
+    func OnSuccessSignUp(profile: ProfileData) {
+        view?.OnSuccessSignUp(profile: profile)
     }
 }
 
