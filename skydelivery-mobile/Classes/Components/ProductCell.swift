@@ -54,7 +54,7 @@ class ProductCell: UICollectionViewCell {
     @objc func addOne() {
         self.data?.countAdded += 1
         
-        // MARK: add 
+        // MARK: add
         if let id = self.data?.id {
             localStorage.addProduct(productID: id)
         }

@@ -39,7 +39,7 @@ class RestaurantsViewController: UIViewController {
 
 extension RestaurantsViewController {
     func setupUI() {
-        overrideUserInterfaceStyle = .light
+//        overrideUserInterfaceStyle = .light
         
         view.backgroundColor = .white
         self.view.addSubview(restaurantsLabel!)

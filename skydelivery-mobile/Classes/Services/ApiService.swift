@@ -163,6 +163,15 @@ class ApiManager {
             }
     }
     
+    func GetUserOrders(count: Int, page: Int, completion: @escaping (Orders?) -> Void) {
+        Alamofire
+            .request(self.host + "/orders?count=\(count)&page=\(page)")
+            .responseObject { (response: DataResponse<Orders>) in
+                print(response.debugDescription)
+                completion(response.value)
+            }
+    }
+    
     
 }
 

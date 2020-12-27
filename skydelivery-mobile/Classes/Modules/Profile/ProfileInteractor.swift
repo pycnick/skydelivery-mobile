@@ -62,5 +62,7 @@ class ProfileInteractor: PresenterToInteractorProfileProtocol {
             }
         }
     }
+    
+
 
 }
