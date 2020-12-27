@@ -20,12 +20,14 @@ extension CartInteractor: PresenterToInteractorCartProtocol {
         var data: [CartProductData] = []
         
         for x in dict {
-            api.GetProduct(prodID: Int(x.key)!) { (product) in
+            self.api.GetProduct(prodID: Int(x.key)!) { (product) in
                 data.append(CartProductData(product: product!, count: x.value))
+                
+                self.presenter?.UpdateCartProducts(data: data)
             }
+            
         }
         
-        presenter?.UpdateCartProducts(data: <#T##[CartProductData]#>)
     }
     
     func AddCartProduct(ID: Int) {
