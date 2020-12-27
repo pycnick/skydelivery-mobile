@@ -15,6 +15,9 @@ struct ProductData {
 }
 
 class ProductCell: UICollectionViewCell {
+    
+    var localStorage = OrderStorage.shared
+    
     var data: ProductData? {
         didSet {
             guard let data = data else { return }
@@ -50,6 +53,11 @@ class ProductCell: UICollectionViewCell {
     
     @objc func addOne() {
         self.data?.countAdded += 1
+        
+        // MARK: add 
+        if let id = self.data?.id {
+            localStorage.addProduct(productID: id)
+        }
         
         if let count = self.data?.countAdded {
             self.count.text = String(count)

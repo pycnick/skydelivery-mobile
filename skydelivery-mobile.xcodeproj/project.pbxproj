@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20805EF9659855B852314465 /* Pods_skydelivery_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B4DB3A027871A33DC86EB1 /* Pods_skydelivery_mobile.framework */; };
+		8402881A2598BD890039605F /* OrderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840288192598BD890039605F /* OrderData.swift */; };
 		8420C352258BE3D900B55FE4 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420C351258BE3D900B55FE4 /* ApiService.swift */; };
 		842F616A2594D46900C796D9 /* login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F61692594D46900C796D9 /* login.swift */; };
 		842F61722594DAC700C796D9 /* signUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F61712594DAC700C796D9 /* signUp.swift */; };
@@ -90,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		79B4DB3A027871A33DC86EB1 /* Pods_skydelivery_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_skydelivery_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		840288192598BD890039605F /* OrderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderData.swift; path = "skydelivery-mobile/Classes/Modules/RestaurantPage/OrderData.swift"; sourceTree = SOURCE_ROOT; };
 		8420C351258BE3D900B55FE4 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		842F61692594D46900C796D9 /* login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login.swift; sourceTree = "<group>"; };
 		842F61712594DAC700C796D9 /* signUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUp.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 		84D6E3CF25682B1A0007A6F0 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				840288192598BD890039605F /* OrderData.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				84D6E39625682A810007A6F0 /* AppDelegate.swift in Sources */,
 				DA34A641256AA738006F49D0 /* ProfileRouter.swift in Sources */,
 				DA34A668256AC6E5006F49D0 /* CategoryRouter.swift in Sources */,
+				8402881A2598BD890039605F /* OrderData.swift in Sources */,
 				DA34A65E256AC6BD006F49D0 /* CategoryContracts.swift in Sources */,
 				842F617E2594F7EB00C796D9 /* error.swift in Sources */,
 				84A49190256AD0100008FFB7 /* Restaurant.swift in Sources */,
