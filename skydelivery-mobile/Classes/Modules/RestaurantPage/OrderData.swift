@@ -8,12 +8,11 @@
 import Foundation
 
 let storageName = "CartStorage"
+let storageRestID = "CartStorageRestID"
 
 class OrderStorage {    
     static var shared: OrderStorage = {
         let instance = OrderStorage()
-        
-        instance.storage.removeObject(forKey: storageName)
         
         return instance
     }()
@@ -21,7 +20,21 @@ class OrderStorage {
     var storage = UserDefaults.standard
     
     func getRestaurantID() -> Int {
-        return 0
+        return storage.integer(forKey: storageRestID)
+    }
+    
+    func setRestaurantID(RestID: Int) {
+        return storage.set(RestID, forKey: storageRestID)
+    }
+    
+    func isEmptyCart() -> Bool {
+        if let obj = storage.object(forKey: storageName) {
+            let dict = obj as! Dictionary<String, Int>
+            
+            return dict.isEmpty
+        }
+        
+        return true
     }
     
     func addProduct(productID: String) -> Int {
