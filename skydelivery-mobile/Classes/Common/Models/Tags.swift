@@ -23,6 +23,11 @@ class Tag: Mappable {
     required init?(map: Map) {
     }
     
+    init(name: String, id: Int) {
+        Name = name
+        ID = id
+    }
+    
     var ID: Int?
     var Name: String?
     

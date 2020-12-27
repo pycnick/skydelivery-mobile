@@ -31,8 +31,9 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(RestaurantsViewController(restaurant: restaurant), animated: true)
     }
     
-    func openCategoryRestaurant() {
-        self.navigationController?.pushViewController(CategoryViewController(), animated: true)
+    func openCategoryRestaurant(tag: Tag) {
+        print(tag)
+        self.navigationController?.pushViewController(CategoryRouter.createModule(categoryId: tag.ID ?? 0), animated: true)
     }
     
     @IBAction func openProfile() {

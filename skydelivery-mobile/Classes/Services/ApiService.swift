@@ -117,6 +117,16 @@ class ApiManager {
             }
     }
     
+    func GetRestaurantsByTag(req: GetRestaurantsRequest, completion: @escaping (Restaurants?) -> Void) {
+        Alamofire
+            .request(self.host + "/restaurants?count=\(req.Count)&page=\(req.Page)&tag=\(req.Tag)")
+            .responseObject { (response: DataResponse<Restaurants>) in
+                print(response.debugDescription)
+                print(response.value)
+                completion(response.value)
+            }
+    }
+    
     func GetImage(url: String, completion: @escaping (UIImage?) -> Void){
         Alamofire
             .request(self.imageHost + url)
@@ -153,6 +163,7 @@ class ApiManager {
                 completion(response.value)
             }
     }
+    
     
     
 }

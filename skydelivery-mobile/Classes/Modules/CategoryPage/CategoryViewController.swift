@@ -11,10 +11,20 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        presenter?.viewDidLoad(id: Id)
+    }
+    
+    var Id: Int = 0
+    
+    var presenter: ViewToPresenterCategoryProtocol?
+    
+    func callback(restaurant: Restaurant)  {
+        self.navigationController?.pushViewController(RestaurantsViewController(restaurant: restaurant), animated: true)
     }
     
     lazy var categoryLabel = Title(text: "Рестораны", font: UIFont(name: "Arial", size: 40)!)
-    lazy var categoryCarousel = CategoryCarousel()
+    lazy var categoryCarousel = CategoryCarousel(callback: callback)
 }
 
 extension CategoryViewController {
@@ -37,5 +47,11 @@ extension CategoryViewController {
         categoryCarousel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 40).isActive = true
         categoryCarousel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         
+    }
+}
+
+extension CategoryViewController: PresenterToViewCategoryProtocol {
+    func SetRestaurants(data: [RestaurantData]) {
+        self.categoryCarousel.SetData(data: data)
     }
 }

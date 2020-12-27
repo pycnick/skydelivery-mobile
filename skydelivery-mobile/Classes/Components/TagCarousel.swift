@@ -12,7 +12,7 @@ class TagCarousel: UICollectionView {
         super.init(coder: coder)
     }
 
-    init(callback: (() -> ())?) {
+    init(callback: ((_ tag: Tag) -> ())?) {
         let layout = UICollectionViewFlowLayout()
         
         layout.scrollDirection = .horizontal
@@ -42,7 +42,7 @@ class TagCarousel: UICollectionView {
         TagData(id: 0, title: "Бургеры"),
     ]
     
-    var callback: (() -> ())?
+    var callback: ((_ tag: Tag) -> ())?
 }
 
 extension TagCarousel: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -60,7 +60,7 @@ extension TagCarousel: UICollectionViewDelegateFlowLayout, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.callback?()
+        self.callback?(Tag(name: self.data[indexPath.item].title, id: self.data[indexPath.item].id))
     }
     
 }
