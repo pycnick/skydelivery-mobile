@@ -7,11 +7,14 @@
 
 import Foundation
 
-class OrderStorage {
-    let storageName = "CartStorage"
-    
+let storageName = "CartStorage"
+
+class OrderStorage {    
     static var shared: OrderStorage = {
         let instance = OrderStorage()
+        
+        instance.storage.removeObject(forKey: storageName)
+        
         return instance
     }()
     
@@ -21,9 +24,9 @@ class OrderStorage {
         return 0
     }
     
-    func addProduct(productID: Int) -> Int {
+    func addProduct(productID: String) -> Int {
         if let obj = storage.object(forKey: storageName) {
-            var dict = obj as! Dictionary<Int, Int>
+            var dict = obj as! Dictionary<String, Int>
             if dict[productID] == nil {
                 dict[productID] = 1
             } else {
@@ -33,16 +36,16 @@ class OrderStorage {
             storage.setValue(dict, forKey: storageName)
             return dict[productID]!
         }
-
-        let newDict = [productID: 1]
-        storage.setValue(newDict, forKey: storageName)
+        
+        let newDict: [String:Int] = [productID: 1]
+        storage.set(newDict, forKey: storageName)
         
         return 1
     }
     
-    func deleteProduct(productID: Int) -> Int {
+    func deleteProduct(productID: String) -> Int {
         if let obj = storage.object(forKey: storageName) {
-            var dict = obj as! Dictionary<Int, Int>
+            var dict = obj as! Dictionary<String, Int>
             dict[productID]! -= 1
             if dict[productID]! <= 0 {
                 dict.removeValue(forKey: productID)

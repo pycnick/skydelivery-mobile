@@ -39,7 +39,9 @@ class ProductCell: UICollectionViewCell {
     
     @objc func removeOne() {
         self.data?.countAdded -= 1
-        
+        if let product = self.data {
+            localStorage.deleteProduct(productID: String(product.id))
+        }
         if let count = self.data?.countAdded {
             if count == 0 {
                 backToOrderButton()
@@ -56,7 +58,7 @@ class ProductCell: UICollectionViewCell {
         
         // MARK: add
         if let product = self.data {
-            localStorage.addProduct(productID: self.data!.id)
+            localStorage.addProduct(productID: String(product.id))
         }
         
         if let count = self.data?.countAdded {
@@ -69,7 +71,11 @@ class ProductCell: UICollectionViewCell {
     lazy var add = UIButton()
     
     @objc func order() {
-        data?.countAdded += 1
+        data?.countAdded = 1
+        
+        if let product = self.data {
+            localStorage.addProduct(productID: String(product.id))
+        }
         
         setupOrderedProduct()
     }
