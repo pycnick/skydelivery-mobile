@@ -16,6 +16,8 @@ class LoginView: UIView {
         animateIn()
     }
     
+    var presenter: ViewToPresenterLogInProtocol?
+    
     @objc fileprivate func animateOut() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.container.transform = CGAffineTransform(translationX: 0, y: -self.frame.height)
@@ -49,6 +51,10 @@ class LoginView: UIView {
         })
     }
     
+    @IBAction func processLogIn() {
+        presenter?.showLogIn(req: LogInRequest(username: phoneInput.text ?? "", password: self.pswdInput.text ?? ""))
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -74,7 +80,7 @@ class LoginView: UIView {
     fileprivate lazy var container: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = UIColor.gray.withAlphaComponent(0.6)
+        v.backgroundColor = UIColor.white.withAlphaComponent(0.6)
         v.layer.cornerRadius = 24
         
         return v
@@ -105,7 +111,7 @@ extension LoginView {
         
         container.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7).isActive = true
         
-        container.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive = true
+        container.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.45).isActive = true
         
         pswdInput.isSecureTextEntry = true
         
@@ -153,11 +159,21 @@ extension LoginView {
         submitButton.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 20).isActive = true
         submitButton.topAnchor.constraint(equalTo: pswdInput.bottomAnchor, constant: 40).isActive = true
         
-        signUpButton.rightAnchor.constraint(equalTo: submitButton.rightAnchor, constant: -20).isActive = true
-        signUpButton.leftAnchor.constraint(equalTo: submitButton.leftAnchor, constant: 20).isActive = true
-        signUpButton.topAnchor.constraint(equalTo: submitButton.topAnchor, constant: 40).isActive = true
+        submitButton.addTarget(self, action: #selector(self.processLogIn), for: .touchUpInside)
+        
+        signUpButton.rightAnchor.constraint(equalTo: container.rightAnchor, constant: -20).isActive = true
+        signUpButton.leftAnchor.constraint(equalTo: container.leftAnchor, constant: 20).isActive = true
+        signUpButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 40).isActive = true
         
         signUpButton.addTarget(self, action: #selector(self.animateSignUp), for: .touchUpInside)
+    }
+}
+
+extension LoginView: PresenterToViewLogInProtocol {
+    func OnSuccessLogIn(profile: ProfileData) {
+        let profileDataDict:[String: String] = ["firstName": profile.firstName, "secondName": profile.surName, "phone": profile.phone, "email": profile.email]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setProfile"), object: nil, userInfo: profileDataDict)
+        self.animateOut()
     }
 }
 

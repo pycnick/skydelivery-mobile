@@ -1,20 +1,20 @@
 //
-//  SignUpInteractor.swift
+//  LoginInteractor.swift
 //  skydelivery-mobile
 //
-//  Created by pycnick on 26.12.2020.
+//  Created by Филипп Исполатов on 27.12.2020.
 //
 
 import Foundation
 
-class SignUpInteractor {
-    var presenter: InteractorToPresenterSignUpProtocol?
+class LogInInteractor {
+    var presenter: InteractorToPresenterLogInProtocol?
     var api = ApiManager.shared
 }
 
-extension SignUpInteractor: PresenterToInteractorSignUpProtocol {
-    func SignUp(request: SignUpRequest) {
-        api.SignUp(req: request) { (error) in
+extension LogInInteractor: PresenterToInteractorLogInProtocol {
+    func LogIn(request: LogInRequest) {
+        api.LogIn(req: request) { (error) in
             if let message = error?.Error {
                 print(message)
             }
@@ -26,12 +26,12 @@ extension SignUpInteractor: PresenterToInteractorSignUpProtocol {
                     prof.surName = (profile?.User?.LastName)!
                     prof.phone = (profile?.User?.Phone)!
                     prof.email = (profile?.User?.Email)!
-                    self.presenter?.OnSuccessSignUp(profile: prof)
+                    self.presenter?.OnSuccessLogIn(profile: prof)
                 }
             }
         }
         
-        print("SignUp")
+        print("LogIn")
         
     }
 }

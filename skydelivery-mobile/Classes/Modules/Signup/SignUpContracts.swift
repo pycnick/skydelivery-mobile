@@ -19,7 +19,7 @@ protocol PresenterToViewSignUpProtocol: class {
 //    func SetRestaurants(restaurants: [RestaurantData])
 //    func SetTags(tags: [TagData])
 //    func SetRecommendations(restaurants: [RestaurantData])
-    func removeSelfView()
+    func OnSuccessSignUp(profile: ProfileData)
 }
 
 
@@ -79,7 +79,7 @@ protocol InteractorToPresenterSignUpProtocol: class {
 //    func UpdateTags(data: [TagData])
 //    func UpdateRecommendations(data: [RestaurantData])
     
-    func OnSuccessSignUp()
+    func OnSuccessSignUp(profile: ProfileData)
 }
 
 

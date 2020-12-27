@@ -54,7 +54,7 @@ class ApiManager {
                                  encoding: JSONEncoding.default)
             .responseObject { (response: DataResponse<Error>) in
                 if let headers = response.response?.allHeaderFields as? [String: String] {
-                    self.token = headers["X-csrf-Token"]
+                    self.token = headers["X-Csrf-Token"]
                 }
                 completition(response.value)
             }
@@ -70,6 +70,37 @@ class ApiManager {
                                  parameters: params,
                                  encoding: JSONEncoding.default)
             .responseObject { (response: DataResponse<Error>) in
+                let value = response.value
+                if let headers = response.response?.allHeaderFields as? [String: String] {
+                    print(headers)
+                    self.token = headers["X-Csrf-Token"]
+                }
+                completion(value)
+            }
+    }
+    
+    func EditProfile(req: ProfileRequest, completion: @escaping (Error?) -> Void) {
+        let params = ["firstName": req.FirstName,
+                      "lastName": req.LastName,
+                      "email": req.Email]
+        
+        print("TOKEN")
+        print(self.token)
+        
+        let headers: HTTPHeaders = [
+            "X-csrf-Token": self.token ?? "",
+            "Content-Type": "application/json"
+            ]
+        
+        Alamofire
+            .request(self.host + "/profile/bio",
+                                method: .put,
+                                parameters: params,
+                                 encoding: JSONEncoding.default,
+                                 headers: headers)
+            .responseObject { (response: DataResponse<Error>) in
+                print(response.debugDescription)
+                print(response.response?.statusCode)
                 let value = response.value
                 completion(value)
             }

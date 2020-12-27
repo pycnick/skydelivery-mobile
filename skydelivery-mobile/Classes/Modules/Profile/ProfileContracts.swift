@@ -12,6 +12,7 @@ protocol PresenterToInteractorProfileProtocol: class {
     var presenter: InteractorToPresenterProfileProtocol? { get set }
 
     func LoadProfile()
+    func editProfile(request: ProfileRequest)
 }
 
 protocol InteractorToPresenterProfileProtocol: class {
@@ -31,6 +32,7 @@ protocol ViewToPresenterProfileProtocol: class {
     var router: PresenterToRouterProfileProtocol? { get set }
     
     func viewDidLoad()
+    func editProfile(req: ProfileRequest)
 }
 
 protocol PresenterToRouterProfileProtocol: class {
