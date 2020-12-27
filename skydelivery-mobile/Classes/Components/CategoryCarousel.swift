@@ -34,11 +34,11 @@ class CategoryCarousel: UICollectionView {
     var callback: ((_ restaurant: Restaurant) -> ())?
 
     var data = [
-        RestaurantData(title: "Макдоналдс", url: "maxcodes.io/enroll", backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        RestaurantData(title: "Пиццерия", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "b_img5de908746e39d3.43406923")),
-        RestaurantData(title: "Бургерная", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "270718")),
-        RestaurantData(title: "Салатная", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "food")),
-        RestaurantData(title: "Сковородочная", url: "maxcodes.io/courses", backgroundImage: #imageLiteral(resourceName: "obedy-v-ofis-vkusnaya-i-polnocennaya-eda-vo-vremya-obedennogo-pereryva"))
+        RestaurantData(name: "Макдоналдс", id: 0, backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
+        RestaurantData(name: "Пиццерия", id: 0, backgroundImage: #imageLiteral(resourceName: "b_img5de908746e39d3.43406923")),
+        RestaurantData(name: "Бургерная", id: 0, backgroundImage: #imageLiteral(resourceName: "270718")),
+        RestaurantData(name: "Салатная", id: 0, backgroundImage: #imageLiteral(resourceName: "food")),
+        RestaurantData(name: "Сковородочная", id: 0, backgroundImage: #imageLiteral(resourceName: "obedy-v-ofis-vkusnaya-i-polnocennaya-eda-vo-vremya-obedennogo-pereryva"))
     ]
     
     func SetData(data: [RestaurantData]) {
@@ -64,7 +64,8 @@ extension CategoryCarousel: UICollectionViewDelegateFlowLayout, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.callback?(Restaurant(name: self.data[indexPath.item].title))
+        let data = self.data[indexPath.item]
+        self.callback?(Restaurant(name: data.name, id: data.id))
     }
 
 }

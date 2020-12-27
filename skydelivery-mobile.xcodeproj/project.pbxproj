@@ -17,7 +17,6 @@
 		840288472598D6820039605F /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840288462598D6820039605F /* Orders.swift */; };
 		8402884C2598D8FE0039605F /* OrdersCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402884B2598D8FE0039605F /* OrdersCarousel.swift */; };
 		840288512598D9040039605F /* OrdersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840288502598D9040039605F /* OrdersCell.swift */; };
-		8402885C25991F780039605F /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 8402885B25991F780039605F /* appstore.png */; };
 		8420C352258BE3D900B55FE4 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420C351258BE3D900B55FE4 /* ApiService.swift */; };
 		842F616A2594D46900C796D9 /* login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F61692594D46900C796D9 /* login.swift */; };
 		842F61722594DAC700C796D9 /* signUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F61712594DAC700C796D9 /* signUp.swift */; };
@@ -109,7 +108,6 @@
 		840288462598D6820039605F /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		8402884B2598D8FE0039605F /* OrdersCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersCarousel.swift; sourceTree = "<group>"; };
 		840288502598D9040039605F /* OrdersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersCell.swift; sourceTree = "<group>"; };
-		8402885B25991F780039605F /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appstore.png; path = ../../../Downloads/AppIcons/appstore.png; sourceTree = "<group>"; };
 		8420C351258BE3D900B55FE4 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		842F61692594D46900C796D9 /* login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login.swift; sourceTree = "<group>"; };
 		842F61712594DAC700C796D9 /* signUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUp.swift; sourceTree = "<group>"; };
@@ -322,7 +320,6 @@
 				84D6E39E25682A820007A6F0 /* Assets.xcassets */,
 				84D6E3A025682A820007A6F0 /* LaunchScreen.storyboard */,
 				84D6E3A325682A820007A6F0 /* Info.plist */,
-				8402885B25991F780039605F /* appstore.png */,
 			);
 			path = "skydelivery-mobile";
 			sourceTree = "<group>";
@@ -599,7 +596,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D6E3A225682A820007A6F0 /* LaunchScreen.storyboard in Resources */,
-				8402885C25991F780039605F /* appstore.png in Resources */,
 				84D6E39F25682A820007A6F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

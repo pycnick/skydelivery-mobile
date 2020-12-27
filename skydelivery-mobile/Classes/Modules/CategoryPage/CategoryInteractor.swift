@@ -20,7 +20,7 @@ class CategoryInteractor: PresenterToInteractorCategoryProtocol {
             if let list = restaurants?.List! {
                 for restaurant in list {
                     print(restaurant)
-                    var data = RestaurantData(title: restaurant.Name!, url: restaurant.Description!, backgroundImage: UIImage())
+                    var data = RestaurantData(name: restaurant.Name!, id: restaurant.ID!, backgroundImage: UIImage())
                     
                     self.api.GetImage(url: restaurant.Image!) { (image) in
                         if image != nil {

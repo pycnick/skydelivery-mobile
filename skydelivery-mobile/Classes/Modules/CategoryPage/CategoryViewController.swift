@@ -20,7 +20,8 @@ class CategoryViewController: UIViewController {
     var presenter: ViewToPresenterCategoryProtocol?
     
     func callback(restaurant: Restaurant)  {
-        self.navigationController?.pushViewController(RestaurantsViewController(restaurant: restaurant), animated: true)
+        let view = RestaurantRouter.createRestaurantModule(restaurant: restaurant)
+        self.navigationController?.pushViewController(view, animated: true)
     }
     
     lazy var categoryLabel = Title(text: "Рестораны", font: UIFont(name: "Arial", size: 40)!)
