@@ -29,6 +29,8 @@ class ProfileViewController: UIViewController {
     lazy var phoneInput =  Input(text: "", placeholder: "Номер телефона", fontSize: CGFloat(15))
     
     lazy var submitButton = Button(title: "Сохранить", font: UIFont(name: "Arial", size: 20)!)
+    
+    lazy var ordersButton = Button(title: "Мои заказы", font: UIFont(name: "Arial", size: 20)!)
 }
 
 extension ProfileViewController {
@@ -44,6 +46,11 @@ extension ProfileViewController {
     
     @IBAction func processEditBio() {
         presenter?.editProfile(req: ProfileRequest(firstname: nameInput.text ?? "", lastname: surnameInput.text ?? "", email: emailInput.text ?? ""))
+    }
+    
+    @IBAction func showHistory() {
+        let view = HistoryRouter.createView()
+        self.navigationController?.pushViewController(view, animated: true)
     }
     
     func setupUI(){
@@ -117,6 +124,15 @@ extension ProfileViewController {
         submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         
         submitButton.addTarget(self, action: #selector(self.processEditBio), for: .touchUpInside)
+        
+        self.view.addSubview(ordersButton)
+        ordersButton.translatesAutoresizingMaskIntoConstraints = false
+        ordersButton.topAnchor.constraint(equalTo: submitButton.topAnchor, constant: -80).isActive = true
+        ordersButton.bottomAnchor.constraint(equalTo: submitButton.topAnchor, constant: -40).isActive = true
+        ordersButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+        ordersButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
+        
+        ordersButton.addTarget(self, action: #selector(self.showHistory), for: .touchUpInside)
     }
 }
 

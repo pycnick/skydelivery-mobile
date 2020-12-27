@@ -164,6 +164,24 @@ class ApiManager {
             }
     }
     
+    func GetRestaurantProducts(req: GetProductsRequest, completion: @escaping (Products?) -> Void) {
+        Alamofire
+            .request(self.host + "/restaurants/\(req.ID)/product?count=\(req.Count)&page=\(req.Page)")
+            .responseObject { (response: DataResponse<Products>) in
+                print(response.debugDescription)
+                completion(response.value)
+            }
+    }
+    
+    func GetUserOrders(count: Int, page: Int, completion: @escaping (Orders?) -> Void) {
+        Alamofire
+            .request(self.host + "/orders?count=\(count)&page=\(page)")
+            .responseObject { (response: DataResponse<Orders>) in
+                print(response.debugDescription)
+                completion(response.value)
+            }
+    }
+    
     
     
 }

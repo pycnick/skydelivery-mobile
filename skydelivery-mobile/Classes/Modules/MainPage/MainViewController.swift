@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("will appear")
+        self.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
@@ -28,7 +29,8 @@ class MainViewController: UIViewController {
     }
     
     func openRestaurantPage(restaurant: Restaurant) {
-        self.navigationController?.pushViewController(RestaurantsViewController(restaurant: restaurant), animated: true)
+        let view = RestaurantRouter.createRestaurantModule(restaurant: restaurant)
+        self.navigationController?.pushViewController(view, animated: true)
     }
     
     func openCategoryRestaurant(tag: Tag) {
