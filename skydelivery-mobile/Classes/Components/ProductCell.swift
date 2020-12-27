@@ -8,6 +8,7 @@
 import UIKit
 
 struct ProductData {
+    var restid: Int
     var name: String
     var id: Int
     var countAdded: Int
@@ -56,7 +57,6 @@ class ProductCell: UICollectionViewCell {
     @objc func addOne() {
         self.data?.countAdded += 1
         
-        // MARK: add
         if let product = self.data {
             localStorage.addProduct(productID: String(product.id))
         }
@@ -112,6 +112,7 @@ class ProductCell: UICollectionViewCell {
         submit.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40).isActive = true
         submit.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30).isActive = true
         submit.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

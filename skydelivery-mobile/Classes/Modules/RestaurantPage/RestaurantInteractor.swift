@@ -10,6 +10,7 @@ import UIKit
 class RestaurantsInteractor {
     var presenter: InteractorToPresenterRestaurantProtocol?
     var api = ApiManager.shared
+    var storage = OrderStorage.shared
 }
 
 extension RestaurantsInteractor: PresenterToInteractorRestaurantProtocol {
@@ -18,7 +19,10 @@ extension RestaurantsInteractor: PresenterToInteractorRestaurantProtocol {
         api.GetRestaurantProducts(req: req) { (products) in
             if let list = products?.List {
                 for product in list {
-                    var data = ProductData(name: product.Name!, id: product.ID!, countAdded: 0, backgroundImage: UIImage())
+//                    let orderedCount
+                    var data = ProductData(restid: product.RestID!, name: product.Name!, id: product.ID!, countAdded: 0, backgroundImage: UIImage())
+                    
+                    
                     
                     self.api.GetImage(url: product.Image!) { (image) in
                         if image != nil {
