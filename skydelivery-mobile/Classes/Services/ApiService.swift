@@ -192,6 +192,42 @@ class ApiManager {
                 completion(response.value)
             }
     }
+    
+    func Checkout(order: OrderRequest, completion: @escaping (Error?) -> Void) {
+        var products: [Dictionary<String, Any>] = []
+        
+        for p in order.Products {
+            products.append(["productId": p.ProdID, "count": p.Count])
+        }
+        
+        let params = ["userId": order.UserID,
+                      "restId": order.RestID,
+                      "address": order.Address,
+                      "phone": order.Phone,
+                      "comment": order.Comment,
+                      "personNum": order.PersonNum,
+                      "products": products,
+                      "price": order.Price] as [String : Any]
+        
+        
+        let headers: HTTPHeaders = [
+            "X-csrf-Token": self.token ?? "",
+            "Content-Type": "application/json"
+            ]
+        
+        Alamofire
+            .request(self.host + "/orders",
+                                method: .post,
+                                parameters: params,
+                                 encoding: JSONEncoding.default,
+                                 headers: headers)
+            .responseObject { (response: DataResponse<Error>) in
+                print(response.debugDescription)
+                print(response.response?.statusCode)
+                let value = response.value
+                completion(value)
+            }
+    }
 }
 
 extension ApiManager: NSCopying {

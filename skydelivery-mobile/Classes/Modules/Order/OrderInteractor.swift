@@ -36,7 +36,15 @@ extension OrderInteractor : PresenterToInteractorOrderProtocol {
             
             req.Products = products
             
-            print(req)
+            self.api.Checkout(order: req) { (Error) in
+                debugPrint(Error ?? "")
+                if let err = Error {
+                    if err.Error == nil || err.Error == "" {
+                        self.storage.cleanCart()
+                    }
+                }
+                self.presenter?.closeOrder()
+            }
         }
     }
 }
