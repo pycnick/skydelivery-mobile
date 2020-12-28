@@ -19,20 +19,24 @@ class HistoryViewController: UIViewController {
     
     var orders = HistorysCarousel()
     
-    lazy var name = Title(text: "История 🛵", font: UIFont(name: "Arial", size: 20)!)
+    lazy var name = Title(text: "История 🛵", font: UIFont.systemFont(ofSize: 30, weight: .light))
 }
 
 extension HistoryViewController {
     func setupUI() {
         overrideUserInterfaceStyle = .light
+        view.backgroundColor = .white
         self.view.addSubview(name)
         self.view.addSubview(orders)
-        name.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        
+        name.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
+        name.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        
         orders.backgroundColor = .white
         orders.translatesAutoresizingMaskIntoConstraints = false
         orders.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
         orders.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
-        orders.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        orders.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 20).isActive = true
         orders.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10).isActive = true
         
 //        ApiManager.shared.GetUserOrders(count: 7, page: 1) { (orders) in

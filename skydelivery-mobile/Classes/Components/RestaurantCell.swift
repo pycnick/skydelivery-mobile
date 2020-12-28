@@ -37,8 +37,8 @@ class RestaurantCell: UICollectionViewCell {
     
     var container = UIView()
     
-    let title = Title(text: "", font: UIFont(name: "Arial", size: 25)!)
-    let info = Title(text: "", font: UIFont(name: "Arial", size: 15)!)
+    let title = Title(text: "", font: UIFont.systemFont(ofSize: 20, weight: .light))
+    let info = Title(text: "", font: UIFont.systemFont(ofSize: 15, weight: .light))
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -54,12 +54,12 @@ class RestaurantCell: UICollectionViewCell {
         
         contentView.addSubview(title)
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 5).isActive = true
+        title.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 8).isActive = true
         title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         
         contentView.addSubview(info)
         info.translatesAutoresizingMaskIntoConstraints = false
-        info.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 10).isActive = true
+        info.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 13).isActive = true
         info.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
 
     }

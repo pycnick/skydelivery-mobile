@@ -60,14 +60,14 @@ class LoginView: UIView {
     }
     
     
-    lazy var phoneTitle = Title(text: "Телефон", font: UIFont(name: "Arial", size: 25)!)
-    lazy var pswdTitle = Title(text: "Пароль", font: UIFont(name: "Arial", size: 25)!)
+    lazy var phoneTitle = Title(text: "Телефон", font: UIFont.systemFont(ofSize: 25, weight: .light))
+    lazy var pswdTitle = Title(text: "Пароль", font: UIFont.systemFont(ofSize: 25, weight: .light))
     
     lazy var phoneInput =  Input(text: "", placeholder: "Номер", fontSize: CGFloat(20));
     lazy var pswdInput =  Input(text: "", placeholder: "Пароль", fontSize: CGFloat(20));
     
-    lazy var submitButton = Button(title: "Войти", font: UIFont(name: "Arial", size: 20)!)
-    lazy var signUpButton = Button(title: "Регистрация", font: UIFont(name: "Arial", size: 20)!)
+    lazy var submitButton = Button(title: "Войти", font: UIFont.systemFont(ofSize: 20, weight: .light))
+    lazy var signUpButton = Button(title: "Регистрация", font: UIFont.systemFont(ofSize: 20, weight: .light))
     
 //    fileprivate lazy var stack: UIStackView = {
 //        let stack = UIStackView(arrangedSubviews: [phoneTitle, phoneInput, pswdTitle, pswdInput, submitButton])

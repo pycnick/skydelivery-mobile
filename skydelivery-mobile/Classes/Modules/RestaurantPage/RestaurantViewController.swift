@@ -18,7 +18,7 @@ class RestaurantsViewController: UIViewController {
         }
         
         if let id = self.restaurant?.ID {
-            var storageID = localStorage.getRestaurantID()
+            let storageID = localStorage.getRestaurantID()
             if id != storageID {
                 if !self.localStorage.isEmptyCart() {
                     self.present(alert, animated: true)
@@ -30,7 +30,7 @@ class RestaurantsViewController: UIViewController {
     init(restaurant: Restaurant) {
         super.init(nibName: nil, bundle: nil)
         self.restaurant = restaurant
-        self.restaurantsLabel = Title(text: restaurant.Name!, font: UIFont(name: "Arial", size: 40)!)
+        self.restaurantsLabel = Title(text: restaurant.Name!, font: UIFont.systemFont(ofSize: 30, weight: .light))
     }
     
     required init?(coder: NSCoder) {
@@ -62,7 +62,7 @@ extension RestaurantsViewController {
         self.view.addSubview(restaurantsLabel!)
         restaurantsLabel!.translatesAutoresizingMaskIntoConstraints = false
         restaurantsLabel!.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
-        restaurantsLabel!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+        restaurantsLabel!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         restaurantsLabel!.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         
         view.addSubview(products)
@@ -85,6 +85,22 @@ extension RestaurantsViewController {
 
 extension RestaurantsViewController: PresenterToViewRestaurantProtocol {
     func SetProducts(products: [ProductData]) {
+        if products.isEmpty {
+            self.products.removeFromSuperview()
+            
+            let emptyLabel = UILabel()
+            self.view.addSubview(emptyLabel)
+            emptyLabel.font = UIFont.systemFont(ofSize: 20, weight: .light)
+            emptyLabel.numberOfLines = 3
+            emptyLabel.text = "У ресторана пока еще нет продуктов"
+            
+            emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+            emptyLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+            emptyLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+            
+            return
+        }
+        
         self.products.SetData(data: products)
     }
 }
