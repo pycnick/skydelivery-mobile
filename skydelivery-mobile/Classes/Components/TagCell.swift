@@ -37,7 +37,8 @@ class TagCell: UICollectionViewCell {
         contentView.layer.masksToBounds = true
         contentView.layer.cornerRadius = 12
 
-        bg.backgroundColor = UIColor.init(red: 246.0/255.0, green: 212.0/255.0, blue: 113.0/255.0, alpha: 1)
+//        bg.backgroundColor = UIColor.init(red: 246.0/255.0, green: 212.0/255.0, blue: 113.0/255.0, alpha: 1)
+        bg.backgroundColor = UIColor.systemYellow
         bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         bg.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true

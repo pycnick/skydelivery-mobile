@@ -10,6 +10,8 @@ import UIKit
 struct RestaurantData {
     var name: String
     var id: Int
+    var description: String
+    var rating: Float
     var backgroundImage: UIImage
 }
 
@@ -18,28 +20,47 @@ class RestaurantCell: UICollectionViewCell {
         didSet {
             guard let data = data else { return }
             bg.image = data.backgroundImage
-            
+            title.text = data.name
+            info.text = "☆ ".uppercased() + String(data.rating)
         }
     }
     
     fileprivate let bg: UIImageView = {
        let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleToFill
         iv.clipsToBounds = true
-        iv.layer.cornerRadius = 12
+        iv.layer.cornerRadius = 14
         
         return iv
     }()
     
+    var container = UIView()
+    
+    let title = Title(text: "", font: UIFont(name: "Arial", size: 25)!)
+    let info = Title(text: "", font: UIFont(name: "Arial", size: 15)!)
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        
+        contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        contentView.layer.cornerRadius = 14
     
         contentView.addSubview(bg)
         bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         bg.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40).isActive = true
+        
+        contentView.addSubview(title)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 5).isActive = true
+        title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        
+        contentView.addSubview(info)
+        info.translatesAutoresizingMaskIntoConstraints = false
+        info.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 10).isActive = true
+        info.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
 
     }
     
