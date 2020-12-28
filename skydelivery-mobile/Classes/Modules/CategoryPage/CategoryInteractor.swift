@@ -17,7 +17,7 @@ class CategoryInteractor: PresenterToInteractorCategoryProtocol {
         self.api.GetRestaurantsByTag(req: GetRestaurantsRequest(page: 1, count: 100, tag: id)) { (restaurants) in
             print("CATEGORY")
             print(restaurants?.List)
-            if let list = restaurants?.List! {
+            if let list = restaurants?.List {
                 for restaurant in list {
                     print(restaurant)
                     var data = RestaurantData(name: restaurant.Name!, id: restaurant.ID!,
