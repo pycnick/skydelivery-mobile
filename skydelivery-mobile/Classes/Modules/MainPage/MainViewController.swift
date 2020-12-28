@@ -102,7 +102,7 @@ extension MainViewController {
         
         self.apiManager.IsAuthenticated { (state) in
             if !state {
-                let button = UIButton(frame: CGRect(x: 350, y: 60, width: 50, height: 50))
+                let button = UIButton(frame: CGRect(x: 350, y: 60, width: 30, height: 30))
                 self.view.addSubview(button)
                 button.setImage(#imageLiteral(resourceName: "icons8-male_user"), for: .normal)
                 button.addTarget(self, action: #selector(self.openProfile), for: .touchUpInside)
