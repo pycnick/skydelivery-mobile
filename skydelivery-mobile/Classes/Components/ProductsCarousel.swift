@@ -17,7 +17,7 @@ class ProductsCarousel: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         
         layout.scrollDirection = .vertical
-                
+        
         super.init(frame: .zero, collectionViewLayout: layout)
         
         self.showsHorizontalScrollIndicator = false

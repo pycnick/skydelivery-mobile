@@ -20,6 +20,12 @@ extension RestaurantsInteractor: PresenterToInteractorRestaurantProtocol {
             let orderedMap = self.storage.getOrder()
             
             if let list = products?.List {
+                if list.isEmpty {
+                    self.presenter?.UpdateProducts(data: newData)
+                    
+                    return
+                }
+                
                 for product in list {
                     var orderedCount = 0
                     if let count = orderedMap[String(product.ID!)] {
@@ -40,6 +46,8 @@ extension RestaurantsInteractor: PresenterToInteractorRestaurantProtocol {
                     }
                 }
                 
+            } else {
+                self.presenter?.UpdateProducts(data: newData)
             }
         }
     }

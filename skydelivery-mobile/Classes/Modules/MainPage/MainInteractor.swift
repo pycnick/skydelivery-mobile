@@ -15,7 +15,7 @@ class MainInteractor: PresenterToInteractorMainProtocol {
     func LoadRestaurants() {
         var restData = [RestaurantData]()
         
-        self.api.GetRestaurants(req: GetRestaurantsRequest(page: 1, count: 2, tag: 0)) { (restaurants) in
+        self.api.GetRestaurants(req: GetRestaurantsRequest(page: 1, count: 10, tag: 0)) { (restaurants) in
             if let list = restaurants?.List! {
                 for restaurant in list {
                     var data = RestaurantData(name: restaurant.Name!, id: restaurant.ID!,
@@ -39,7 +39,7 @@ class MainInteractor: PresenterToInteractorMainProtocol {
     func LoadRecommendations() {
         var restData = [RestaurantData]()
         
-        self.api.GetRecommendations(count: 2) { (restaurants) in
+        self.api.GetRecommendations(count: 10) { (restaurants) in
             if let list = restaurants?.List! {
                 for restaurant in list {
                     var data = RestaurantData(name: restaurant.Name!, id: restaurant.ID!, description: restaurant.Description!, rating: restaurant.Rating!, backgroundImage: UIImage())
