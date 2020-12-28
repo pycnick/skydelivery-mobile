@@ -34,6 +34,8 @@ class CartCell: UICollectionViewCell {
         return iv
     }()
     
+    weak var delegate: CartCellDelegate?
+    
     lazy var title = UILabel()
     lazy var price = UILabel()
     lazy var count = UILabel()
@@ -97,23 +99,11 @@ class CartCell: UICollectionViewCell {
     
     @objc
     private func addOne(sender: UIButton!) {
-//        data?.count += 1
-//
-//        let index = self.parentView?.indexPath(for: self)
-//        self.parentView?.data[index!.row].count += 1
-//        self.parentView?.controller?.refreshFullPrice()
+        self.delegate!.addOne(cell: self)
     }
 
     @objc
     private func removeOne(sender: UIButton!) {
-//        if data?.count ?? 0 - 1 <= 1 {
-//            self.parentView?.removeCell(self)
-//
-//            return
-//        }
-//        data?.count -= 1
-//        let index = self.parentView?.indexPath(for: self)
-//        self.parentView?.data[index!.row].count -= 1
-//        self.parentView?.controller?.refreshFullPrice()
+        self.delegate!.removeOne(cell: self)
     }
 }

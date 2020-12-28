@@ -27,6 +27,8 @@ class CartCollection : UICollectionView {
         self.dataSource = self
     }
     
+    weak var controller: CartViewController?
+    
     var data: [CartProductData] = []
     
     func SetData(data: [CartProductData]) {
@@ -35,42 +37,6 @@ class CartCollection : UICollectionView {
         
         self.reloadData()
     }
-        
-    var culteryCount = 1
-    
-//    public func removeCell(_ cell: UICollectionViewCell) {
-//        let indexPath = self.indexPath(for: cell)!
-//
-//        let alert = UIAlertController(
-//            title: "Удаление товара",
-//            message: "Вы действительно хотите удалить товар \'\(data[indexPath.row].title)\' из корзины?",
-//            preferredStyle: .alert
-//        )
-//
-//        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { action in
-//            self.data.remove(at: indexPath.row)
-//            self.controller?.refreshFullPrice()
-//
-//            self.performBatchUpdates({
-//                self.deleteItems(at: [indexPath])
-//            }, completion: { action in
-//                if self.data.isEmpty {
-//                    let emptyLabel = UILabel()
-//                    self.addSubview(emptyLabel)
-//                    emptyLabel.font = UIFont(name: "Arial", size: 20)
-//                    emptyLabel.numberOfLines = 3
-//                    emptyLabel.text = "Корзина пуста"
-//
-//                    emptyLabel.translatesAutoresizingMaskIntoConstraints = false
-//                    emptyLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-//                    emptyLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-//                }
-//            })
-//        }))
-//        alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
-//
-//        self.controller?.present(alert, animated: true)
-//    }
 }
 
 extension CartCollection: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -81,6 +47,7 @@ extension CartCollection: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CartCell
         cell.data = self.data[indexPath.item]
+        cell.delegate = controller
         return cell
     }
     

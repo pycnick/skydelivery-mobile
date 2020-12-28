@@ -5,7 +5,7 @@
 //  Created by a.postnikov on 27.12.2020.
 //
 
-import Foundation
+import UIKit
 
 class CartPresenter {
     var view: PresenterToViewCartProtocol?
@@ -23,10 +23,19 @@ extension CartPresenter: ViewToPresenterCartProtocol {
             }
         }
     }
+    
+    func AddCartProduct(ID: Int) -> Int {
+        return interactor!.AddCartProduct(ID: ID)
+    }
+    
+    func RemoveCartProduct(ID: Int) -> Int {
+        return interactor!.RemoveCartProduct(ID: ID)
+    }
 }
 
 extension CartPresenter: InteractorToPresenterCartProtocol {
     func UpdateCartProducts(data: [CartProductData]) {
         self.view?.SetCartProducts(products: data)
     }
+    
 }

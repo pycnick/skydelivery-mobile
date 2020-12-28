@@ -56,6 +56,35 @@ class OrderStorage {
         return 1
     }
     
+    func addExistProduct(productID: String) -> Int {
+        if let obj = storage.object(forKey: storageName) {
+            var dict = obj as! Dictionary<String, Int>
+            if dict[productID] == nil {
+                return 0
+            } else {
+                dict[productID]! += 1
+            }
+            
+            storage.setValue(dict, forKey: storageName)
+            return dict[productID]!
+        }
+        
+        return 0
+    }
+    
+    func getProductCount(productID: String) -> Int {
+        if let obj = storage.object(forKey: storageName) {
+            var dict = obj as! Dictionary<String, Int>
+            if dict[productID] == nil {
+                return 0
+            } else {
+                return dict[productID]!
+            }
+        }
+        
+        return 0
+    }
+    
     func deleteProduct(productID: String) -> Int {
         if let obj = storage.object(forKey: storageName) {
             var dict = obj as! Dictionary<String, Int>
