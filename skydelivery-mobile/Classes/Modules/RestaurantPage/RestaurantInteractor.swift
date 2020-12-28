@@ -32,7 +32,7 @@ extension RestaurantsInteractor: PresenterToInteractorRestaurantProtocol {
                         orderedCount = count
                     }
                     
-                    var data = ProductData(restid: req.ID, name: product.Name!, id: product.ID!, countAdded: orderedCount, backgroundImage: UIImage())
+                    var data = ProductData(restid: req.ID, name: product.Name!, id: product.ID!, countAdded: orderedCount, price: product.Price!,  backgroundImage: UIImage())
                     
                     self.api.GetImage(url: product.Image!) { (image) in
                         if image != nil {
