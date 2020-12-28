@@ -23,6 +23,8 @@ class ProductCell: UICollectionViewCell {
         didSet {
             guard let data = data else { return }
             bg.image = data.backgroundImage
+            title.text = data.name
+            price.text = "200" + " ₽"
             
         }
     }
@@ -32,11 +34,14 @@ class ProductCell: UICollectionViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.clipsToBounds = true
         iv.contentMode = .scaleAspectFill
-        iv.layer.cornerRadius = 12
+        iv.layer.cornerRadius = 14
         iv.layer.shadowRadius = 2
         
         return iv
     }()
+    
+    let title = Title(text: "", font: UIFont(name: "Arial", size: 20)!)
+    let price = Title(text: "", font: UIFont(name: "Arial", size: 20)!)
     
     @objc func removeOne() {
         self.data?.countAdded -= 1
@@ -80,23 +85,33 @@ class ProductCell: UICollectionViewCell {
         setupOrderedProduct()
     }
     
-    fileprivate let submit = Button(title: "Заказать", font: UIFont(name: "Arial", size: 20)!)
+    fileprivate let submit = Button(title: "❤️", font: UIFont(name: "Arial", size: 10)!)
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
-        contentView.layer.shadowColor = UIColor.black.cgColor
-        contentView.layer.shadowOffset = CGSize(width: 3, height: 3)
-        contentView.layer.shadowOpacity = 0.7
-        contentView.layer.shadowRadius = 4.0
+        contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        contentView.layer.cornerRadius = 14
+        
+//        contentView.layer.shadowColor = UIColor.black.cgColor
+//        contentView.layer.shadowOffset = CGSize(width: 3, height: 3)
+//        contentView.layer.shadowOpacity = 0.7
+//        contentView.layer.shadowRadius = 4.0
         
         submit.addTarget(self, action: #selector(self.order), for: .touchUpInside)
         
         contentView.addSubview(bg)
+        contentView.addSubview(title)
+        contentView.addSubview(price)
         bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         bg.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         bg.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -100).isActive = true
+        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -80).isActive = true
+        
+        title.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 10).isActive = true
+        title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
+        price.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 10).isActive = true
+        price.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         
         if let count = data?.countAdded {
             if count > 0 {
@@ -108,10 +123,10 @@ class ProductCell: UICollectionViewCell {
         
         contentView.addSubview(submit)
         submit.translatesAutoresizingMaskIntoConstraints = false
-        submit.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -90).isActive = true
-        submit.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40).isActive = true
-        submit.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30).isActive = true
-        submit.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
+        submit.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 15).isActive = true
+        submit.bottomAnchor.constraint(equalTo: submit.topAnchor, constant: 50).isActive = true
+        submit.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: -60).isActive = true
+        submit.rightAnchor.constraint(equalTo: submit.leftAnchor, constant: 50).isActive = true
         
     }
     
@@ -126,17 +141,26 @@ extension ProductCell {
         
         contentView.addSubview(rmv)
         rmv.setTitle("-", for: .normal)
-        rmv.backgroundColor = .blue
+        rmv.backgroundColor = .systemBlue
         rmv.layer.cornerRadius = 8
         rmv.translatesAutoresizingMaskIntoConstraints = false
-        rmv.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 40).isActive = true
-        rmv.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 15).isActive = true
+//        rmv.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 40).isActive = true
+//        rmv.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 15).isActive = true
+        rmv.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: -100).isActive = true
+        rmv.rightAnchor.constraint(equalTo: rmv.leftAnchor, constant: 30).isActive = true
+        rmv.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 40).isActive = true
+        rmv.bottomAnchor.constraint(equalTo: rmv.topAnchor, constant: 30).isActive = true
         rmv.addTarget(self, action: #selector(removeOne), for: .touchUpInside)
         
         contentView.addSubview(count)
         count.translatesAutoresizingMaskIntoConstraints = false
-        count.leftAnchor.constraint(equalTo: rmv.rightAnchor, constant: 20).isActive = true
-        count.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 20).isActive = true
+//        count.leftAnchor.constraint(equalTo: rmv.rightAnchor, constant: 20).isActive = true
+//        count.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 20).isActive = true
+        count.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: -60).isActive = true
+//        rmv.rightAnchor.constraint(equalTo: rmv.leftAnchor, constant: 30).isActive = true
+        count.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 45).isActive = true
+//        count.bottomAnchor.constraint(equalTo: rmv.topAnchor, constant: 30).isActive = true
+        
         count.font = UIFont(name: "Arial", size: 20)
         
         if let countProducts = data?.countAdded {
@@ -145,11 +169,17 @@ extension ProductCell {
         
         contentView.addSubview(add)
         add.setTitle("+", for: .normal)
-        add.backgroundColor = .blue
+        add.backgroundColor = .systemBlue
         add.layer.cornerRadius = 8
         add.translatesAutoresizingMaskIntoConstraints = false
-        add.leftAnchor.constraint(equalTo: count.rightAnchor, constant: 20).isActive = true
-        add.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 15).isActive = true
+//        add.leftAnchor.constraint(equalTo: count.rightAnchor, constant: 20).isActive = true
+//        add.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 15).isActive = true
+        
+        add.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: -40).isActive = true
+        add.rightAnchor.constraint(equalTo: add.leftAnchor, constant: 30).isActive = true
+        add.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 40).isActive = true
+        add.bottomAnchor.constraint(equalTo: add.topAnchor, constant: 30).isActive = true
+
         add.addTarget(self, action: #selector(addOne), for: .touchUpInside)
     }
     
