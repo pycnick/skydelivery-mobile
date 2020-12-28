@@ -63,7 +63,7 @@ extension ProfileViewController {
         
         self.view.addSubview(profileTitle)
         profileTitle.translatesAutoresizingMaskIntoConstraints = false
-        profileTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
+        profileTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
         profileTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         profileTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         

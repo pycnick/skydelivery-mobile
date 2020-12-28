@@ -90,7 +90,7 @@ extension RestaurantsViewController: PresenterToViewRestaurantProtocol {
             
             let emptyLabel = UILabel()
             self.view.addSubview(emptyLabel)
-            emptyLabel.font = UIFont(name: "Arial", size: 20)
+            emptyLabel.font = UIFont.systemFont(ofSize: 20, weight: .light)
             emptyLabel.numberOfLines = 3
             emptyLabel.text = "У ресторана пока еще нет продуктов"
             
