@@ -64,6 +64,10 @@ class CartViewController : UIViewController {
         alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
+    
+    @IBAction func OpenOrder() {
+        self.navigationController?.pushViewController(OrderRouter.createView(FullPrice: fullPrice ?? 0), animated: true)
+    }
 }
 
 extension CartViewController {
@@ -100,12 +104,13 @@ extension CartViewController {
         cartCollection.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         self.view.addSubview(cartSubmit)
+        cartSubmit.addTarget(self, action: #selector(self.OpenOrder), for: .touchUpInside)
         cartSubmit.translatesAutoresizingMaskIntoConstraints = false
-        cartSubmit.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
+        cartSubmit.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
         cartSubmit.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10).isActive = true
         cartSubmit.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         cartSubmit.backgroundColor = .systemBlue
-        cartSubmit.layer.cornerRadius = 8
+        cartSubmit.layer.cornerRadius = 12
         
         cartSubmit.addSubview(cartSubmitLabel)
         cartSubmitLabel.translatesAutoresizingMaskIntoConstraints = false
