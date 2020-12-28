@@ -17,6 +17,7 @@ extension LogInInteractor: PresenterToInteractorLogInProtocol {
         api.LogIn(req: request) { (error) in
             if let message = error?.Error {
                 print(message)
+                return
             }
             var prof = ProfileData(firstName: "", surName: "", phone: "", email: "")
             self.api.GetProfile() { (profile) in
