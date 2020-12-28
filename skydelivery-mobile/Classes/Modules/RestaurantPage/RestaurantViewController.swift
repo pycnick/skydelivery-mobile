@@ -16,6 +16,14 @@ class RestaurantsViewController: UIViewController {
         if let id = self.restaurant?.ID {
             presenter?.viewDidLoad(req: GetProductsRequest(restaurant: id, page: 1, count: 10))
         }
+        
+        if let id = self.restaurant?.ID {
+            if id != localStorage.getRestaurantID() {
+                if !self.localStorage.isEmptyCart() {
+                    self.present(alert, animated: true)
+                }
+            }
+        }
     }
     
     init(restaurant: Restaurant) {
@@ -35,6 +43,14 @@ class RestaurantsViewController: UIViewController {
     var products = ProductsCarousel(callback: {print("products callback")})
     
     var presenter: ViewToPresenterRestaurantProtocol?
+    
+    var localStorage = OrderStorage.shared
+    
+    lazy var alert = UIAlertController(
+        title: "Очищение корзины",
+        message: "Вы заказываете из нового ресторана. Очистить коризину?",
+        preferredStyle: .alert
+    )
 }
 
 extension RestaurantsViewController {
@@ -55,6 +71,14 @@ extension RestaurantsViewController {
         products.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         products.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         products.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        alert.addAction(UIAlertAction(title: "Да", style: .default, handler: { action in
+            self.localStorage.cleanCart()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Нет", style: .cancel, handler: { action in
+            self.navigationController?.popViewController(animated: true)
+        }))
     }
 }
 

@@ -8,6 +8,7 @@
 import UIKit
 
 struct ProductData {
+    var restid: Int
     var name: String
     var id: Int
     var countAdded: Int
@@ -39,7 +40,9 @@ class ProductCell: UICollectionViewCell {
     
     @objc func removeOne() {
         self.data?.countAdded -= 1
-        
+        if let product = self.data {
+            localStorage.deleteProduct(productID: String(product.id))
+        }
         if let count = self.data?.countAdded {
             if count == 0 {
                 backToOrderButton()
@@ -54,9 +57,8 @@ class ProductCell: UICollectionViewCell {
     @objc func addOne() {
         self.data?.countAdded += 1
         
-        // MARK: add
-        if let id = self.data?.id {
-            localStorage.addProduct(productID: id)
+        if let product = self.data {
+            localStorage.addProduct(productID: String(product.id))
         }
         
         if let count = self.data?.countAdded {
@@ -69,7 +71,11 @@ class ProductCell: UICollectionViewCell {
     lazy var add = UIButton()
     
     @objc func order() {
-        data?.countAdded += 1
+        data?.countAdded = 1
+        
+        if let product = self.data {
+            localStorage.addProduct(productID: String(product.id))
+        }
         
         setupOrderedProduct()
     }
@@ -106,6 +112,7 @@ class ProductCell: UICollectionViewCell {
         submit.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40).isActive = true
         submit.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30).isActive = true
         submit.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
