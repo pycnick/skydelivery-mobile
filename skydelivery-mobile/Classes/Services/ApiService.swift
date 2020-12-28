@@ -173,6 +173,7 @@ class ApiManager {
             }
     }
     
+
     func GetUserOrders(count: Int, page: Int, completion: @escaping (Orders?) -> Void) {
         Alamofire
             .request(self.host + "/orders?count=\(count)&page=\(page)")
@@ -181,9 +182,16 @@ class ApiManager {
                 completion(response.value)
             }
     }
-    
-    
-    
+
+
+    func GetProduct(prodID: Int, completion: @escaping (Product?) -> Void) {
+        Alamofire
+            .request(self.host + "/products/\(prodID)")
+            .responseObject { (response: DataResponse<Product>) in
+                print(response.debugDescription)
+                completion(response.value)
+            }
+    }
 }
 
 extension ApiManager: NSCopying {

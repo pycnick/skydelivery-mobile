@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		20805EF9659855B852314465 /* Pods_skydelivery_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B4DB3A027871A33DC86EB1 /* Pods_skydelivery_mobile.framework */; };
+		43A967202598EECB00B0D5C1 /* CartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A9671F2598EECB00B0D5C1 /* CartRouter.swift */; };
+		43A967252598EF3D00B0D5C1 /* CartContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A967242598EF3D00B0D5C1 /* CartContracts.swift */; };
+		43A9672A2598EFA600B0D5C1 /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A967292598EFA600B0D5C1 /* CartPresenter.swift */; };
+		43A9672F2598F28900B0D5C1 /* CartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A9672E2598F28900B0D5C1 /* CartInteractor.swift */; };
 		8402881A2598BD890039605F /* OrderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840288192598BD890039605F /* OrderData.swift */; };
 		840288202598D4B00039605F /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402881F2598D4B00039605F /* HistoryViewController.swift */; };
 		840288282598D4B80039605F /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840288272598D4B80039605F /* HistoryRouter.swift */; };
@@ -17,6 +21,7 @@
 		840288472598D6820039605F /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840288462598D6820039605F /* Orders.swift */; };
 		8402884C2598D8FE0039605F /* OrdersCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402884B2598D8FE0039605F /* OrdersCarousel.swift */; };
 		840288512598D9040039605F /* OrdersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840288502598D9040039605F /* OrdersCell.swift */; };
+		8402888A25995A370039605F /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 8402888925995A370039605F /* appstore.png */; };
 		8420C352258BE3D900B55FE4 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420C351258BE3D900B55FE4 /* ApiService.swift */; };
 		842F616A2594D46900C796D9 /* login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F61692594D46900C796D9 /* login.swift */; };
 		842F61722594DAC700C796D9 /* signUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F61712594DAC700C796D9 /* signUp.swift */; };
@@ -98,6 +103,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43A9671F2598EECB00B0D5C1 /* CartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRouter.swift; sourceTree = "<group>"; };
+		43A967242598EF3D00B0D5C1 /* CartContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartContracts.swift; sourceTree = "<group>"; };
+		43A967292598EFA600B0D5C1 /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
+		43A9672E2598F28900B0D5C1 /* CartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartInteractor.swift; sourceTree = "<group>"; };
 		79B4DB3A027871A33DC86EB1 /* Pods_skydelivery_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_skydelivery_mobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		840288192598BD890039605F /* OrderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderData.swift; path = "skydelivery-mobile/Classes/Modules/RestaurantPage/OrderData.swift"; sourceTree = SOURCE_ROOT; };
 		8402881F2598D4B00039605F /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +117,7 @@
 		840288462598D6820039605F /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
 		8402884B2598D8FE0039605F /* OrdersCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersCarousel.swift; sourceTree = "<group>"; };
 		840288502598D9040039605F /* OrdersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersCell.swift; sourceTree = "<group>"; };
+		8402888925995A370039605F /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appstore.png; path = ../../../Downloads/AppIcons/appstore.png; sourceTree = "<group>"; };
 		8420C351258BE3D900B55FE4 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		842F61692594D46900C796D9 /* login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login.swift; sourceTree = "<group>"; };
 		842F61712594DAC700C796D9 /* signUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUp.swift; sourceTree = "<group>"; };
@@ -284,6 +294,10 @@
 				84CF8421256BFA49002679C7 /* CartCell.swift */,
 				84CF8432256BFA69002679C7 /* CartCollection.swift */,
 				84CF843A256BFA80002679C7 /* CartViewController.swift */,
+				43A9671F2598EECB00B0D5C1 /* CartRouter.swift */,
+				43A967242598EF3D00B0D5C1 /* CartContracts.swift */,
+				43A967292598EFA600B0D5C1 /* CartPresenter.swift */,
+				43A9672E2598F28900B0D5C1 /* CartInteractor.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -320,6 +334,7 @@
 				84D6E39E25682A820007A6F0 /* Assets.xcassets */,
 				84D6E3A025682A820007A6F0 /* LaunchScreen.storyboard */,
 				84D6E3A325682A820007A6F0 /* Info.plist */,
+				8402888925995A370039605F /* appstore.png */,
 			);
 			path = "skydelivery-mobile";
 			sourceTree = "<group>";
@@ -596,6 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D6E3A225682A820007A6F0 /* LaunchScreen.storyboard in Resources */,
+				8402888A25995A370039605F /* appstore.png in Resources */,
 				84D6E39F25682A820007A6F0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,6 +703,8 @@
 				DAF4A04C2597F78100F9C93B /* LoginContracts.swift in Sources */,
 				DA34A66D256AC741006F49D0 /* CategoryViewController.swift in Sources */,
 				84D6E3D325682B4C0007A6F0 /* MainContracts.swift in Sources */,
+				43A967202598EECB00B0D5C1 /* CartRouter.swift in Sources */,
+				43A967252598EF3D00B0D5C1 /* CartContracts.swift in Sources */,
 				DA34A646256AA74D006F49D0 /* ProfileViewController.swift in Sources */,
 				84D6E39A25682A810007A6F0 /* ViewController.swift in Sources */,
 				DA34A67C256ACEAC006F49D0 /* CategoryCell.swift in Sources */,
@@ -700,6 +718,7 @@
 				84D6E39625682A810007A6F0 /* AppDelegate.swift in Sources */,
 				DA34A641256AA738006F49D0 /* ProfileRouter.swift in Sources */,
 				DA34A668256AC6E5006F49D0 /* CategoryRouter.swift in Sources */,
+				43A9672F2598F28900B0D5C1 /* CartInteractor.swift in Sources */,
 				8402881A2598BD890039605F /* OrderData.swift in Sources */,
 				DA34A65E256AC6BD006F49D0 /* CategoryContracts.swift in Sources */,
 				842F617E2594F7EB00C796D9 /* error.swift in Sources */,
@@ -712,6 +731,7 @@
 				84D6E416256A7E860007A6F0 /* TagCarousel.swift in Sources */,
 				8420C352258BE3D900B55FE4 /* ApiService.swift in Sources */,
 				849B50012597AD9000933E0E /* SignUpInteractor.swift in Sources */,
+				43A9672A2598EFA600B0D5C1 /* CartPresenter.swift in Sources */,
 				84D6E39625682A810007A6F0 /* AppDelegate.swift in Sources */,
 				840288372598D4DB0039605F /* HistoryContracts.swift in Sources */,
 				DAF4A02125965BC500F9C93B /* LoginViewController.swift in Sources */,
