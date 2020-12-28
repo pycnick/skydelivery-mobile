@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class OrderInteractor {
+    var presenter: InteractorToPresenterOrderProtocol?
+}
+
+extension OrderInteractor : PresenterToInteractorOrderProtocol {
+    
+}

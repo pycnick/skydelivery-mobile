@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+class OrderPresenter {
+    var view : PresenterToViewOrderProtocol?
+    var interactor : PresenterToInteractorOrderProtocol?
+    var router : PresenterToRouterOrderProtocol?
+}
+
+extension OrderPresenter : ViewToPresenterOrderProtocol {
+    
+    func viewDidLoad() {
+    }
+}
+
+extension OrderPresenter : InteractorToPresenterOrderProtocol {
+    
+}
