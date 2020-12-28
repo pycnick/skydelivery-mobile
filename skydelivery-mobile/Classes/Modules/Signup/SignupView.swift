@@ -59,11 +59,11 @@ class SignUpView: UIView {
     }
     
     
-    lazy var firstNameTitle = Title(text: "Имя", font: UIFont(name: "Arial", size: 25)!)
-    lazy var surNameTitle = Title(text: "Фамилия", font: UIFont(name: "Arial", size: 25)!)
-    lazy var phoneTitle = Title(text: "Телефон", font: UIFont(name: "Arial", size: 25)!)
-    lazy var pswd1Title = Title(text: "Пароль", font: UIFont(name: "Arial", size: 25)!)
-    lazy var pswd2Title = Title(text: "Пароль", font: UIFont(name: "Arial", size: 25)!)
+    lazy var firstNameTitle = Title(text: "Имя", font: UIFont.systemFont(ofSize: 25, weight: .light))
+    lazy var surNameTitle = Title(text: "Фамилия", font: UIFont.systemFont(ofSize: 25, weight: .light))
+    lazy var phoneTitle = Title(text: "Телефон", font: UIFont.systemFont(ofSize: 25, weight: .light))
+    lazy var pswd1Title = Title(text: "Пароль", font: UIFont.systemFont(ofSize: 25, weight: .light))
+    lazy var pswd2Title = Title(text: "Пароль", font: UIFont.systemFont(ofSize: 25, weight: .light))
     
     lazy var firstNameInput =  Input(text: "", placeholder: "Иван", fontSize: CGFloat(20));
     lazy var surNameInput =  Input(text: "", placeholder: "Иванов", fontSize: CGFloat(20));
@@ -71,8 +71,8 @@ class SignUpView: UIView {
     lazy var pswd1Input =  Input(text: "", placeholder: "Пароль", fontSize: CGFloat(20));
     lazy var pswd2Input =  Input(text: "", placeholder: "Пароль", fontSize: CGFloat(20));
     
-    lazy var submitButton = Button(title: "Зарегестрироваться", font: UIFont(name: "Arial", size: 20)!)
-    lazy var loginButton = Button(title: "Войти", font: UIFont(name: "Arial", size: 20)!)
+    lazy var submitButton = Button(title: "Зарегестрироваться", font: UIFont.systemFont(ofSize: 20, weight: .light))
+    lazy var loginButton = Button(title: "Войти", font: UIFont.systemFont(ofSize: 20, weight: .light))
     
 //    fileprivate lazy var stack: UIStackView = {
 //        let stack = UIStackView(arrangedSubviews: [firstNameTitle, firstNameInput, surNameTitle, surNameInput, phoneTitle, phoneInput, pswd1Title, pswd1Input, pswd2Title, pswd2Input, submitButton])

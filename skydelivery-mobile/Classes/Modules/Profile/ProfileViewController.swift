@@ -16,11 +16,11 @@ class ProfileViewController: UIViewController {
     
     var presenter: ViewToPresenterProfileProtocol?
     
-    lazy var profileTitle = Title(text: "Профиль 🐻‍❄️", font: UIFont(name: "Arial", size: 40)!)
-    lazy var nameTitle = Title(text: "Имя", font: UIFont(name: "Arial", size: 20)!)
-    lazy var surnameTitle = Title(text: "Фамилия", font: UIFont(name: "Arial", size: 20)!)
-    lazy var emailTitle = Title(text: "Электронная почта", font: UIFont(name: "Arial", size:20)!)
-    lazy var phoneTitle = Title(text: "Телефон", font: UIFont(name: "Arial", size: 20)!)
+    lazy var profileTitle = Title(text: "Профиль 🐻‍❄️", font: UIFont.systemFont(ofSize: 40, weight: .light))
+    lazy var nameTitle = Title(text: "Имя", font: UIFont.systemFont(ofSize: 20, weight: .light))
+    lazy var surnameTitle = Title(text: "Фамилия", font: UIFont.systemFont(ofSize: 20, weight: .light))
+    lazy var emailTitle = Title(text: "Электронная почта", font: UIFont.systemFont(ofSize: 20, weight: .light))
+    lazy var phoneTitle = Title(text: "Телефон", font: UIFont.systemFont(ofSize: 20, weight: .light))
     
     lazy var nameInput =  Input(text: "", placeholder: "Имя", fontSize: CGFloat(15));
 
@@ -28,9 +28,9 @@ class ProfileViewController: UIViewController {
     lazy var emailInput =  Input(text: "", placeholder: "Электронная почта", fontSize: CGFloat(15))
     lazy var phoneInput =  Input(text: "", placeholder: "Номер телефона", fontSize: CGFloat(15))
     
-    lazy var submitButton = Button(title: "Сохранить", font: UIFont(name: "Arial", size: 20)!)
+    lazy var submitButton = Button(title: "Сохранить", font: UIFont.systemFont(ofSize: 20, weight: .light))
     
-    lazy var ordersButton = Button(title: "Мои заказы", font: UIFont(name: "Arial", size: 20)!)
+    lazy var ordersButton = Button(title: "Мои заказы", font: UIFont.systemFont(ofSize: 20, weight: .light))
 }
 
 extension ProfileViewController {

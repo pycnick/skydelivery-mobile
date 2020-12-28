@@ -30,7 +30,7 @@ class Input: UITextField {
         super.init(frame: CGRect())
         self.placeholder = placeholder
         self.text = text
-        self.font = UIFont.systemFont(ofSize: fontSize)
+        self.font = UIFont.systemFont(ofSize: fontSize, weight: .light)
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.white.cgColor
         self.layer.cornerRadius = 16

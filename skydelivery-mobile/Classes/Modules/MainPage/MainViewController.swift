@@ -52,13 +52,13 @@ class MainViewController: UIViewController {
     // MARK: - Properties
     
     var presenter: ViewToPresenterMainProtocol?
-    lazy var restaurantsLabel = Title(text: "Рестораны", font: UIFont(name: "Arial", size: 40)!)
+    lazy var restaurantsLabel = Title(text: "Рестораны", font: UIFont.systemFont(ofSize: 30, weight: .light))
     lazy var restaurantsCarousel = RestaurantsCarousel(callback: openRestaurantPage)
     
-    lazy var recommendationsLabel = Title(text: "Рекоммендации", font: UIFont(name: "Arial", size: 40)!)
+    lazy var recommendationsLabel = Title(text: "Рекоммендации", font: UIFont.systemFont(ofSize: 30, weight: .light))
     lazy var recomendationsCarousel = RestaurantsCarousel(callback: openRestaurantPage)
     
-    lazy var categoryLabel = Title(text: "Категории", font: UIFont(name: "Arial", size: 40)!)
+    lazy var categoryLabel = Title(text: "Категории", font: UIFont.systemFont(ofSize: 30, weight: .light))
     lazy var categoryCarousel = TagCarousel(callback: openCategoryRestaurant)
     
     var apiManager = ApiManager.shared
@@ -110,14 +110,14 @@ extension MainViewController {
                 return
             }
             
-            let button = UIButton(frame: CGRect(x: 350, y: 60, width: 50, height: 50))
+            let button = UIButton(frame: CGRect(x: 350, y: 60, width: 30, height: 30))
             self.view.addSubview(button)
             button.setImage(#imageLiteral(resourceName: "icons8-male_user"), for: .normal)
             button.addTarget(self, action: #selector(self.openProfile), for: .touchUpInside)
             
-            let button1 = UIButton(frame: CGRect(x: 280, y: 60, width: 50, height: 50))
+            let button1 = UIButton(frame: CGRect(x: 280, y: 60, width: 30, height: 30))
             self.view.addSubview(button1)
-            button1.setImage(#imageLiteral(resourceName: "icons8-basketball_net"), for: .normal)
+            button1.setImage(#imageLiteral(resourceName: "ingredients"), for: .normal)
             button1.addTarget(self, action: #selector(self.openBasket), for: .touchUpInside)
             
             self.view.addSubview(self.recommendationsLabel)

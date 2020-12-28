@@ -53,8 +53,8 @@ class ProductCell: UICollectionViewCell {
         return iv
     }()
     
-    let title = Title(text: "", font: UIFont(name: "Arial", size: 20)!)
-    let price = Title(text: "", font: UIFont(name: "Arial", size: 20)!)
+    let title = Title(text: "", font: UIFont.systemFont(ofSize: 20, weight: .light))
+    let price = Title(text: "", font: UIFont.systemFont(ofSize: 20, weight: .light))
     
     @objc func removeOne() {
         self.data?.countAdded -= 1
@@ -189,9 +189,9 @@ extension ProductCell {
         
         contentView.addSubview(submit)
         submit.translatesAutoresizingMaskIntoConstraints = false
-        submit.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -90).isActive = true
-        submit.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40).isActive = true
-        submit.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30).isActive = true
-        submit.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
+        submit.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 15).isActive = true
+        submit.bottomAnchor.constraint(equalTo: submit.topAnchor, constant: 50).isActive = true
+        submit.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: -60).isActive = true
+        submit.rightAnchor.constraint(equalTo: submit.leftAnchor, constant: 50).isActive = true
     }
 }
