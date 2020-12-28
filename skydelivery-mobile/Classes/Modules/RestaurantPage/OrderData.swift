@@ -118,3 +118,14 @@ class OrderStorage {
         return [:]
     }
 }
+
+extension OrderStorage {
+    func getCsrfToken() -> String? {
+        return storage.string(forKey: "csrf")
+    }
+    
+    func setCsrfToken(Csrf: String) {
+        return storage.set(Csrf, forKey: "csrf")
+    }
+    
+}

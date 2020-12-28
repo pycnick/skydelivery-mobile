@@ -26,6 +26,7 @@ extension HistoryViewController {
     func setupUI() {
         overrideUserInterfaceStyle = .light
         view.backgroundColor = .white
+        
         self.view.addSubview(name)
         self.view.addSubview(orders)
         
