@@ -66,7 +66,7 @@ class CartViewController : UIViewController {
     }
     
     @IBAction func OpenOrder() {
-        self.navigationController?.pushViewController(OrderRouter.createView(), animated: true)
+        self.navigationController?.pushViewController(OrderRouter.createView(FullPrice: fullPrice ?? 0), animated: true)
     }
 }
 

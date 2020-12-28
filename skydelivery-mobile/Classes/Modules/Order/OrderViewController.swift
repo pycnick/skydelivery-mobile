@@ -8,14 +8,24 @@
 import UIKit
 
 class OrderViewController: UIViewController {
+    init(FullPrice: Int) {
+        super.init(nibName: nil, bundle: nil)
+        self.fullPrice = FullPrice
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     var presenter : ViewToPresenterOrderProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        presenter?.viewDidLoad()
     }
+    
+    var fullPrice: Int = 0
     
     var culteryCount: Int = 1 {
         didSet {
@@ -48,6 +58,17 @@ class OrderViewController: UIViewController {
         if culteryCount > 0 {
             culteryCount -= 1
         }
+    }
+    
+    @IBAction func submit() {
+        presenter?.checkoutOrder(order: OrderRequest(
+                address: addressInput.text ?? "",
+                phone: phoneInput.text ?? "",
+                comment: commentaryInput.text ?? "",
+                persons: culteryCount,
+                fullPrice: fullPrice
+            )
+        )
     }
 }
 
@@ -126,9 +147,24 @@ extension OrderViewController {
         submitButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
         submitButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         submitButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        submitButton.addTarget(self, action: #selector(submit), for: .touchUpInside)
     }
 }
 
 extension OrderViewController: PresenterToViewOrderProtocol {
+    func makeAlert(text: String) {
+        let alert = UIAlertController(
+            title: "Ошибка оформления заказа",
+            message: text,
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+                                        
+        self.present(alert, animated: true, completion: nil)
+    }
     
+    func closeView() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }

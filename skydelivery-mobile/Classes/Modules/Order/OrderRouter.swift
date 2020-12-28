@@ -12,8 +12,8 @@ class OrderRouter {
 }
 
 extension OrderRouter: PresenterToRouterOrderProtocol {
-    static func createView() -> UIViewController {
-        let view = OrderViewController()
+    static func createView(FullPrice: Int) -> UIViewController {
+        let view = OrderViewController(FullPrice: FullPrice)
         let presenter = OrderPresenter()
         
         view.presenter = presenter

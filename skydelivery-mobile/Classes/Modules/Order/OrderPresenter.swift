@@ -15,10 +15,23 @@ class OrderPresenter {
 
 extension OrderPresenter : ViewToPresenterOrderProtocol {
     
-    func viewDidLoad() {
+    func checkoutOrder(order: OrderRequest) {
+        if order.Address == "" {
+            self.view?.makeAlert(text: "Необходимо ввести адрес доставки")
+            return
+        }
+        
+        if order.Phone == "" {
+            self.view?.makeAlert(text: "Необходимо ввести номер телефона")
+            return
+        }
+        
+        self.interactor?.checkoutOrder(order: order)
     }
 }
 
 extension OrderPresenter : InteractorToPresenterOrderProtocol {
-    
+    func closeOrder() {
+        self.view?.closeView()
+    }
 }

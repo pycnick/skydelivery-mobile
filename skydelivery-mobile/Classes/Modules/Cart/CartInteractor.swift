@@ -21,16 +21,16 @@ extension CartInteractor: PresenterToInteractorCartProtocol {
         
         for x in dict {
             self.api.GetProduct(prodID: Int(x.key)!) { (product) in
-                var rest = (CartProductData(product: product!, image: UIImage(), count: x.value))
+                var prod = (CartProductData(product: product!, image: UIImage(), count: x.value))
                 
                 self.api.GetImage(url: product!.Image!) { (image) in
                     if image != nil {
-                        rest.image = image!
+                        prod.image = image!
                     } else {
                         print("error image nil")
                     }
                     
-                    data.append(rest)
+                    data.append(prod)
                     
                     self.presenter?.UpdateCartProducts(data: data)
                 }

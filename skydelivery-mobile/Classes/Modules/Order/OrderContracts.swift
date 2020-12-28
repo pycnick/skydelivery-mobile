@@ -8,7 +8,8 @@
 import UIKit
 
 protocol PresenterToViewOrderProtocol: class {
-
+    func makeAlert(text: String)
+    func closeView()
 }
 
 protocol ViewToPresenterOrderProtocol: class {
@@ -16,17 +17,19 @@ protocol ViewToPresenterOrderProtocol: class {
     var interactor: PresenterToInteractorOrderProtocol? { get set }
     var router: PresenterToRouterOrderProtocol? { get set }
     
-    func viewDidLoad()
+    func checkoutOrder(order: OrderRequest)
 }
 
 protocol PresenterToInteractorOrderProtocol: class {
     var presenter: InteractorToPresenterOrderProtocol? { get set }
+    
+    func checkoutOrder(order: OrderRequest)
 }
 
 protocol InteractorToPresenterOrderProtocol: class {
-    
+    func closeOrder()
 }
 
 protocol PresenterToRouterOrderProtocol: class {
-    static func createView() -> UIViewController
+    static func createView(FullPrice: Int) -> UIViewController
 }
