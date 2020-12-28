@@ -6,13 +6,15 @@
 //
 
 struct GetRestaurantsRequest {
-    init(page: Int, count: Int) {
+    init(page: Int, count: Int, tag: Int) {
         Page = page
         Count = count
+        Tag = tag
     }
     
     var Page: Int
     var Count: Int
+    var Tag: Int
 }
 
 struct GetProductsRequest {
