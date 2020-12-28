@@ -26,6 +26,19 @@ class ProductCell: UICollectionViewCell {
             title.text = data.name
             price.text = "200" + " ₽"
             
+            if data.countAdded > 0 {
+                count.text = String(data.countAdded)
+                setupOrderedProduct()
+                
+                return
+            }
+            
+            contentView.addSubview(submit)
+            submit.translatesAutoresizingMaskIntoConstraints = false
+            submit.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 15).isActive = true
+            submit.bottomAnchor.constraint(equalTo: submit.topAnchor, constant: 50).isActive = true
+            submit.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: -60).isActive = true
+            submit.rightAnchor.constraint(equalTo: submit.leftAnchor, constant: 50).isActive = true
         }
     }
     
@@ -114,22 +127,6 @@ class ProductCell: UICollectionViewCell {
         title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         price.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 10).isActive = true
         price.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
-        
-        if let count = data?.countAdded {
-            if count > 0 {
-                setupOrderedProduct()
-                
-                return
-            }
-        }
-        
-        contentView.addSubview(submit)
-        submit.translatesAutoresizingMaskIntoConstraints = false
-        submit.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 15).isActive = true
-        submit.bottomAnchor.constraint(equalTo: submit.topAnchor, constant: 50).isActive = true
-        submit.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: -60).isActive = true
-        submit.rightAnchor.constraint(equalTo: submit.leftAnchor, constant: 50).isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

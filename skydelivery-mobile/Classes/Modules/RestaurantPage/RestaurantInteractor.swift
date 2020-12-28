@@ -17,10 +17,16 @@ extension RestaurantsInteractor: PresenterToInteractorRestaurantProtocol {
     func LoadProducts(req: GetProductsRequest) {
         var newData = [ProductData]()
         api.GetRestaurantProducts(req: req) { (products) in
+            let orderedMap = self.storage.getOrder()
+            
             if let list = products?.List {
                 for product in list {
-//                    let orderedCount
-                    var data = ProductData(restid: req.ID, name: product.Name!, id: product.ID!, countAdded: 0, backgroundImage: UIImage())
+                    var orderedCount = 0
+                    if let count = orderedMap[String(product.ID!)] {
+                        orderedCount = count
+                    }
+                    
+                    var data = ProductData(restid: req.ID, name: product.Name!, id: product.ID!, countAdded: orderedCount, backgroundImage: UIImage())
                     
                     self.api.GetImage(url: product.Image!) { (image) in
                         if image != nil {
