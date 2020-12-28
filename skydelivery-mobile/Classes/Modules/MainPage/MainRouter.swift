@@ -16,7 +16,7 @@ class MainRouter: PresenterToRouterMainProtocol {
         print("QuotesRouter creates the Quotes module.")
         let viewController = MainViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
-        
+        navigationController.navigationBar.prefersLargeTitles = true
         let presenter = MainPresenter()
         
         viewController.presenter = presenter
