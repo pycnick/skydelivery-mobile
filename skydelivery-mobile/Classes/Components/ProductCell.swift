@@ -12,6 +12,7 @@ struct ProductData {
     var name: String
     var id: Int
     var countAdded: Int
+    var price: Float
     var backgroundImage: UIImage
 }
 
@@ -24,7 +25,7 @@ class ProductCell: UICollectionViewCell {
             guard let data = data else { return }
             bg.image = data.backgroundImage
             title.text = data.name
-            price.text = "200" + " ₽"
+            price.text = String(data.price) + " ₽"
             
             if data.countAdded > 0 {
                 count.text = String(data.countAdded)
