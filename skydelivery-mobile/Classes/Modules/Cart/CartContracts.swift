@@ -17,12 +17,16 @@ protocol ViewToPresenterCartProtocol: class {
     var router: PresenterToRouterCartProtocol? { get set }
     
     func viewDidLoad()
+    func AddCartProduct(ID: Int) -> Int
+    func RemoveCartProduct(ID: Int) -> Int
 }
 
 protocol PresenterToInteractorCartProtocol: class {
     var presenter: InteractorToPresenterCartProtocol? { get set }
     
     func LoadCartProducts()
+    func AddCartProduct(ID: Int) -> Int
+    func RemoveCartProduct(ID: Int) -> Int
 }
 
 protocol InteractorToPresenterCartProtocol: class {
@@ -31,4 +35,9 @@ protocol InteractorToPresenterCartProtocol: class {
 
 protocol PresenterToRouterCartProtocol: class {
     static func createView() -> UIViewController
+}
+
+protocol CartCellDelegate: class {
+    func addOne(cell: UICollectionViewCell)
+    func removeOne(cell: UICollectionViewCell)
 }

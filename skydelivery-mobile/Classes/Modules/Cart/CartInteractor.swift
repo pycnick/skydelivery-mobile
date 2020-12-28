@@ -40,11 +40,15 @@ extension CartInteractor: PresenterToInteractorCartProtocol {
         
     }
     
-    func AddCartProduct(ID: Int) {
+    func AddCartProduct(ID: Int) -> Int {
+        let count = storage.addExistProduct(productID: String(ID))
         
+        return count
     }
     
-    func RemoveCartProduct(ID: Int) {
-        
+    func RemoveCartProduct(ID: Int) -> Int {
+        let count = storage.getProductCount(productID: String(ID))
+                
+        return storage.deleteProduct(productID: String(ID))
     }
 }

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		20805EF9659855B852314465 /* Pods_skydelivery_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B4DB3A027871A33DC86EB1 /* Pods_skydelivery_mobile.framework */; };
+		438C7B0E259A66CD005BF93B /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C7B0D259A66CD005BF93B /* OrderViewController.swift */; };
+		438C7B13259A66F0005BF93B /* OrderContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C7B12259A66F0005BF93B /* OrderContracts.swift */; };
+		438C7B18259A6726005BF93B /* OrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C7B17259A6726005BF93B /* OrderPresenter.swift */; };
+		438C7B1D259A6740005BF93B /* OrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C7B1C259A6740005BF93B /* OrderInteractor.swift */; };
+		438C7B22259A674C005BF93B /* OrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C7B21259A674C005BF93B /* OrderRouter.swift */; };
 		43A967202598EECB00B0D5C1 /* CartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A9671F2598EECB00B0D5C1 /* CartRouter.swift */; };
 		43A967252598EF3D00B0D5C1 /* CartContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A967242598EF3D00B0D5C1 /* CartContracts.swift */; };
 		43A9672A2598EFA600B0D5C1 /* CartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A967292598EFA600B0D5C1 /* CartPresenter.swift */; };
@@ -102,6 +107,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		438C7B0D259A66CD005BF93B /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		438C7B12259A66F0005BF93B /* OrderContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderContracts.swift; sourceTree = "<group>"; };
+		438C7B17259A6726005BF93B /* OrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPresenter.swift; sourceTree = "<group>"; };
+		438C7B1C259A6740005BF93B /* OrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInteractor.swift; sourceTree = "<group>"; };
+		438C7B21259A674C005BF93B /* OrderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRouter.swift; sourceTree = "<group>"; };
 		43A9671F2598EECB00B0D5C1 /* CartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRouter.swift; sourceTree = "<group>"; };
 		43A967242598EF3D00B0D5C1 /* CartContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartContracts.swift; sourceTree = "<group>"; };
 		43A967292598EFA600B0D5C1 /* CartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPresenter.swift; sourceTree = "<group>"; };
@@ -220,6 +230,18 @@
 				9192BD839C5B8E7A14492596 /* Pods-skydelivery-mobile.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		438C7B0C259A66A4005BF93B /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				438C7B0D259A66CD005BF93B /* OrderViewController.swift */,
+				438C7B12259A66F0005BF93B /* OrderContracts.swift */,
+				438C7B17259A6726005BF93B /* OrderPresenter.swift */,
+				438C7B1C259A6740005BF93B /* OrderInteractor.swift */,
+				438C7B21259A674C005BF93B /* OrderRouter.swift */,
+			);
+			path = Order;
 			sourceTree = "<group>";
 		};
 		68DAA3942460E173F97FF2A5 /* Frameworks */ = {
@@ -392,6 +414,7 @@
 		84D6E3CC25682AFC0007A6F0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				438C7B0C259A66A4005BF93B /* Order */,
 				8402881E2598D49E0039605F /* History */,
 				DAF4A02525967F8400F9C93B /* Signup */,
 				DAF4A01F25965B9100F9C93B /* Login */,
@@ -684,6 +707,7 @@
 				DA34A64B256AA762006F49D0 /* ProfileInteractor.swift in Sources */,
 				84D6E3E525682B670007A6F0 /* MainViewController.swift in Sources */,
 				8402884C2598D8FE0039605F /* OrdersCarousel.swift in Sources */,
+				438C7B13259A66F0005BF93B /* OrderContracts.swift in Sources */,
 				849B501E2597DE8A00933E0E /* RestaurantRouter.swift in Sources */,
 				842F61722594DAC700C796D9 /* signUp.swift in Sources */,
 				849B500B2597ADB100933E0E /* SignUpContracts.swift in Sources */,
@@ -703,6 +727,7 @@
 				43A967252598EF3D00B0D5C1 /* CartContracts.swift in Sources */,
 				DA34A646256AA74D006F49D0 /* ProfileViewController.swift in Sources */,
 				84D6E39A25682A810007A6F0 /* ViewController.swift in Sources */,
+				438C7B22259A674C005BF93B /* OrderRouter.swift in Sources */,
 				DA34A67C256ACEAC006F49D0 /* CategoryCell.swift in Sources */,
 				DAF4A0512597F79200F9C93B /* LoginInteractor.swift in Sources */,
 				840288472598D6820039605F /* Orders.swift in Sources */,
@@ -725,6 +750,7 @@
 				849B50232597DE9400933E0E /* RestaurantPresenter.swift in Sources */,
 				849B50282597DEA700933E0E /* RestaurantContracts.swift in Sources */,
 				84D6E416256A7E860007A6F0 /* TagCarousel.swift in Sources */,
+				438C7B18259A6726005BF93B /* OrderPresenter.swift in Sources */,
 				8420C352258BE3D900B55FE4 /* ApiService.swift in Sources */,
 				849B50012597AD9000933E0E /* SignUpInteractor.swift in Sources */,
 				43A9672A2598EFA600B0D5C1 /* CartPresenter.swift in Sources */,
@@ -745,7 +771,9 @@
 				84CF8422256BFA49002679C7 /* CartCell.swift in Sources */,
 				84CF8433256BFA69002679C7 /* CartCollection.swift in Sources */,
 				DAF4A0422597F75400F9C93B /* LoginRouter.swift in Sources */,
+				438C7B1D259A6740005BF93B /* OrderInteractor.swift in Sources */,
 				842F61832595C68A00C796D9 /* Product.swift in Sources */,
+				438C7B0E259A66CD005BF93B /* OrderViewController.swift in Sources */,
 				DAF4A0472597F76F00F9C93B /* LoginPresenter.swift in Sources */,
 				8402882D2598D4C20039605F /* HistoryInteractor.swift in Sources */,
 			);
