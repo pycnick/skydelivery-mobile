@@ -18,7 +18,8 @@ class RestaurantsViewController: UIViewController {
         }
         
         if let id = self.restaurant?.ID {
-            if id != localStorage.getRestaurantID() {
+            var storageID = localStorage.getRestaurantID()
+            if id != storageID {
                 if !self.localStorage.isEmptyCart() {
                     self.present(alert, animated: true)
                 }

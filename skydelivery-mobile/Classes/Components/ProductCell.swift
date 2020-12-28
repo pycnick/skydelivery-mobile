@@ -64,6 +64,7 @@ class ProductCell: UICollectionViewCell {
         
         if let product = self.data {
             localStorage.addProduct(productID: String(product.id))
+            localStorage.setRestaurantID(RestID: product.restid)
         }
         
         if let count = self.data?.countAdded {
@@ -80,6 +81,7 @@ class ProductCell: UICollectionViewCell {
         
         if let product = self.data {
             localStorage.addProduct(productID: String(product.id))
+            localStorage.setRestaurantID(RestID: product.restid)
         }
         
         setupOrderedProduct()
