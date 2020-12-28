@@ -31,11 +31,7 @@ class RestaurantsCarousel: UICollectionView {
     }
     
     var data = [
-        RestaurantData(name: "Макдоналдс", id: 0, backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
-        RestaurantData(name: "Пиццерия", id: 0, backgroundImage: #imageLiteral(resourceName: "b_img5de908746e39d3.43406923")),
-        RestaurantData(name: "Бургерная", id: 0, backgroundImage: #imageLiteral(resourceName: "270718")),
-        RestaurantData(name: "Салатная", id: 0, backgroundImage: #imageLiteral(resourceName: "food")),
-        RestaurantData(name: "Сковородочная", id: 0, backgroundImage: #imageLiteral(resourceName: "obedy-v-ofis-vkusnaya-i-polnocennaya-eda-vo-vremya-obedennogo-pereryva"))
+        RestaurantData(name: "Макдоналдс", id: 0, description: "", rating: 5.0, backgroundImage: #imageLiteral(resourceName: "HE5JX8qMsJJvvZArdrzZXN")),
     ]
     
     func SetData(data: [RestaurantData]) {
@@ -50,7 +46,7 @@ class RestaurantsCarousel: UICollectionView {
 
 extension RestaurantsCarousel: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 300, height: 200)
+        return CGSize(width: 250, height: 200)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count

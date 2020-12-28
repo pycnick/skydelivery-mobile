@@ -18,13 +18,16 @@ class HistoryViewController: UIViewController {
     var presenter: ViewToPresenterHistoryProtocol?
     
     var orders = HistorysCarousel()
+    
+    lazy var name = Title(text: "История 🛵", font: UIFont(name: "Arial", size: 20)!)
 }
 
 extension HistoryViewController {
     func setupUI() {
         overrideUserInterfaceStyle = .light
-        
+        self.view.addSubview(name)
         self.view.addSubview(orders)
+        name.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         orders.backgroundColor = .white
         orders.translatesAutoresizingMaskIntoConstraints = false
         orders.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true

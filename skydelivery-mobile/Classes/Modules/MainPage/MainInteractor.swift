@@ -18,7 +18,8 @@ class MainInteractor: PresenterToInteractorMainProtocol {
         self.api.GetRestaurants(req: GetRestaurantsRequest(page: 1, count: 2, tag: 0)) { (restaurants) in
             if let list = restaurants?.List! {
                 for restaurant in list {
-                    var data = RestaurantData(name: restaurant.Name!, id: restaurant.ID!, backgroundImage: UIImage())
+                    var data = RestaurantData(name: restaurant.Name!, id: restaurant.ID!,
+                                              description: restaurant.Description!, rating: restaurant.Rating!, backgroundImage: UIImage())
                     
                     self.api.GetImage(url: restaurant.Image!) { (image) in
                         if image != nil {
@@ -41,7 +42,7 @@ class MainInteractor: PresenterToInteractorMainProtocol {
         self.api.GetRecommendations(count: 2) { (restaurants) in
             if let list = restaurants?.List! {
                 for restaurant in list {
-                    var data = RestaurantData(name: restaurant.Name!, id: restaurant.ID!, backgroundImage: UIImage())
+                    var data = RestaurantData(name: restaurant.Name!, id: restaurant.ID!, description: restaurant.Description!, rating: restaurant.Rating!, backgroundImage: UIImage())
                     
                     self.api.GetImage(url: restaurant.Image!) { (image) in
                         if image != nil {

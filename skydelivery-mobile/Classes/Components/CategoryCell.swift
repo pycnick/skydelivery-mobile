@@ -20,7 +20,7 @@ class CategoryCell: UICollectionViewCell {
             guard let data = data else { return }
             bg.image = data.backgroundImage
             title.text = data.title
-            info.text = data.info
+            info.text = "data.info"
             
         }
     }

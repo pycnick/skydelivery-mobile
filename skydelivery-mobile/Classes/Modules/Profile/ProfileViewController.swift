@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
     
     var presenter: ViewToPresenterProfileProtocol?
     
-    lazy var profileTitle = Title(text: "Профиль", font: UIFont(name: "Arial", size: 40)!)
+    lazy var profileTitle = Title(text: "Профиль 🐻‍❄️", font: UIFont(name: "Arial", size: 40)!)
     lazy var nameTitle = Title(text: "Имя", font: UIFont(name: "Arial", size: 20)!)
     lazy var surnameTitle = Title(text: "Фамилия", font: UIFont(name: "Arial", size: 20)!)
     lazy var emailTitle = Title(text: "Электронная почта", font: UIFont(name: "Arial", size:20)!)
@@ -116,10 +116,11 @@ extension ProfileViewController {
         phoneInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         phoneInput.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         
+        
         self.view.addSubview(submitButton)
         submitButton.translatesAutoresizingMaskIntoConstraints = false
-        submitButton.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -90).isActive = true
-        submitButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -40).isActive = true
+        submitButton.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -140).isActive = true
+        submitButton.bottomAnchor.constraint(equalTo: self.submitButton.topAnchor, constant: 40).isActive = true
         submitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         submitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         
@@ -127,8 +128,8 @@ extension ProfileViewController {
         
         self.view.addSubview(ordersButton)
         ordersButton.translatesAutoresizingMaskIntoConstraints = false
-        ordersButton.topAnchor.constraint(equalTo: submitButton.topAnchor, constant: -80).isActive = true
-        ordersButton.bottomAnchor.constraint(equalTo: submitButton.topAnchor, constant: -40).isActive = true
+        ordersButton.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 20).isActive = true
+        ordersButton.bottomAnchor.constraint(equalTo: ordersButton.topAnchor, constant: 40).isActive = true
         ordersButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         ordersButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         

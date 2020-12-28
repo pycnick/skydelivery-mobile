@@ -71,29 +71,29 @@ extension MainViewController {
         self.view.addSubview(restaurantsLabel)
         restaurantsLabel.translatesAutoresizingMaskIntoConstraints = false
         restaurantsLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
-        restaurantsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+        restaurantsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         restaurantsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
 
         self.view.addSubview(restaurantsCarousel)
         restaurantsCarousel.backgroundColor = .white
         restaurantsCarousel.translatesAutoresizingMaskIntoConstraints = false
         restaurantsCarousel.topAnchor.constraint(equalTo: restaurantsLabel.bottomAnchor, constant: 20).isActive = true
-        restaurantsCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
-        restaurantsCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
+        restaurantsCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        restaurantsCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         restaurantsCarousel.heightAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
         
         self.view.addSubview(categoryLabel)
         categoryLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryLabel.topAnchor.constraint(equalTo: restaurantsCarousel.bottomAnchor, constant: 40).isActive = true
-        categoryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+        categoryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         categoryLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         
         self.view.addSubview(categoryCarousel)
         categoryCarousel.backgroundColor = .white
         categoryCarousel.translatesAutoresizingMaskIntoConstraints = false
         categoryCarousel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 20).isActive = true
-        categoryCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true
-        categoryCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true
+        categoryCarousel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        categoryCarousel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         categoryCarousel.heightAnchor.constraint(equalToConstant: view.frame.width/8).isActive = true
         
 //        self.apiManager.LogIn(req: LogInRequest(username: "79150421496", password: "password")) { (data) in
@@ -123,15 +123,15 @@ extension MainViewController {
             self.view.addSubview(self.recommendationsLabel)
             self.recommendationsLabel.translatesAutoresizingMaskIntoConstraints = false
             self.recommendationsLabel.topAnchor.constraint(equalTo: self.categoryCarousel.bottomAnchor, constant: 40).isActive = true
-            self.recommendationsLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30).isActive = true
+            self.recommendationsLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
             self.recommendationsLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30).isActive = true
 
             self.view.addSubview(self.recomendationsCarousel)
             self.recomendationsCarousel.backgroundColor = .white
             self.recomendationsCarousel.translatesAutoresizingMaskIntoConstraints = false
             self.recomendationsCarousel.topAnchor.constraint(equalTo: self.recommendationsLabel.bottomAnchor, constant: 20).isActive = true
-            self.recomendationsCarousel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 5).isActive = true
-            self.recomendationsCarousel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -5).isActive = true
+            self.recomendationsCarousel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+            self.recomendationsCarousel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
             self.recomendationsCarousel.heightAnchor.constraint(equalToConstant: self.view.frame.width/2).isActive = true
         }
     }
