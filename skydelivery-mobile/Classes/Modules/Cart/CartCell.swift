@@ -9,6 +9,7 @@ import UIKit
 
 struct CartProductData {
     var product: Product
+    var image: UIImage
     var count: Int
 }
 
@@ -16,7 +17,7 @@ class CartCell: UICollectionViewCell {
     var data: CartProductData? {
         didSet {
             guard let data = data else { return }
-            bg.image = #imageLiteral(resourceName: "mcdonalds-Celebrations-McFlurry")
+            bg.image = data.image
             title.text = data.product.Name
             price.text = "\(Int(data.product.Price!) * data.count) ₽"
             count.text = "\(data.count)"

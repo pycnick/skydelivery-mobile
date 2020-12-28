@@ -62,7 +62,6 @@ class OrderStorage {
             dict[productID]! -= 1
             if dict[productID]! <= 0 {
                 dict.removeValue(forKey: productID)
-                return 0
             }
             
             storage.setValue(dict, forKey: storageName)
