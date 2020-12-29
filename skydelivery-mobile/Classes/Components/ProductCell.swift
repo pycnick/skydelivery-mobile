@@ -156,12 +156,12 @@ extension ProductCell {
         count.translatesAutoresizingMaskIntoConstraints = false
 //        count.leftAnchor.constraint(equalTo: rmv.rightAnchor, constant: 20).isActive = true
 //        count.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 20).isActive = true
-        count.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: -60).isActive = true
+        count.leftAnchor.constraint(equalTo: rmv.rightAnchor, constant: 5).isActive = true
 //        rmv.rightAnchor.constraint(equalTo: rmv.leftAnchor, constant: 30).isActive = true
         count.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 45).isActive = true
 //        count.bottomAnchor.constraint(equalTo: rmv.topAnchor, constant: 30).isActive = true
         
-        count.font = UIFont(name: "Arial", size: 20)
+        count.font = UIFont.systemFont(ofSize: 20, weight: .light)
         
         if let countProducts = data?.countAdded {
             self.count.text = String(countProducts)
@@ -175,7 +175,7 @@ extension ProductCell {
 //        add.leftAnchor.constraint(equalTo: count.rightAnchor, constant: 20).isActive = true
 //        add.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 15).isActive = true
         
-        add.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: -40).isActive = true
+        add.leftAnchor.constraint(equalTo: count.rightAnchor, constant: 5).isActive = true
         add.rightAnchor.constraint(equalTo: add.leftAnchor, constant: 30).isActive = true
         add.topAnchor.constraint(equalTo: bg.bottomAnchor, constant: 40).isActive = true
         add.bottomAnchor.constraint(equalTo: add.topAnchor, constant: 30).isActive = true

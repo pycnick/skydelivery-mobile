@@ -45,19 +45,21 @@ class CartCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .white
+        contentView.layer.cornerRadius = 14
+        contentView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+
         
         contentView.addSubview(bg)
-        bg.leftAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leftAnchor, constant: 10).isActive = true
+        bg.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15).isActive = true
         bg.heightAnchor.constraint(equalToConstant: 80).isActive = true
         bg.widthAnchor.constraint(equalToConstant: 120).isActive = true
         bg.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         
         contentView.addSubview(price)
         price.translatesAutoresizingMaskIntoConstraints = false
-        price.rightAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor, constant: -10).isActive = true
+        price.rightAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor, constant: -30).isActive = true
         price.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 25).isActive = true
-        price.font = UIFont(name: "Arial", size: 20)
+        price.font = UIFont.systemFont(ofSize: 20, weight: .light)
         price.textColor = .gray
         
         contentView.addSubview(title)
@@ -65,30 +67,34 @@ class CartCell: UICollectionViewCell {
         title.leftAnchor.constraint(equalTo: bg.safeAreaLayoutGuide.rightAnchor, constant: 20).isActive = true
         title.rightAnchor.constraint(equalTo: price.safeAreaLayoutGuide.leftAnchor, constant: -20).isActive = true
         title.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 25).isActive = true
-        title.font = UIFont(name: "Arial", size: 20)
+        title.font = UIFont.systemFont(ofSize: 20, weight: .light)
         title.numberOfLines = 2
         
         contentView.addSubview(rmv)
         rmv.setTitle("-", for: .normal)
-        rmv.backgroundColor = .blue
+        rmv.backgroundColor = .systemBlue
         rmv.layer.cornerRadius = 8
         rmv.translatesAutoresizingMaskIntoConstraints = false
         rmv.leftAnchor.constraint(equalTo: bg.safeAreaLayoutGuide.rightAnchor, constant: 20).isActive = true
         rmv.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        rmv.rightAnchor.constraint(equalTo: rmv.leftAnchor, constant: 30).isActive = true
+        rmv.topAnchor.constraint(equalTo: rmv.bottomAnchor, constant: -30).isActive = true
         rmv.addTarget(self, action: #selector(removeOne), for: .touchUpInside)
         
         contentView.addSubview(count)
         count.translatesAutoresizingMaskIntoConstraints = false
-        count.leftAnchor.constraint(equalTo: rmv.safeAreaLayoutGuide.rightAnchor, constant: 20).isActive = true
-        count.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-        count.font = UIFont(name: "Arial", size: 20)
+        count.leftAnchor.constraint(equalTo: rmv.safeAreaLayoutGuide.rightAnchor, constant: 10).isActive = true
+        count.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -23).isActive = true
+        count.font = UIFont.systemFont(ofSize: 20, weight: .light)
         
         contentView.addSubview(add)
         add.setTitle("+", for: .normal)
-        add.backgroundColor = .blue
+        add.backgroundColor = .systemBlue
         add.layer.cornerRadius = 8
         add.translatesAutoresizingMaskIntoConstraints = false
-        add.leftAnchor.constraint(equalTo: count.safeAreaLayoutGuide.rightAnchor, constant: 20).isActive = true
+        add.leftAnchor.constraint(equalTo: count.safeAreaLayoutGuide.rightAnchor, constant: 10).isActive = true
+        add.rightAnchor.constraint(equalTo: add.leftAnchor, constant: 30).isActive = true
+        add.topAnchor.constraint(equalTo: add.bottomAnchor, constant: -30).isActive = true
         add.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         add.addTarget(self, action: #selector(addOne), for: .touchUpInside)
     }

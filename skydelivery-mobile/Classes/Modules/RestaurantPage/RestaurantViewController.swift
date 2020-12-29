@@ -30,7 +30,7 @@ class RestaurantsViewController: UIViewController {
     init(restaurant: Restaurant) {
         super.init(nibName: nil, bundle: nil)
         self.restaurant = restaurant
-        self.restaurantsLabel = Title(text: restaurant.Name!, font: UIFont.systemFont(ofSize: 30, weight: .light))
+        self.restaurantsLabel = Title(text: restaurant.Name!, font: UIFont.systemFont(ofSize: 40, weight: .light))
     }
     
     required init?(coder: NSCoder) {
@@ -61,7 +61,7 @@ extension RestaurantsViewController {
         view.backgroundColor = .white
         self.view.addSubview(restaurantsLabel!)
         restaurantsLabel!.translatesAutoresizingMaskIntoConstraints = false
-        restaurantsLabel!.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        restaurantsLabel!.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
         restaurantsLabel!.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         restaurantsLabel!.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         
