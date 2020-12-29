@@ -15,6 +15,8 @@ class ApiManager {
     let imageHost: String
     var token: String?
     
+    var storage = OrderStorage.shared
+    
     static var shared: ApiManager = {
         let instance = ApiManager()
         return instance
@@ -54,7 +56,9 @@ class ApiManager {
                                  encoding: JSONEncoding.default)
             .responseObject { (response: DataResponse<Error>) in
                 if let headers = response.response?.allHeaderFields as? [String: String] {
-                    self.token = headers["X-Csrf-Token"]
+                    if let token = headers["X-Csrf-Token"] {
+                        self.storage.setCsrfToken(Csrf: token)
+                    }
                 }
                 completition(response.value)
             }
@@ -73,7 +77,9 @@ class ApiManager {
                 let value = response.value
                 if let headers = response.response?.allHeaderFields as? [String: String] {
                     print(headers)
-                    self.token = headers["X-Csrf-Token"]
+                    if let token = headers["X-Csrf-Token"] {
+                        self.storage.setCsrfToken(Csrf: token)
+                    }
                 }
                 completion(value)
             }
@@ -84,11 +90,10 @@ class ApiManager {
                       "lastName": req.LastName,
                       "email": req.Email]
         
-        print("TOKEN")
-        print(self.token)
+        let token = storage.getCsrfToken()
         
         let headers: HTTPHeaders = [
-            "X-csrf-Token": self.token ?? "",
+            "X-csrf-Token": token ?? "",
             "Content-Type": "application/json"
             ]
         
