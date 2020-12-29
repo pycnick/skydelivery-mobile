@@ -19,7 +19,7 @@ class HistoryViewController: UIViewController {
     
     var orders = HistorysCarousel()
     
-    lazy var name = Title(text: "История 🛵", font: UIFont.systemFont(ofSize: 30, weight: .light))
+    lazy var name = Title(text: "Мои заказы 🛵", font: UIFont.systemFont(ofSize: 40, weight: .light))
 }
 
 extension HistoryViewController {
@@ -29,7 +29,7 @@ extension HistoryViewController {
         self.view.addSubview(name)
         self.view.addSubview(orders)
         
-        name.topAnchor.constraint(equalTo: view.topAnchor, constant: 120).isActive = true
+        name.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
         name.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
         
         orders.backgroundColor = .white
