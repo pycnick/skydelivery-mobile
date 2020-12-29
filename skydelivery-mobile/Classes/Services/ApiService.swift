@@ -214,14 +214,16 @@ class ApiManager {
                       "products": products,
                       "price": order.Price] as [String : Any]
         
+        let token = storage.getCsrfToken()
         
         let headers: HTTPHeaders = [
-            "X-csrf-Token": self.token ?? "",
+            "X-csrf-Token": token ?? "",
             "Content-Type": "application/json"
             ]
         
         Alamofire
             .request(self.host + "/orders",
+                     
                                 method: .post,
                                 parameters: params,
                                  encoding: JSONEncoding.default,
